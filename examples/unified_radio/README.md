@@ -47,8 +47,9 @@ examples/unified_radio/
 | Target | Transports | Size (Flash) | Size (RAM) |
 |--------|-----------|-------------|-----------|
 | `LilyGo_TDeck_unified` | BLE + WiFi + USB | 24.7% (1.62 MB) | 58.9% (193 KB) |
-| `LilyGo_TDeck_unified_ble_usb` | BLE + USB | — | — |
-| `LilyGo_TDeck_unified_usb` | USB only | — | — |
+| `LilyGo_TDeck_unified_ble_usb` | BLE + USB | 18.8% (1.23 MB) | 52.4% (172 KB) |
+| `LilyGo_TDeck_unified_usb` | USB only | 9.6% (630 KB) | 44.4% (146 KB) |
+| `LilyGo_TDeck_unified_8mb` | BLE + WiFi + USB | 52.5% (1.58 MB) | 58.9% (193 KB) |
 
 ## Building & Flashing
 
@@ -68,6 +69,9 @@ pio run -e LilyGo_TDeck_unified_ble_usb
 
 # Build with USB only
 pio run -e LilyGo_TDeck_unified_usb
+
+# Build for 8MB flash T-Deck (no PSRAM)
+pio run -e LilyGo_TDeck_unified_8mb
 ```
 
 ### Flash
@@ -165,7 +169,8 @@ The following occurs during a transport switch:
 | **Single-client WiFi** | WiFi transport accepts one TCP client at a time | Inherited from MeshCore's SerialWifiInterface |
 | **nRF52 WiFi not supported** | No WiFi BSP library for nRF52 in this project | Use USB or BLE on nRF52 boards |
 | **Simultaneous transports** | Only one transport active at a time | By design — prevents routing conflicts |
-| **Persistence requires filesystem** | Boards without SPIFFS/LittleFS/InternalFS cannot save transport mode | Default transport (USB) is used |
+|| **Persistence requires filesystem** | Boards without SPIFFS/LittleFS/InternalFS cannot save transport mode | Default transport (USB) is used |
+|| **ESP32-S3 no-PSRAM crash** | Pre-compiled ESP32-S3 SDK's `esp_spiram_init()` aborts fatally on boards without PSRAM | Use `LilyGo_TDeck_unified_8mb` target with `psram_stub.c` override; see build notes |
 
 ## Unsupported Boards / Transports
 
@@ -192,12 +197,14 @@ All files under `examples/unified_radio/` are new and do not exist in the upstre
 | `examples/unified_radio/main.cpp` | Unified firmware entry point | Based on `examples/companion_radio/main.cpp` |
 | `examples/unified_radio/ui-new/UITask.h` | UI with transport page | Based on `examples/companion_radio/ui-new/UITask.h` |
 | `examples/unified_radio/ui-new/UITask.cpp` | UI with transport page | Based on `examples/companion_radio/ui-new/UITask.cpp` |
+| `examples/unified_radio/psram_stub.c` | Stub to override fatal PSRAM init on no-PSRAM boards | None (new) |
+| `variants/lilygo_tdeck/partitions_8mb.csv` | 8MB flash partition table | None (new) |
 
 ### Modified Upstream Files
 
 | File | Change | Why |
 |------|--------|-----|
-| `variants/lilygo_tdeck/platformio.ini` | Added `[LilyGo_TDeck_unified_base]` and 3 `[env:LilyGo_TDeck_unified_*]` targets | Build configuration for unified firmware |
+| `variants/lilygo_tdeck/platformio.ini` | Added `[LilyGo_TDeck_unified_base]`, `[LilyGo_TDeck_unified_8mb_base]`, and 4 `[env:LilyGo_TDeck_unified_*]` targets; 8MB variant uses `board=esp32-s3-devkitc-1` for no-PSRAM support; adds `-Wl,--allow-multiple-definition` for PSRAM stub | Build configuration for unified firmware + 8MB flash variant |
 
 **No core MeshCore source files were modified.** The unified firmware uses only:
 - Public base classes (`BaseSerialInterface`, `UIScreen`, `AbstractUITask`)

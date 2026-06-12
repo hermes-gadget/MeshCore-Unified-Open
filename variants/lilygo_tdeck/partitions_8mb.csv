@@ -1,0 +1,8 @@
+# ESP32-S3 8MB Flash Partition Table
+# OTA with 2 app slots (~3MB each) + SPIFFS (~1.5MB) + NVS + OTA data + coredump
+nvs,      data, nvs,     0x9000,  0x5000,
+otadata,  data, ota,     0xe000,  0x2000,
+coredump, data, coredump,0x10000, 0x10000,
+app0,     app,  ota_0,   0x20000, 0x2F0000,
+app1,     app,  ota_1,   0x310000,0x2F0000,
+spiffs,   data, spiffs,  0x600000,0x200000,

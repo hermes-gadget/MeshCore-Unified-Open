@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <Mesh.h>
-#include "MyMesh.h"
+#include "../companion_radio/MyMesh.h"
+#include "UnifiedFirmwareConfig.h"
 #include "UnifiedTransportConfig.h"
 #include "UnifiedTransportManager.h"
 
@@ -38,7 +39,7 @@ ArduinoSerialInterface usb_serial_interface;
 #endif
 
 // BLE — if board supports it
-#if UNIFIED_TRANSPORT_BLE == 1 && defined(BLE_PIN_CODE)
+#if UNIFIED_TRANSPORT_BLE == 1
   #if defined(ESP32)
     #include <helpers/esp32/SerialBLEInterface.h>
   #elif defined(NRF52_PLATFORM)
@@ -47,8 +48,8 @@ ArduinoSerialInterface usb_serial_interface;
   SerialBLEInterface ble_serial_interface;
 #endif
 
-// WiFi — if board supports it AND credentials are configured
-#if UNIFIED_TRANSPORT_WIFI == 1 && defined(WIFI_SSID) && defined(WIFI_PWD)
+// WiFi — station mode with configured credentials, otherwise access-point mode
+#if UNIFIED_TRANSPORT_WIFI == 1 && defined(ESP32)
   #include <helpers/esp32/SerialWifiInterface.h>
   SerialWifiInterface wifi_serial_interface;
 #endif
@@ -73,17 +74,6 @@ MyMesh the_mesh(radio_driver, fast_rng, rtc_clock, tables, store
       , &ui_task
    #endif
 );
-
-// ---------- Helpers ----------
-
-static uint32_t _atoi(const char* sp) {
-  uint32_t n = 0;
-  while (*sp && *sp >= '0' && *sp <= '9') {
-    n *= 10;
-    n += (*sp++ - '0');
-  }
-  return n;
-}
 
 void halt() { while (1) ; }
 
@@ -131,7 +121,7 @@ static bool transportLoadCallback(uint8_t* value) {
 
 // ---------- WiFi Reconnect ----------
 
-#if defined(ESP32) && defined(WIFI_SSID) && UNIFIED_TRANSPORT_WIFI == 1
+#if defined(ESP32) && UNIFIED_TRANSPORT_WIFI == 1
   bool wifi_needs_reconnect = false;
   unsigned long last_wifi_reconnect_attempt = 0;
 #endif
@@ -141,12 +131,16 @@ static bool transportLoadCallback(uint8_t* value) {
 void setup() {
   Serial.begin(115200);
 
+  // Headless boards pass this through the same initialization path.
+  bool display_ready = false;
+
   board.begin();
 
 #ifdef DISPLAY_CLASS
   DisplayDriver* disp = NULL;
   if (display.begin()) {
     disp = &display;
+    display_ready = true;
     disp->startFrame();
   #ifdef ST7789
     disp->setTextSize(2);
@@ -174,17 +168,17 @@ void setup() {
   #endif
   #endif
   store.begin();
-  the_mesh.begin(disp != NULL);
+  the_mesh.begin(display_ready);
 
 #elif defined(RP2040_PLATFORM)
   LittleFS.begin();
   store.begin();
-  the_mesh.begin(disp != NULL);
+  the_mesh.begin(display_ready);
 
 #elif defined(ESP32)
   SPIFFS.begin(true);
   store.begin();
-  the_mesh.begin(disp != NULL);
+  the_mesh.begin(display_ready);
 #endif
 
   // ---------- Register all available transports ----------
@@ -200,13 +194,13 @@ void setup() {
   transport_manager.addTransport(TRANSPORT_USB, &usb_serial_interface);
 
   // BLE transport — if hardware supports
-  #if UNIFIED_TRANSPORT_BLE == 1 && defined(BLE_PIN_CODE)
+  #if UNIFIED_TRANSPORT_BLE == 1
     ble_serial_interface.begin(BLE_NAME_PREFIX, the_mesh.getNodePrefs()->node_name, the_mesh.getBLEPin());
     transport_manager.addTransport(TRANSPORT_BLE, &ble_serial_interface);
   #endif
 
   // WiFi transport — if hardware supports
-  #if UNIFIED_TRANSPORT_WIFI == 1 && defined(WIFI_SSID) && defined(WIFI_PWD)
+  #if UNIFIED_TRANSPORT_WIFI == 1 && defined(ESP32)
     board.setInhibitSleep(true);
     WiFi.setAutoReconnect(true);
     WiFi.onEvent([](WiFiEvent_t event, WiFiEventInfo_t info){
@@ -218,26 +212,34 @@ void setup() {
             wifi_needs_reconnect = false;
         }
     });
-    WiFi.begin(WIFI_SSID, WIFI_PWD);
+    if (UNIFIED_WIFI_SSID[0] != '\0') {
+      WiFi.mode(WIFI_STA);
+      WiFi.begin(UNIFIED_WIFI_SSID, UNIFIED_WIFI_PASSWORD);
+    } else {
+      char ap_name[33];
+      snprintf(ap_name, sizeof(ap_name), "%s%s", UNIFIED_WIFI_AP_PREFIX,
+               the_mesh.getNodePrefs()->node_name);
+      WiFi.mode(WIFI_AP);
+      if (UNIFIED_WIFI_AP_PASSWORD[0] == '\0') WiFi.softAP(ap_name);
+      else WiFi.softAP(ap_name, UNIFIED_WIFI_AP_PASSWORD);
+    }
     wifi_serial_interface.begin(TCP_PORT);
     transport_manager.addTransport(TRANSPORT_WIFI, &wifi_serial_interface);
   #endif
 
   // ---------- Set up transport persistence and load saved mode ----------
 
-  transport_manager.setPersistenceCallbacks(transportSaveCallback, transportLoadCallback);
-
   // Set safe default based on available transports
-  TransportType default_t = TRANSPORT_USB;
-  #if UNIFIED_TRANSPORT_BLE == 1 && defined(BLE_PIN_CODE) && BLE_PIN_CODE
-    default_t = TRANSPORT_BLE;
-  #elif UNIFIED_TRANSPORT_WIFI == 1 && defined(WIFI_SSID) && defined(WIFI_PWD)
-    default_t = TRANSPORT_WIFI;
-  #endif
-  transport_manager.setDefaultTransport(default_t);
+  transport_manager.setDefaultTransport(getDefaultTransport());
 
-  // Load saved transport mode (falls back to default if none saved)
-  transport_manager.loadPersistedTransport();
+  // Normal release builds always recover to concurrent mode. A custom
+  // low-power selector UI can opt into restoring a persisted single mode.
+  #if UNIFIED_RESTORE_TRANSPORT_MODE == 1
+    transport_manager.setPersistenceCallbacks(transportSaveCallback, transportLoadCallback);
+    transport_manager.loadPersistedTransport();
+  #else
+    transport_manager.selectTransport(getDefaultTransport());
+  #endif
 
   // ---------- Start the mesh with the active transport ----------
 
@@ -274,9 +276,10 @@ void loop() {
 #endif
   }
 
-  // WiFi reconnect (only if WiFi is the active transport)
-#if defined(ESP32) && defined(WIFI_SSID) && UNIFIED_TRANSPORT_WIFI == 1
-  if (transport_manager.getActiveTransport() == TRANSPORT_WIFI) {
+  // WiFi reconnect while WiFi is selected directly or through "All" mode.
+#if defined(ESP32) && UNIFIED_TRANSPORT_WIFI == 1
+  if (transport_manager.getActiveTransport() == TRANSPORT_WIFI ||
+      transport_manager.getActiveTransport() == TRANSPORT_ALL) {
     if (wifi_needs_reconnect && (millis() - last_wifi_reconnect_attempt > 10000)) {
       WIFI_DEBUG_PRINTLN("Attempting manual WiFi reconnect...");
       WiFi.disconnect();

@@ -1,0 +1,201 @@
+name: Build Unified Firmware for MeshCore Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      upstream_ref:
+        description: MeshCore companion tag or commit (blank selects latest companion tag)
+        required: false
+        type: string
+      publish_release:
+        description: Create a draft GitHub release after every target builds
+        required: true
+        default: true
+        type: boolean
+  repository_dispatch:
+    types: [meshcore-companion-release]
+  schedule:
+    - cron: '23 4 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: unified-upstream-${{ inputs.upstream_ref || github.event.client_payload.ref || 'latest' }}
+  cancel-in-progress: false
+
+env:
+  UPSTREAM_REPOSITORY: meshcore-dev/MeshCore
+  PIP_BREAK_SYSTEM_PACKAGES: '1'
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      upstream_ref: ${{ steps.version.outputs.upstream_ref }}
+      version: ${{ steps.version.outputs.version }}
+      release_tag: ${{ steps.version.outputs.release_tag }}
+      already_built: ${{ steps.version.outputs.already_built }}
+      matrix: ${{ steps.targets.outputs.matrix || '{"include":[{"target":"skip","platform":"unknown"}]}' }}
+    steps:
+      - name: Check out unified implementation
+        uses: actions/checkout@v6
+
+      - id: version
+        name: Resolve upstream companion release
+        env:
+          REQUESTED_REF: ${{ inputs.upstream_ref || github.event.client_payload.ref }}
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          ref="$REQUESTED_REF"
+          if [ -z "$ref" ]; then
+            ref=$(git ls-remote --tags --refs \
+              "https://github.com/${UPSTREAM_REPOSITORY}.git" 'companion-v*' \
+              | awk -F/ '{print $3}' | sort -V | tail -n 1)
+          fi
+          if [ -z "$ref" ]; then
+            echo "No upstream companion release tag was found" >&2
+            exit 1
+          fi
+          version=${ref#companion-}
+          release_tag="unified-${version}"
+          if gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${release_tag}" >/dev/null 2>&1; then
+            already_built=true
+          else
+            already_built=false
+          fi
+          echo "upstream_ref=$ref" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "release_tag=$release_tag" >> "$GITHUB_OUTPUT"
+          echo "already_built=$already_built" >> "$GITHUB_OUTPUT"
+
+      - name: Check out upstream release
+        if: steps.version.outputs.already_built != 'true'
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.UPSTREAM_REPOSITORY }}
+          ref: ${{ steps.version.outputs.upstream_ref }}
+          path: upstream
+
+      - name: Overlay unified implementation
+        if: steps.version.outputs.already_built != 'true'
+        run: python3 tools/apply_unified_overlay.py upstream
+
+      - uses: ./.github/actions/setup-build-environment
+        if: steps.version.outputs.already_built != 'true'
+
+      - id: targets
+        name: Discover every upstream companion device
+        if: steps.version.outputs.already_built != 'true'
+        working-directory: upstream
+        shell: bash
+        run: |
+          python3 tools/generate_unified_builds.py
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          targets = json.load(open('.pio/unified-targets.json', encoding='utf-8'))
+          print('matrix=' + json.dumps({'include': targets}, separators=(',', ':')))
+          PY
+      - name: Upload release target manifest
+        if: steps.version.outputs.already_built != 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: unified-release-manifest-${{ steps.version.outputs.version }}
+          path: upstream/.pio/unified-targets.json
+
+  build:
+    needs: discover
+    if: needs.discover.outputs.already_built != 'true'
+    name: ${{ matrix.target }}
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out unified implementation
+        uses: actions/checkout@v6
+      - name: Check out upstream release
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.UPSTREAM_REPOSITORY }}
+          ref: ${{ needs.discover.outputs.upstream_ref }}
+          path: upstream
+      - name: Overlay unified implementation
+        run: python3 tools/apply_unified_overlay.py upstream
+      - uses: ./.github/actions/setup-build-environment
+      - name: Generate build environment
+        working-directory: upstream
+        run: python3 tools/generate_unified_builds.py
+      - id: compile
+        name: Compile firmware and classify upstream failures
+        working-directory: upstream
+        env:
+          PLATFORMIO_BUILD_FLAGS: >-
+            -DFIRMWARE_VERSION='"${{ needs.discover.outputs.version }}"'
+        shell: bash
+        run: |
+          build_date=$(date '+%d-%b-%Y')
+          export PLATFORMIO_BUILD_FLAGS="${PLATFORMIO_BUILD_FLAGS} -DFIRMWARE_BUILD_DATE='\"${build_date}\"'"
+          python3 tools/validate_unified_builds.py \
+            --target "${{ matrix.target }}" --verbose --github-output
+      - name: Create ESP32 merged image
+        if: steps.compile.outputs.skipped != 'true' && matrix.platform == 'esp32'
+        working-directory: upstream
+        run: pio run -c .pio/unified-platformio.ini -e "${{ matrix.target }}" -t mergebin
+      - name: Create nRF52 UF2 image
+        if: steps.compile.outputs.skipped != 'true' && matrix.platform == 'nrf52'
+        working-directory: upstream
+        shell: bash
+        run: |
+          python3 bin/uf2conv/uf2conv.py \
+            ".pio/build/${{ matrix.target }}/firmware.hex" -c \
+            -o ".pio/build/${{ matrix.target }}/firmware.uf2" -f 0xADA52840
+      - name: Collect firmware files
+        if: steps.compile.outputs.skipped != 'true'
+        working-directory: upstream
+        shell: bash
+        run: |
+          mkdir -p release
+          for file in ".pio/build/${{ matrix.target }}"/firmware.{bin,hex,uf2,zip}; do
+            if [ -f "$file" ]; then
+              extension=${file##*.}
+              cp "$file" "release/${{ matrix.target }}-${{ needs.discover.outputs.version }}.${extension}"
+            fi
+          done
+          if [ -f ".pio/build/${{ matrix.target }}/firmware-merged.bin" ]; then
+            cp ".pio/build/${{ matrix.target }}/firmware-merged.bin" \
+              "release/${{ matrix.target }}-${{ needs.discover.outputs.version }}-merged.bin"
+          fi
+          test -n "$(find release -type f -print -quit)"
+      - uses: actions/upload-artifact@v7
+        if: steps.compile.outputs.skipped != 'true'
+        with:
+          name: firmware-${{ matrix.target }}
+          path: upstream/release/*
+          if-no-files-found: error
+
+  release:
+    needs: [discover, build]
+    if: >-
+      needs.discover.outputs.already_built != 'true' &&
+      (github.event_name != 'workflow_dispatch' || inputs.publish_release)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: firmware-*
+          path: release
+          merge-multiple: true
+      - name: Create draft unified release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ needs.discover.outputs.release_tag }}
+          target_commitish: ${{ github.sha }}
+          name: Unified Companion Firmware ${{ needs.discover.outputs.version }}
+          draft: true
+          generate_release_notes: true
+          files: release/*

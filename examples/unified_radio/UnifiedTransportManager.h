@@ -7,18 +7,16 @@
 /**
  * UnifiedTransportManager
  *
- * A thin proxy layer that presents multiple transport interfaces (USB, BLE,
- * WiFi) as a single BaseSerialInterface. The active transport can be changed
- * at runtime without reflashing. Gracefully stops the old transport before
- * starting the new one.
+ * A proxy layer that presents USB/UART, BLE, and WiFi as one
+ * BaseSerialInterface. All registered transports can run concurrently, while
+ * devices with a selector UI may still choose one interface to reduce power.
  *
  * The manager IS a BaseSerialInterface — call myMesh.startInterface(manager)
  * once and all delegation happens transparently. No changes to MyMesh or
  * BaseChatMesh are needed.
  *
- * Persistence: Transport mode is saved to a file on the filesystem.
- * On boot, the saved mode is loaded. If the saved mode is unavailable on this
- * board (e.g. BLE firmware on a non-BLE board), the safe default is used.
+ * Persistence is optional. Release builds always start in concurrent mode;
+ * a custom selector UI may install callbacks and restore a saved mode.
  *
  * Maximum transports is set at compile time. Add new transports by extending
  * the TransportType enum and calling addTransport() in main.cpp.
@@ -56,9 +54,10 @@ public:
     TransportType getActiveTransport() const { return active_type; }
 
     /**
-     * Get the number of registered transports.
+     * Get the number of selectable modes. "All" is exposed when more than one
+     * physical transport is registered.
      */
-    int getNumTransports() const { return num_transports; }
+    int getNumTransports() const { return num_transports > 1 ? num_transports + 1 : num_transports; }
 
     /**
      * Get the TransportType at a given index (for iterating in UI).
@@ -117,6 +116,7 @@ private:
     struct TransportEntry {
         TransportType type;
         BaseSerialInterface* iface;
+        bool has_received_frame;
     };
 
     TransportEntry transports[MAX_TRANSPORTS];
@@ -124,10 +124,14 @@ private:
     TransportType active_type;
     TransportType default_type;
     BaseSerialInterface* active_iface;
+    int next_poll_index;
 
     // Persistence callbacks
     SaveCallback _save_fn;
     LoadCallback _load_fn;
 
     int findIndex(TransportType type) const;
+    bool isEntryConnected(const TransportEntry& entry) const;
+    void enableAll();
+    void disableAll();
 };

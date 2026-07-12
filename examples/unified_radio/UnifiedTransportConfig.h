@@ -25,6 +25,7 @@ enum TransportType : uint8_t {
     TRANSPORT_USB  = 0,   // USB CDC or hardware UART — always available
     TRANSPORT_BLE  = 1,   // Bluetooth Low Energy — requires BLE hardware
     TRANSPORT_WIFI = 2,   // WiFi TCP — requires WiFi hardware
+    TRANSPORT_ALL  = 3,   // All registered transports are active concurrently
 
     // Reserve slots for future transports:
     // TRANSPORT_ESP_NOW   = 3,
@@ -41,6 +42,7 @@ inline const char* transportTypeName(TransportType t) {
         case TRANSPORT_USB:  return "USB";
         case TRANSPORT_BLE:  return "Bluetooth";
         case TRANSPORT_WIFI: return "WiFi";
+        case TRANSPORT_ALL:  return "All";
         default:             return "None";
     }
 }
@@ -53,16 +55,15 @@ inline const char* transportTypeName(TransportType t) {
 // USB (Serial) is always available on any board with a serial port.
 #define BOARD_HAS_USB_TRANSPORT true
 
-// BLE is available if BLE_PIN_CODE is defined (set in platformio.ini
-// for boards that have BLE hardware).
-#if defined(BLE_PIN_CODE)
+// Generated targets set these flags from the companion environments exposed
+// by the current upstream tree.
+#if UNIFIED_TRANSPORT_BLE == 1
   #define BOARD_HAS_BLE_TRANSPORT true
 #else
   #define BOARD_HAS_BLE_TRANSPORT false
 #endif
 
-// WiFi is available if WIFI_SSID is defined.
-#if defined(WIFI_SSID)
+#if UNIFIED_TRANSPORT_WIFI == 1 && defined(ESP32)
   #define BOARD_HAS_WIFI_TRANSPORT true
 #else
   #define BOARD_HAS_WIFI_TRANSPORT false
@@ -73,12 +74,5 @@ inline const char* transportTypeName(TransportType t) {
 // Returns the safest-supported transport for unified firmware.
 // Preference order: BLE > USB (if screen available for PIN display) > USB.
 inline TransportType getDefaultTransport() {
-    // If BLE is available, prefer it as the "intended" companion transport
-    #if defined(BLE_PIN_CODE)
-        return TRANSPORT_BLE;
-    #elif defined(WIFI_SSID)
-        return TRANSPORT_WIFI;
-    #else
-        return TRANSPORT_USB;
-    #endif
+    return TRANSPORT_ALL;
 }

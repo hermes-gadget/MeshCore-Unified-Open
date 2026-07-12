@@ -72,13 +72,14 @@ The companion firmware can be connected to via BLE, USB or Wi-Fi depending on th
 
 **Unified Firmware** 🚀
 
-The [Unified Firmware](examples/unified_radio/README.md) is a variant of the Companion firmware that includes **BLE, WiFi, and USB** transport in a single build. Users switch between transports on-device using the screen and buttons — **no reflashing required**.
+The [Unified Firmware](examples/unified_radio/README.md) is a Companion variant that includes **BLE, WiFi, and USB/UART** in one build. Supported interfaces run together by default, including on headless devices.
 
 Key features:
-- Runtime transport selection from the device menu
-- Persistence across reboots (saves last-selected transport)
-- Graceful stop/start when switching transports
-- Only shows transports supported by the current board hardware
+- Concurrent connections through every supported transport
+- Generated builds for all upstream companion device variants
+- Predictable `All` mode restored on every release-build reboot
+- WiFi access-point defaults that require no embedded credentials
+- Automatic builds when upstream publishes a companion release
 - Zero changes to core MeshCore source files — fully modular
 
 See the [Unified Firmware README](examples/unified_radio/README.md) for builds, configuration, and supported boards.

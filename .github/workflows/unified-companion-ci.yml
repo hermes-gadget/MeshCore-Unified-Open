@@ -1,0 +1,93 @@
+name: Unified Companion CI
+
+on:
+  pull_request:
+    paths:
+      - 'examples/unified_radio/**'
+      - 'examples/companion_radio/**'
+      - 'src/helpers/**'
+      - 'boards/**'
+      - 'test/unified/**'
+      - 'tools/**'
+      - 'variants/**'
+      - 'platformio.ini'
+      - '.github/actions/setup-build-environment/**'
+      - '.github/workflows/unified-*.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'examples/unified_radio/**'
+      - 'examples/companion_radio/**'
+      - 'src/helpers/**'
+      - 'boards/**'
+      - 'test/unified/**'
+      - 'tools/**'
+      - 'variants/**'
+      - 'platformio.ini'
+      - '.github/actions/setup-build-environment/**'
+      - '.github/workflows/unified-*.yml'
+
+permissions:
+  contents: read
+
+env:
+  PIP_BREAK_SYSTEM_PACKAGES: '1'
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.targets.outputs.matrix }}
+      count: ${{ steps.targets.outputs.count }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-build-environment
+      - name: Test transport multiplexer
+        run: |
+          g++ -std=c++17 -Wall -Wextra -Werror \
+            -Itest/unified -Isrc -Iexamples/unified_radio \
+            test/unified/test_transport_manager.cpp \
+            examples/unified_radio/UnifiedTransportManager.cpp \
+            -o /tmp/test_transport_manager
+          /tmp/test_transport_manager
+          python3 test/unified/test_build_generator.py
+          python3 test/unified/test_matrix_validator.py
+      - id: targets
+        name: Generate cross-variant build matrix
+        shell: bash
+        run: |
+          python3 tools/generate_unified_builds.py
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          targets = json.load(open('.pio/unified-targets.json', encoding='utf-8'))
+          print('matrix=' + json.dumps({'include': targets}, separators=(',', ':')))
+          print('count=' + str(len(targets)))
+          PY
+      - name: Publish discovered target manifest
+        uses: actions/upload-artifact@v7
+        with:
+          name: unified-target-manifest
+          path: .pio/unified-targets.json
+
+  full-build:
+    needs: discover
+    name: ${{ matrix.architecture }} / ${{ matrix.target }}
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-build-environment
+      - name: Generate build environments
+        run: python3 tools/generate_unified_builds.py
+      - name: Build unified companion firmware
+        env:
+          PLATFORMIO_BUILD_FLAGS: >-
+            -DFIRMWARE_VERSION='"ci"'
+            -DFIRMWARE_BUILD_DATE='"01-Jan-1970"'
+        run: >-
+          python3 tools/validate_unified_builds.py
+          --target "${{ matrix.target }}" --verbose

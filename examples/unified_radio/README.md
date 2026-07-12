@@ -139,6 +139,9 @@ single-transport `main.cpp`.
 
 Generated 4 MB ESP32 images use one factory application slot and therefore do
 not support OTA updates. They retain a 896 KiB SPIFFS partition for companion
-state; updates are installed over the board's normal USB/serial bootloader.
+state; updates are installed over the board's normal USB/serial bootloader. On
+classic 4 MB ESP32 boards that request a larger offline message queue, the
+generator caps it at 96 entries so BLE and WiFi can operate together within
+internal DRAM.
 Generated 8 MB and 16 MB ESP32 images use the matching dual-OTA layout when a
 board definition otherwise inherits Arduino's undersized default app slot.

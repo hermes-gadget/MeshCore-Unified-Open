@@ -33,7 +33,10 @@ class BuildGeneratorTest(unittest.TestCase):
             (
                 "env:Custom_Future_companion_radio_ble",
                 [
-                    ("build_flags", ["-D ESP32_PLATFORM"]),
+                    ("build_flags", [
+                        "-D ESP32_PLATFORM",
+                        "-D OFFLINE_QUEUE_SIZE=128",
+                    ]),
                     ("build_src_filter", ["+<../examples/companion_radio/*.cpp>"]),
                     ("platform", "platformio/espressif32"),
                     ("board", "future-custom-board"),
@@ -73,6 +76,15 @@ class BuildGeneratorTest(unittest.TestCase):
                 ],
             ),
             (
+                "env:LilyGo_TDeck_companion_radio_ble",
+                [
+                    ("build_flags", ["-D ESP32_PLATFORM", "-D BOARD_HAS_PSRAM=1"]),
+                    ("build_src_filter", ["+<../examples/companion_radio/*.cpp>"]),
+                    ("platform", "platformio/espressif32"),
+                    ("board", "t-deck"),
+                ],
+            ),
+            (
                 "env:RAK_4631_companion_radio_ble",
                 [
                     ("build_flags", ["-D NRF52_PLATFORM", "-D BLE_PIN_CODE=123456"]),
@@ -94,6 +106,14 @@ class BuildGeneratorTest(unittest.TestCase):
                 json.dumps({"upload": {"flash_size": "16MB"}}),
                 encoding="utf-8",
             )
+            (project / "variants/lilygo_tdeck").mkdir(parents=True)
+            (project / "variants/lilygo_tdeck/partitions_8mb.csv").write_text(
+                "# test partition\n", encoding="utf-8"
+            )
+            (project / "examples/unified_radio").mkdir(parents=True)
+            (project / "examples/unified_radio/psram_stub.c").write_text(
+                "/* test stub */\n", encoding="utf-8"
+            )
             output = project / "generated.ini"
             with patch.object(generator, "resolved_config", return_value=sections):
                 manifest = generator.generate(project, output)
@@ -110,6 +130,11 @@ class BuildGeneratorTest(unittest.TestCase):
             self.assertIn("board_upload.maximum_size = 3145728", text)
             self.assertIn("board_build.partitions = default_16MB.csv", text)
             self.assertIn("board_upload.maximum_size = 6553600", text)
+            self.assertIn("-D OFFLINE_QUEUE_SIZE=96", text)
+            self.assertNotIn("-D OFFLINE_QUEUE_SIZE=128", text)
+            self.assertIn("[env:LilyGo_TDeck_8MB_companion_radio_unified]", text)
+            self.assertIn("-UBOARD_HAS_PSRAM", text)
+            self.assertNotIn("-U BOARD_HAS_PSRAM", text)
             self.assertNotIn("WIFI_SSID", text)
             self.assertNotIn("WIFI_PWD", text)
             self.assertIn("-D KEEP_ME=1", text)

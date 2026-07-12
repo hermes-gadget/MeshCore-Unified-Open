@@ -170,6 +170,28 @@ def strip_legacy_wifi_credentials(flags: list[str]) -> list[str]:
     return cleaned
 
 
+def cap_numeric_define(flags: list[str], name: str, maximum: int) -> list[str]:
+    """Cap an existing numeric build define without increasing its default."""
+    pattern = re.compile(
+        rf"(?<!\S)-D\s*{re.escape(name)}(?:\s*=\s*|\s+)(?P<value>\d+)(?=\s|$)"
+    )
+    values = [
+        int(match.group("value"))
+        for flag in flags
+        for match in pattern.finditer(flag)
+    ]
+    if not values or max(values) <= maximum:
+        return flags
+
+    cleaned = []
+    for flag in flags:
+        value = pattern.sub("", flag).strip()
+        if value:
+            cleaned.append(value)
+    append_unique(cleaned, f"-D {name}={maximum}")
+    return cleaned
+
+
 def generate(project_dir: Path, output: Path) -> list[dict[str, object]]:
     sections = resolved_config(project_dir)
     environments: dict[str, OrderedDict] = {}
@@ -202,6 +224,28 @@ def generate(project_dir: Path, output: Path) -> list[dict[str, object]]:
         append_unique(flags, "-D UNIFIED_TRANSPORT_USB=1")
         has_ble = "ble" in transports
         has_wifi = any("ESP32_PLATFORM" in flag for flag in flags)
+        architecture = (
+            esp32_architecture(project_dir, options)
+            if has_wifi
+            else "nrf52"
+            if any("NRF52_PLATFORM" in flag for flag in flags)
+            else "rp2040"
+            if any("RP2040_PLATFORM" in flag for flag in flags)
+            else "stm32"
+            if any("STM32_PLATFORM" in flag for flag in flags)
+            else "unknown"
+        )
+        # Running BLE and WiFi together adds static interface buffers. Several
+        # classic 4 MB ESP32 companions configure unusually large 128-entry
+        # offline queues and otherwise exceed internal DRAM by about 1-2 KiB.
+        # Preserve every transport while retaining a generous 96-entry queue.
+        if (
+            has_ble
+            and has_wifi
+            and architecture == "esp32"
+            and esp32_flash_size(project_dir, options) == 4 * 1024 * 1024
+        ):
+            flags = cap_numeric_define(flags, "OFFLINE_QUEUE_SIZE", 96)
         append_unique(flags, f"-D UNIFIED_TRANSPORT_BLE={1 if has_ble else 0}")
         append_unique(flags, f"-D UNIFIED_TRANSPORT_WIFI={1 if has_wifi else 0}")
         if has_ble and not any("BLE_PIN_CODE" in flag for flag in flags):
@@ -226,17 +270,6 @@ def generate(project_dir: Path, output: Path) -> list[dict[str, object]]:
             configure_esp32_partitions(project_dir, options)
 
         target = f"{device}_companion_radio_unified"
-        architecture = (
-            esp32_architecture(project_dir, options)
-            if has_wifi
-            else "nrf52"
-            if any("NRF52_PLATFORM" in flag for flag in flags)
-            else "rp2040"
-            if any("RP2040_PLATFORM" in flag for flag in flags)
-            else "stm32"
-            if any("STM32_PLATFORM" in flag for flag in flags)
-            else "unknown"
-        )
         generated.append((target, options))
         manifest.append(
             {
@@ -264,7 +297,7 @@ def generate(project_dir: Path, output: Path) -> list[dict[str, object]]:
             special_options["board_build.flash_mode"] = "dio"
             special_options["board_build.psram"] = False
             special_flags = special_options["build_flags"]
-            append_unique(special_flags, "-U BOARD_HAS_PSRAM")
+            append_unique(special_flags, "-UBOARD_HAS_PSRAM")
             append_unique(special_flags, "-D BOARD_HAS_PSRAM=0")
             append_unique(special_flags, "-Wl,--wrap=esp_spiram_init")
             append_unique(special_flags, "-Wl,--wrap=esp_spiram_init_cache")

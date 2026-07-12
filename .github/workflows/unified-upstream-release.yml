@@ -1,6 +1,9 @@
 name: Build Unified Firmware for MeshCore Release
 
 on:
+  push:
+    tags:
+      - 'Unified-Open-v*'
   workflow_dispatch:
     inputs:
       upstream_ref:
@@ -21,7 +24,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: unified-upstream-${{ inputs.upstream_ref || github.event.client_payload.ref || 'latest' }}
+  group: unified-upstream-${{ inputs.upstream_ref || github.event.client_payload.ref || github.ref_name || 'latest' }}
   cancel-in-progress: false
 
 env:
@@ -49,6 +52,9 @@ jobs:
         shell: bash
         run: |
           ref="$REQUESTED_REF"
+          if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+            ref="companion-${GITHUB_REF_NAME#Unified-Open-}"
+          fi
           if [ -z "$ref" ]; then
             ref=$(git ls-remote --tags --refs \
               "https://github.com/${UPSTREAM_REPOSITORY}.git" 'companion-v*' \
@@ -59,8 +65,8 @@ jobs:
             exit 1
           fi
           version=${ref#companion-}
-          release_tag="unified-${version}"
-          if gh api "repos/${GITHUB_REPOSITORY}/git/ref/tags/${release_tag}" >/dev/null 2>&1; then
+          release_tag="Unified-Open-${version}"
+          if gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${release_tag}" >/dev/null 2>&1; then
             already_built=true
           else
             already_built=false

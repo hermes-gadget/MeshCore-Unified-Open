@@ -59,9 +59,59 @@ Per-target logs and resumable results are written under `.pio/`.
   but release builds require no display or transport-selection UI. A custom UI
   can set `UNIFIED_RESTORE_TRANSPORT_MODE=1` to persist its selection.
 
-On WiFi-capable release builds the device creates an access point named
-`MeshCore-<node name>`. Connect to it and use TCP port `5000`; the default WPA2
-password is `meshcore`.
+## Connect after flashing
+
+All supported transports run together. Connecting over BLE does not disable
+WiFi or USB, and connecting over USB does not stop BLE advertising. Use a
+MeshCore client rather than a generic serial terminal; the companion link uses
+MeshCore's framed binary protocol.
+
+### BLE
+
+BLE is present on ESP32 and nRF52 devices for which upstream provides a BLE
+companion target.
+
+1. Open a MeshCore client and choose its BLE connection option.
+2. Select `MeshCore-<node name>` from the scan results.
+3. Pair when prompted. A device with a display shows a session PIN. A headless
+   device uses `123456` until a different BLE PIN is saved in its preferences.
+
+If an old bond prevents reconnection after changing the PIN, forget the device
+in the phone or computer's Bluetooth settings and pair again. Custom builds can
+change the fallback PIN with `-D BLE_PIN_CODE=654321`.
+
+### WiFi
+
+WiFi is present on ESP32 unified targets. With the release defaults the device
+starts its own access point:
+
+1. Join the `MeshCore-<node name>` WiFi network.
+2. Enter the WPA2 password `meshcore`.
+3. In a MeshCore client that supports a TCP connection, use host
+   `192.168.4.1` and port `5000`.
+
+The firmware accepts one WiFi TCP client at a time; a new TCP connection
+replaces the previous one. To join an existing network instead, compile with
+`UNIFIED_WIFI_SSID` and `UNIFIED_WIFI_PASSWORD` as shown below. Find the
+device's DHCP address in the router, then connect the client to that address on
+port `5000`.
+
+### USB or hardware UART
+
+1. Connect the device with a data-capable USB cable and allow the operating
+   system to create its serial port.
+2. Open a MeshCore client with USB/Web Serial support, choose that port, and
+   connect. Browser clients normally require Chromium, Chrome, or Edge and
+   permission to access the port.
+
+The companion serial link runs at `115200` baud. Boards whose target defines
+dedicated `SERIAL_RX` and `SERIAL_TX` pins use that hardware UART instead of
+USB CDC; connect a 3.3 V USB-to-TTL adapter at 115200 8N1, cross TX/RX, and
+share ground. Do not feed 5 V serial levels into the board.
+
+USB/UART is compiled into every generated target. BLE and WiFi only appear
+where the hardware and upstream companion definition support them; see the
+coverage table below.
 
 ## Easy configuration
 
@@ -113,12 +163,16 @@ Two workflows maintain coverage:
 - `Build Unified Firmware for MeshCore Release` checks daily for a new upstream
   `companion-v*` tag. It overlays the unified files onto that exact tag,
   generates every supported target, builds them on a bounded GitHub Actions
-  matrix, and creates a draft `unified-v*` release with device-named images.
+  matrix, and creates a draft `Unified-Open-v*` release with device-named
+  images.
   If a unified target fails, the workflow compiles its untouched upstream
   source environment: a failure is ignored only when that baseline fails too.
 
 The release workflow can also be run manually for any upstream tag or commit,
 or triggered with a `meshcore-companion-release` repository dispatch event.
+Pushing a versioned tag such as `Unified-Open-v1.16.0` selects the matching
+upstream `companion-v1.16.0` source and attaches the completed artifacts to a
+draft GitHub release on that same tag.
 
 ## Implementation files
 

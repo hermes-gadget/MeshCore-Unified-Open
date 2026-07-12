@@ -92,7 +92,7 @@ def local_board_manifest(project_dir: Path, board: str) -> dict:
         return {}
 
 
-def is_four_mb_esp32(project_dir: Path, options: OrderedDict) -> bool:
+def esp32_flash_size(project_dir: Path, options: OrderedDict) -> int | None:
     """Determine flash capacity without installing every target platform.
 
     PlatformIO's resolved project config omits board-manifest upload fields.
@@ -103,7 +103,7 @@ def is_four_mb_esp32(project_dir: Path, options: OrderedDict) -> bool:
     """
     explicit_size = _size_in_bytes(options.get("board_build.flash_size", ""))
     if explicit_size is not None:
-        return explicit_size == 4 * 1024 * 1024
+        return explicit_size
 
     board = str(options.get("board", ""))
     board_data = local_board_manifest(project_dir, board)
@@ -113,9 +113,43 @@ def is_four_mb_esp32(project_dir: Path, options: OrderedDict) -> bool:
             upload.get("flash_size", upload.get("maximum_size", ""))
         )
         if manifest_size is not None:
-            return manifest_size == 4 * 1024 * 1024
+            return manifest_size
 
-    return board in KNOWN_FOUR_MB_ESP32_BOARDS
+    if board in KNOWN_FOUR_MB_ESP32_BOARDS:
+        return 4 * 1024 * 1024
+    return None
+
+
+def configure_esp32_partitions(
+    project_dir: Path, options: OrderedDict
+) -> None:
+    flash_size = esp32_flash_size(project_dir, options)
+    current = options.get("board_build.partitions")
+
+    # Four-megabyte unified images need a single large application slot. Keep
+    # persistent SPIFFS data even though these constrained boards lose OTA.
+    if flash_size == 4 * 1024 * 1024 or current in {
+        "min_spiffs.csv",
+        "max_app_4MB.csv",
+    }:
+        options["board_build.partitions"] = (
+            "examples/unified_radio/partitions_4mb.csv"
+        )
+        options["board_upload.maximum_size"] = 0x300000
+        return
+
+    # Some custom 8/16 MB board manifests declare the physical flash size but
+    # no partition layout, causing Arduino's 1.25 MiB default app slot to be
+    # used. Select the matching dual-OTA layout without overriding a deliberate
+    # custom partition table.
+    if current not in {None, "default.csv"}:
+        return
+    if flash_size == 8 * 1024 * 1024:
+        options["board_build.partitions"] = "default_8MB.csv"
+        options["board_upload.maximum_size"] = 0x330000
+    elif flash_size is not None and flash_size >= 16 * 1024 * 1024:
+        options["board_build.partitions"] = "default_16MB.csv"
+        options["board_upload.maximum_size"] = 0x640000
 
 
 def esp32_architecture(project_dir: Path, options: OrderedDict) -> str:
@@ -188,20 +222,8 @@ def generate(project_dir: Path, output: Path) -> list[dict[str, object]]:
             append_unique(sources, "+<helpers/esp32/SerialWifiInterface.cpp>")
         options["build_src_filter"] = sources
 
-        # ESP32-C6 unified images exceed the dual-OTA min_spiffs slot. Keep a
-        # real SPIFFS data partition (unlike max_app_4MB.csv) while allocating
-        # a 3 MiB factory application slot. Companion firmware has no OTA path.
-        if has_wifi and (
-            is_four_mb_esp32(project_dir, options)
-            or options.get("board_build.partitions") in {
-                "min_spiffs.csv",
-                "max_app_4MB.csv",
-            }
-        ):
-            options["board_build.partitions"] = (
-                "examples/unified_radio/partitions_4mb.csv"
-            )
-            options["board_upload.maximum_size"] = 0x300000
+        if has_wifi:
+            configure_esp32_partitions(project_dir, options)
 
         target = f"{device}_companion_radio_unified"
         architecture = (

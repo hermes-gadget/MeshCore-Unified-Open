@@ -40,6 +40,15 @@ class BuildGeneratorTest(unittest.TestCase):
                 ],
             ),
             (
+                "env:Large_Future_companion_radio_ble",
+                [
+                    ("build_flags", ["-D ESP32_PLATFORM"]),
+                    ("build_src_filter", ["+<../examples/companion_radio/*.cpp>"]),
+                    ("platform", "platformio/espressif32"),
+                    ("board", "future-16mb-board"),
+                ],
+            ),
+            (
                 "env:Xiao_C6_companion_radio_ble_",
                 [
                     ("build_flags", [
@@ -81,6 +90,10 @@ class BuildGeneratorTest(unittest.TestCase):
                 json.dumps({"upload": {"flash_size": "4MB"}}),
                 encoding="utf-8",
             )
+            (project / "boards/future-16mb-board.json").write_text(
+                json.dumps({"upload": {"flash_size": "16MB"}}),
+                encoding="utf-8",
+            )
             output = project / "generated.ini"
             with patch.object(generator, "resolved_config", return_value=sections):
                 manifest = generator.generate(project, output)
@@ -95,6 +108,8 @@ class BuildGeneratorTest(unittest.TestCase):
             text = output.read_text(encoding="utf-8")
             self.assertIn("examples/unified_radio/partitions_4mb.csv", text)
             self.assertIn("board_upload.maximum_size = 3145728", text)
+            self.assertIn("board_build.partitions = default_16MB.csv", text)
+            self.assertIn("board_upload.maximum_size = 6553600", text)
             self.assertNotIn("WIFI_SSID", text)
             self.assertNotIn("WIFI_PWD", text)
             self.assertIn("-D KEEP_ME=1", text)

@@ -15,6 +15,11 @@ public:
 
   virtual bool isConnected() const = 0;
 
+  // Identifies the currently authenticated transport session. Implementations
+  // with reconnectable transports should increment this on each successful
+  // authentication. Stable transports may use the default connected epoch.
+  virtual uint32_t connectionGeneration() const { return isConnected() ? 1u : 0u; }
+
   virtual bool isWriteBusy() const = 0;
   virtual size_t writeFrame(const uint8_t src[], size_t len) = 0;
   virtual size_t checkRecvFrame(uint8_t dest[]) = 0;

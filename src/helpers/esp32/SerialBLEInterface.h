@@ -17,6 +17,8 @@ class SerialBLEInterface : public BaseSerialInterface, BLESecurityCallbacks, BLE
   uint32_t _pin_code;
   unsigned long _last_write;
   unsigned long adv_restart_time;
+  uint16_t peer_mtu;
+  bool last_notify_succeeded;
 
   struct Frame {
     uint8_t len;
@@ -47,6 +49,9 @@ protected:
 
   // BLECharacteristicCallbacks methods
   void onWrite(BLECharacteristic* pCharacteristic, esp_ble_gatts_cb_param_t* param) override;
+  void onStatus(BLECharacteristic* pCharacteristic,
+                BLECharacteristicCallbacks::Status status,
+                uint32_t code) override;
 
 public:
   SerialBLEInterface() {
@@ -58,6 +63,8 @@ public:
     _isEnabled = false;
     _last_write = 0;
     last_conn_id = 0;
+    peer_mtu = 23;
+    last_notify_succeeded = false;
     send_queue_len = recv_queue_len = 0;
   }
 

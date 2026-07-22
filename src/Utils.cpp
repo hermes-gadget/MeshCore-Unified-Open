@@ -27,7 +27,14 @@ void Utils::sha256(uint8_t *hash, size_t hash_len, const uint8_t* frag1, int fra
   sha.finalize(hash, hash_len);
 }
 
-int Utils::decrypt(const uint8_t* shared_secret, uint8_t* dest, const uint8_t* src, int src_len) {
+int Utils::decrypt(const uint8_t* shared_secret, uint8_t* dest, const uint8_t* src,
+                   int src_len, size_t dest_capacity) {
+  if (shared_secret == NULL || dest == NULL || src == NULL || src_len <= 0 ||
+      (src_len % CIPHER_BLOCK_SIZE) != 0 ||
+      static_cast<size_t>(src_len) > dest_capacity) {
+    return 0;
+  }
+
   AES128 aes;
   uint8_t* dp = dest;
   const uint8_t* sp = src;
@@ -71,18 +78,29 @@ int Utils::encryptThenMAC(const uint8_t* shared_secret, uint8_t* dest, const uin
   return CIPHER_MAC_SIZE + enc_len;
 }
 
-int Utils::MACThenDecrypt(const uint8_t* shared_secret, uint8_t* dest, const uint8_t* src, int src_len) {
-  if (src_len <= CIPHER_MAC_SIZE) return 0;  // invalid src bytes
+int Utils::MACThenDecrypt(const uint8_t* shared_secret, uint8_t* dest, const uint8_t* src,
+                          int src_len, size_t dest_capacity) {
+  if (shared_secret == NULL || dest == NULL || src == NULL ||
+      src_len <= CIPHER_MAC_SIZE) {
+    return 0;
+  }
+
+  const int ciphertext_len = src_len - CIPHER_MAC_SIZE;
+  if ((ciphertext_len % CIPHER_BLOCK_SIZE) != 0 ||
+      static_cast<size_t>(ciphertext_len) > dest_capacity) {
+    return 0;
+  }
 
   uint8_t hmac[CIPHER_MAC_SIZE];
   {
     SHA256 sha;
     sha.resetHMAC(shared_secret, PUB_KEY_SIZE);
-    sha.update(src + CIPHER_MAC_SIZE, src_len - CIPHER_MAC_SIZE);
+    sha.update(src + CIPHER_MAC_SIZE, ciphertext_len);
     sha.finalizeHMAC(shared_secret, PUB_KEY_SIZE, hmac, CIPHER_MAC_SIZE);
   }
   if (memcmp(hmac, src, CIPHER_MAC_SIZE) == 0) {
-    return decrypt(shared_secret, dest, src + CIPHER_MAC_SIZE, src_len - CIPHER_MAC_SIZE);
+    return decrypt(shared_secret, dest, src + CIPHER_MAC_SIZE, ciphertext_len,
+                   dest_capacity);
   }
   return 0; // invalid HMAC
 }

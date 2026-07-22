@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <array>
 #include "Utils.h"
 
 using namespace mesh;
@@ -49,6 +50,70 @@ TEST(UtilsToHex, NullTerminatesOnEmptyInput) {
 
     // Should just null-terminate at position 0
     EXPECT_EQ('\0', output[0]);
+}
+
+TEST(UtilsDecrypt, RejectsNonAlignedAndOversizedCiphertextWithoutWriting) {
+    std::array<uint8_t, PUB_KEY_SIZE> key{};
+    std::array<uint8_t, CIPHER_BLOCK_SIZE * 2> ciphertext{};
+    std::array<uint8_t, CIPHER_BLOCK_SIZE + 2> dest{};
+    dest.fill(0xA5);
+
+    EXPECT_EQ(0, Utils::decrypt(key.data(), dest.data() + 1,
+                                ciphertext.data(), CIPHER_BLOCK_SIZE - 1,
+                                CIPHER_BLOCK_SIZE));
+    EXPECT_EQ(0, Utils::decrypt(key.data(), dest.data() + 1,
+                                ciphertext.data(), CIPHER_BLOCK_SIZE * 2,
+                                CIPHER_BLOCK_SIZE));
+    EXPECT_EQ(0xA5, dest.front());
+    EXPECT_EQ(0xA5, dest.back());
+}
+
+TEST(UtilsDecrypt, AcceptsOnlySafePacketLengthsFromZeroThroughMaximum) {
+    std::array<uint8_t, PUB_KEY_SIZE> key{};
+    std::array<uint8_t, MAX_PACKET_PAYLOAD> source{};
+    std::array<uint8_t, MAX_PACKET_PAYLOAD + 2> dest{};
+
+    for (int source_len = 0; source_len <= MAX_PACKET_PAYLOAD; ++source_len) {
+        dest.fill(0xA5);
+        const int ciphertext_len = source_len - CIPHER_MAC_SIZE;
+        const bool valid = source_len > CIPHER_MAC_SIZE &&
+                           (ciphertext_len % CIPHER_BLOCK_SIZE) == 0;
+
+        const int result = Utils::MACThenDecrypt(
+            key.data(), dest.data() + 1, source.data(), source_len,
+            MAX_PACKET_PAYLOAD);
+
+        EXPECT_EQ(valid ? ciphertext_len : 0, result) << "source_len=" << source_len;
+        EXPECT_EQ(0xA5, dest.front()) << "source_len=" << source_len;
+        EXPECT_EQ(0xA5, dest.back()) << "source_len=" << source_len;
+    }
+}
+
+TEST(UtilsDecrypt, RejectsFormerMaximumGroupOverflowShape) {
+    std::array<uint8_t, PUB_KEY_SIZE> key{};
+    std::array<uint8_t, MAX_PACKET_PAYLOAD - 1> source{};
+    std::array<uint8_t, MAX_PACKET_PAYLOAD + 2> dest{};
+    dest.fill(0xA5);
+
+    EXPECT_EQ(0, Utils::MACThenDecrypt(
+        key.data(), dest.data() + 1, source.data(), source.size(),
+        MAX_PACKET_PAYLOAD));
+    EXPECT_EQ(0xA5, dest.front());
+    EXPECT_EQ(0xA5, dest.back());
+}
+
+TEST(UtilsDecrypt, RejectsAlignedCiphertextLargerThanDestination) {
+    constexpr size_t kCiphertextSize = MAX_PACKET_PAYLOAD + 8;
+    std::array<uint8_t, PUB_KEY_SIZE> key{};
+    std::array<uint8_t, CIPHER_MAC_SIZE + kCiphertextSize> source{};
+    std::array<uint8_t, MAX_PACKET_PAYLOAD + 2> dest{};
+    dest.fill(0xA5);
+
+    EXPECT_EQ(0, Utils::MACThenDecrypt(
+        key.data(), dest.data() + 1, source.data(), source.size(),
+        MAX_PACKET_PAYLOAD));
+    EXPECT_EQ(0xA5, dest.front());
+    EXPECT_EQ(0xA5, dest.back());
 }
 
 int main(int argc, char **argv) {

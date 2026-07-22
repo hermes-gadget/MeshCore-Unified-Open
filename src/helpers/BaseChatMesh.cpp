@@ -605,6 +605,8 @@ int BaseChatMesh::sendLogin(const ContactInfo& recipient, const char* password, 
 }
 
 int BaseChatMesh::sendAnonReq(const ContactInfo& recipient, const uint8_t* data, uint8_t len, uint32_t& tag, uint32_t& est_timeout) {
+  if (data == NULL || len > MAX_PACKET_PAYLOAD - sizeof(tag)) return MSG_SEND_FAILED;
+
   mesh::Packet* pkt;
   {
     uint8_t temp[MAX_PACKET_PAYLOAD];

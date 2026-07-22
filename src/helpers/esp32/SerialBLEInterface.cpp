@@ -1,4 +1,5 @@
 #include "SerialBLEInterface.h"
+#include "BleFramePolicy.h"
 #include "esp_mac.h"
 
 // See the following for generating UUIDs:
@@ -26,7 +27,9 @@ void SerialBLEInterface::begin(const char* prefix, char* name, uint32_t pin_code
   // Create the BLE Device
   BLEDevice::init(dev_name);
   BLEDevice::setSecurityCallbacks(this);
-  BLEDevice::setMTU(MAX_FRAME_SIZE);
+  // ATT notifications reserve three bytes for the protocol header. Request
+  // the documented maximum so a complete MAX_FRAME_SIZE protocol frame fits.
+  BLEDevice::setMTU(meshcore::ble::PREFERRED_ATT_MTU);
 
   BLESecurity  sec;
   sec.setStaticPIN(pin_code);
@@ -44,6 +47,7 @@ void SerialBLEInterface::begin(const char* prefix, char* name, uint32_t pin_code
   // Create a BLE Characteristic
   pTxCharacteristic = pService->createCharacteristic(CHARACTERISTIC_UUID_TX, BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_NOTIFY);
   pTxCharacteristic->setAccessPermissions(ESP_GATT_PERM_READ_ENC_MITM);
+  pTxCharacteristic->setCallbacks(this);
   pTxCharacteristic->addDescriptor(new BLE2902());
 
   BLECharacteristic * pRxCharacteristic = pService->createCharacteristic(CHARACTERISTIC_UUID_RX, BLECharacteristic::PROPERTY_WRITE);
@@ -95,19 +99,32 @@ void SerialBLEInterface::onConnect(BLEServer* pServer) {
 void SerialBLEInterface::onConnect(BLEServer* pServer, esp_ble_gatts_cb_param_t *param) {
   BLE_DEBUG_PRINTLN("onConnect(), conn_id=%d, mtu=%d", param->connect.conn_id, pServer->getPeerMTU(param->connect.conn_id));
   last_conn_id = param->connect.conn_id;
+  peer_mtu = pServer->getPeerMTU(param->connect.conn_id);
 }
 
 void SerialBLEInterface::onMtuChanged(BLEServer* pServer, esp_ble_gatts_cb_param_t* param) {
-  BLE_DEBUG_PRINTLN("onMtuChanged(), mtu=%d", pServer->getPeerMTU(param->mtu.conn_id));
+  peer_mtu = pServer->getPeerMTU(param->mtu.conn_id);
+  BLE_DEBUG_PRINTLN("onMtuChanged(), mtu=%d", peer_mtu);
 }
 
 void SerialBLEInterface::onDisconnect(BLEServer* pServer) {
   BLE_DEBUG_PRINTLN("onDisconnect()");
+  peer_mtu = meshcore::ble::DEFAULT_ATT_MTU;
+  last_notify_succeeded = false;
   if (_isEnabled) {
     adv_restart_time = millis() + ADVERT_RESTART_DELAY;
 
     // loop() will detect this on next loop, and set deviceConnected to false
   }
+}
+
+void SerialBLEInterface::onStatus(BLECharacteristic* pCharacteristic,
+                                  BLECharacteristicCallbacks::Status status,
+                                  uint32_t code) {
+  (void)pCharacteristic;
+  (void)code;
+  last_notify_succeeded =
+      status == BLECharacteristicCallbacks::Status::SUCCESS_NOTIFY;
 }
 
 // -------- BLECharacteristicCallbacks methods
@@ -166,6 +183,10 @@ size_t SerialBLEInterface::writeFrame(const uint8_t src[], size_t len) {
   }
 
   if (deviceConnected && len > 0) {
+    if (!meshcore::ble::frameFitsMtu(len, peer_mtu)) {
+      BLE_DEBUG_PRINTLN("writeFrame(), frame exceeds peer ATT payload, len=%d, mtu=%d", len, peer_mtu);
+      return 0;
+    }
     if (send_queue_len >= FRAME_QUEUE_SIZE) {
       BLE_DEBUG_PRINTLN("writeFrame(), send_queue is full!");
       return 0;
@@ -191,14 +212,21 @@ size_t SerialBLEInterface::checkRecvFrame(uint8_t dest[]) {
     && millis() >= _last_write + BLE_WRITE_MIN_INTERVAL    // space the writes apart
   ) {
     _last_write = millis();
-    pTxCharacteristic->setValue(send_queue[0].buf, send_queue[0].len);
-    pTxCharacteristic->notify();
+    if (meshcore::ble::frameFitsMtu(send_queue[0].len, peer_mtu)) {
+      last_notify_succeeded = false;
+      pTxCharacteristic->setValue(send_queue[0].buf, send_queue[0].len);
+      pTxCharacteristic->notify();
 
-    BLE_DEBUG_PRINTLN("writeBytes: sz=%d, hdr=%d", (uint32_t)send_queue[0].len, (uint32_t) send_queue[0].buf[0]);
+      if (last_notify_succeeded) {
+        BLE_DEBUG_PRINTLN("writeBytes: sz=%d, hdr=%d", (uint32_t)send_queue[0].len, (uint32_t) send_queue[0].buf[0]);
 
-    send_queue_len--;
-    for (int i = 0; i < send_queue_len; i++) {   // delete top item from queue
-      send_queue[i] = send_queue[i + 1];
+        send_queue_len--;
+        for (int i = 0; i < send_queue_len; i++) {   // delete top item from queue
+          send_queue[i] = send_queue[i + 1];
+        }
+      } else {
+        BLE_DEBUG_PRINTLN("writeBytes: notify failed, retaining queued frame");
+      }
     }
   }
 

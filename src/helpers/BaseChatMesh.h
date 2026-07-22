@@ -174,6 +174,8 @@ public:
   bool  addContact(const ContactInfo& contact);
   int getTotalContactSlots() const { return num_contacts; }
   int getNumContacts() const { return num_contacts - MAX_ANON_CONTACTS; }  // don't include the reserved slots at start
+  // Uses the same public, zero-based coordinate as getNumContacts() and
+  // ContactsIterator. Reserved transient anonymous slots are never exposed.
   bool getContactByIdx(uint32_t idx, ContactInfo& contact);
   ContactsIterator startContactsIterator();
   ChannelDetails* addChannel(const char* name, const char* psk_base64);

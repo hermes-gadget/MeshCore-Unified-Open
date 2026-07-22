@@ -935,9 +935,9 @@ int BaseChatMesh::findChannelIdx(const mesh::GroupChannel& ch) {
 #endif
 
 bool BaseChatMesh::getContactByIdx(uint32_t idx, ContactInfo& contact) {
-  if (idx >= num_contacts) return false;
+  if (idx >= (uint32_t)getNumContacts()) return false;
 
-  contact = contacts[idx];
+  contact = contacts[MAX_ANON_CONTACTS + idx];
   return true;
 }
 

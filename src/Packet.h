@@ -85,6 +85,8 @@ public:
   static uint8_t copyPath(uint8_t* dest, const uint8_t* src, uint8_t path_len);  // returns path_len
   static size_t writePath(uint8_t* dest, const uint8_t* src, uint8_t path_len);  // returns byte length written
   static bool isValidPathLen(uint8_t path_len);
+  static size_t minimumPayloadLength(uint8_t payload_type);
+  bool hasValidPayloadShape() const;
 
   void markDoNotRetransmit() { header = 0xFF; }
   bool isMarkedDoNotRetransmit() const { return header == 0xFF; }

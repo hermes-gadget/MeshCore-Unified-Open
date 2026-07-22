@@ -39,6 +39,11 @@ int Mesh::searchChannelsByHash(const uint8_t* hash, GroupChannel channels[], int
 }
 
 DispatcherAction Mesh::onRecvPacket(Packet* pkt) {
+  if (pkt == NULL || !pkt->hasValidPayloadShape()) {
+    MESH_DEBUG_PRINTLN("%s Mesh::onRecvPacket(): invalid payload shape", getLogDateTime());
+    return ACTION_RELEASE;
+  }
+
   if (pkt->isRouteDirect() && pkt->getPayloadType() == PAYLOAD_TYPE_TRACE) {
     if (pkt->path_len < MAX_PATH_SIZE) {
       uint8_t i = 0;
@@ -155,6 +160,10 @@ DispatcherAction Mesh::onRecvPacket(Packet* pkt) {
                                             MAX_PACKET_PAYLOAD);
             if (len > 0) {  // success!
               if (pkt->getPayloadType() == PAYLOAD_TYPE_PATH) {
+                if (len < 2) {
+                  MESH_DEBUG_PRINTLN("%s PAYLOAD_TYPE_PATH, missing path fields", getLogDateTime());
+                  break;
+                }
                 int k = 0;
                 uint8_t path_len = data[k++];
                 if (!Packet::isValidPathLen(path_len)) {
@@ -163,6 +172,11 @@ DispatcherAction Mesh::onRecvPacket(Packet* pkt) {
                 }
                 uint8_t hash_size = (path_len >> 6) + 1;
                 uint8_t hash_count = path_len & 63;
+                size_t path_bytes = (size_t)hash_size * hash_count;
+                if (path_bytes + 2 > (size_t)len) {
+                  MESH_DEBUG_PRINTLN("%s PAYLOAD_TYPE_PATH, truncated path", getLogDateTime());
+                  break;
+                }
                 uint8_t* path = &data[k]; k += hash_size*hash_count;
                 uint8_t extra_type = data[k++] & 0x0F;   // upper 4 bits reserved for future use
                 uint8_t* extra = &data[k];

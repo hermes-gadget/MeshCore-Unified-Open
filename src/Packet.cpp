@@ -17,6 +17,37 @@ bool Packet::isValidPathLen(uint8_t path_len) {
   return hash_count*hash_size <= MAX_PATH_SIZE;
 }
 
+size_t Packet::minimumPayloadLength(uint8_t payload_type) {
+  switch (payload_type) {
+    case PAYLOAD_TYPE_REQ:
+    case PAYLOAD_TYPE_RESPONSE:
+    case PAYLOAD_TYPE_TXT_MSG:
+    case PAYLOAD_TYPE_PATH:
+      return 2 + CIPHER_MAC_SIZE + 1;  // destination, source, MAC, ciphertext
+    case PAYLOAD_TYPE_ACK:
+      return sizeof(uint32_t);
+    case PAYLOAD_TYPE_ADVERT:
+      return PUB_KEY_SIZE + sizeof(uint32_t) + SIGNATURE_SIZE;
+    case PAYLOAD_TYPE_GRP_TXT:
+    case PAYLOAD_TYPE_GRP_DATA:
+      return 1 + CIPHER_MAC_SIZE + 1;  // channel, MAC, ciphertext
+    case PAYLOAD_TYPE_ANON_REQ:
+      return 1 + PUB_KEY_SIZE + CIPHER_MAC_SIZE + 1;
+    case PAYLOAD_TYPE_TRACE:
+      return sizeof(uint32_t) * 2 + 1;  // tag, auth code, flags
+    case PAYLOAD_TYPE_MULTIPART:
+    case PAYLOAD_TYPE_CONTROL:
+      return 1;
+    default:
+      return 0;
+  }
+}
+
+bool Packet::hasValidPayloadShape() const {
+  return payload_len <= sizeof(payload) &&
+         payload_len >= minimumPayloadLength(getPayloadType());
+}
+
 size_t Packet::writePath(uint8_t* dest, const uint8_t* src, uint8_t path_len) {
   uint8_t hash_count = path_len & 63;
   uint8_t hash_size = (path_len >> 6) + 1;
@@ -63,25 +94,30 @@ uint8_t Packet::writeTo(uint8_t dest[]) const {
 }
 
 bool Packet::readFrom(const uint8_t src[], uint8_t len) {
-  uint8_t i = 0;
+  if (src == NULL || len < 2) return false;
+
+  size_t i = 0;
   header = src[i++];
+  if (getPayloadVer() > PAYLOAD_VER_1) return false;
   if (hasTransportCodes()) {
+    if ((size_t)len - i < sizeof(transport_codes)) return false;
     memcpy(&transport_codes[0], &src[i], 2); i += 2;
     memcpy(&transport_codes[1], &src[i], 2); i += 2;
   } else {
     transport_codes[0] = transport_codes[1] = 0;
   }
+  if (i >= len) return false;
   path_len = src[i++];
   if (!isValidPathLen(path_len)) return false;   // bad encoding
 
-  uint8_t bl = getPathByteLen();
+  size_t bl = getPathByteLen();
+  if (bl > (size_t)len - i) return false;
   memcpy(path, &src[i], bl); i += bl;
 
-  if (i >= len) return false;   // bad encoding
   payload_len = len - i;
   if (payload_len > sizeof(payload)) return false;  // bad encoding
   memcpy(payload, &src[i], payload_len); //i += payload_len;
-  return true;   // success
+  return hasValidPayloadShape();
 }
 
 }

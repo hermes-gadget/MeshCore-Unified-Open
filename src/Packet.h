@@ -104,11 +104,17 @@ public:
   uint8_t writeTo(uint8_t dest[]) const;
 
   /**
-   * \brief  restore this packet from a blob (as created using writeTo())
-   * \param  src  (IN) buffer containing blob
-   * \param  len  the packet length (as returned by writeTo())
-   */
-  bool readFrom(const uint8_t src[], uint8_t len);
-};
+     * \\brief  restore this packet from a blob (as created using writeTo())
+     * \\param  src  (IN) buffer containing blob
+     * \\param  len  the packet length (as returned by writeTo())
+     */
+    bool readFrom(const uint8_t src[], uint8_t len);
 
-}
+    /**
+     * \\brief Fixed lower bound on payload bytes for a payload type.
+     * \\returns 0 for unknown/custom types with no fixed floor.
+     */
+    static size_t minimumPayloadLength(uint8_t payload_type);
+  };
+
+  }

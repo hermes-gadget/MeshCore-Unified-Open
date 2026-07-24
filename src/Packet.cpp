@@ -63,25 +63,60 @@ uint8_t Packet::writeTo(uint8_t dest[]) const {
 }
 
 bool Packet::readFrom(const uint8_t src[], uint8_t len) {
+  if (!src || len == 0) return false;
   uint8_t i = 0;
   header = src[i++];
   if (hasTransportCodes()) {
+    if (i + 4 > len) return false;
     memcpy(&transport_codes[0], &src[i], 2); i += 2;
     memcpy(&transport_codes[1], &src[i], 2); i += 2;
   } else {
     transport_codes[0] = transport_codes[1] = 0;
   }
+  if (i >= len) return false;
   path_len = src[i++];
   if (!isValidPathLen(path_len)) return false;   // bad encoding
 
   uint8_t bl = getPathByteLen();
+  if (static_cast<size_t>(i) + bl > len) return false;
   memcpy(path, &src[i], bl); i += bl;
 
-  if (i >= len) return false;   // bad encoding
   payload_len = len - i;
   if (payload_len > sizeof(payload)) return false;  // bad encoding
-  memcpy(payload, &src[i], payload_len); //i += payload_len;
+  if (payload_len < minimumPayloadLength(getPayloadType())) return false;
+  if (payload_len > 0) {
+    memcpy(payload, &src[i], payload_len);
+  }
   return true;   // success
+}
+
+size_t Packet::minimumPayloadLength(uint8_t payload_type) {
+  // Floor sizes for the fixed outer shapes used by MeshCore v1 payloads.
+  // Encrypted blobs still require their MAC/hash prefixes even when empty.
+  switch (payload_type) {
+    case PAYLOAD_TYPE_REQ:       // dest + src + MAC
+    case PAYLOAD_TYPE_RESPONSE:  // dest + src + MAC
+    case PAYLOAD_TYPE_TXT_MSG:   // dest + src + MAC (+ timestamp inside cipher)
+    case PAYLOAD_TYPE_PATH:      // dest + src + MAC
+      return 4;
+    case PAYLOAD_TYPE_ACK:       // truncated hash
+      return 4;
+    case PAYLOAD_TYPE_ADVERT:    // identity advert header floor
+      return 32;
+    case PAYLOAD_TYPE_GRP_TXT:   // channel hash + MAC
+    case PAYLOAD_TYPE_GRP_DATA:  // channel hash + MAC
+      return 3;
+    case PAYLOAD_TYPE_ANON_REQ:  // dest + ephemeral pub key + MAC
+      return 1 + PUB_KEY_SIZE + 2;
+    case PAYLOAD_TYPE_TRACE:     // tag + auth + path
+      return 9;
+    case PAYLOAD_TYPE_MULTIPART: // multipart header
+      return 3;
+    case PAYLOAD_TYPE_CONTROL:   // control opcode
+      return 1;
+    default:
+      return 0;
+  }
 }
 
 }

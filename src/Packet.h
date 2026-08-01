@@ -106,10 +106,10 @@ public:
   uint8_t writeTo(uint8_t dest[]) const;
 
   /**
-   * \brief  restore this packet from a blob (as created using writeTo())
-   * \param  src  (IN) buffer containing blob
-   * \param  len  the packet length (as returned by writeTo())
-   */
+    * \\\\brief  restore this packet from a blob (as created using writeTo())
+    * \\\\param  src  (IN) buffer containing blob
+    * \\\\param  len  the packet length (as returned by writeTo())
+    */
   bool readFrom(const uint8_t src[], uint8_t len);
 };
 

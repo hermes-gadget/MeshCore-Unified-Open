@@ -17,32 +17,6 @@ bool Packet::isValidPathLen(uint8_t path_len) {
   return hash_count*hash_size <= MAX_PATH_SIZE;
 }
 
-size_t Packet::minimumPayloadLength(uint8_t payload_type) {
-  switch (payload_type) {
-    case PAYLOAD_TYPE_REQ:
-    case PAYLOAD_TYPE_RESPONSE:
-    case PAYLOAD_TYPE_TXT_MSG:
-    case PAYLOAD_TYPE_PATH:
-      return 2 + CIPHER_MAC_SIZE + 1;  // destination, source, MAC, ciphertext
-    case PAYLOAD_TYPE_ACK:
-      return sizeof(uint32_t);
-    case PAYLOAD_TYPE_ADVERT:
-      return PUB_KEY_SIZE + sizeof(uint32_t) + SIGNATURE_SIZE;
-    case PAYLOAD_TYPE_GRP_TXT:
-    case PAYLOAD_TYPE_GRP_DATA:
-      return 1 + CIPHER_MAC_SIZE + 1;  // channel, MAC, ciphertext
-    case PAYLOAD_TYPE_ANON_REQ:
-      return 1 + PUB_KEY_SIZE + CIPHER_MAC_SIZE + 1;
-    case PAYLOAD_TYPE_TRACE:
-      return sizeof(uint32_t) * 2 + 1;  // tag, auth code, flags
-    case PAYLOAD_TYPE_MULTIPART:
-    case PAYLOAD_TYPE_CONTROL:
-      return 1;
-    default:
-      return 0;
-  }
-}
-
 bool Packet::hasValidPayloadShape() const {
   return payload_len <= sizeof(payload) &&
          payload_len >= minimumPayloadLength(getPayloadType());
@@ -116,8 +90,40 @@ bool Packet::readFrom(const uint8_t src[], uint8_t len) {
 
   payload_len = len - i;
   if (payload_len > sizeof(payload)) return false;  // bad encoding
-  memcpy(payload, &src[i], payload_len); //i += payload_len;
-  return hasValidPayloadShape();
+  if (payload_len < minimumPayloadLength(getPayloadType())) return false;  // floor check
+  if (payload_len > 0) {
+    memcpy(payload, &src[i], payload_len);
+  }
+  return hasValidPayloadShape();   // shape validation
+}
+
+size_t Packet::minimumPayloadLength(uint8_t payload_type) {
+  // Floor sizes for the fixed outer shapes used by MeshCore v1 payloads.
+  // Encrypted blobs still require their MAC/hash prefixes even when empty.
+  switch (payload_type) {
+    case PAYLOAD_TYPE_REQ:       // dest + src + MAC
+    case PAYLOAD_TYPE_RESPONSE:  // dest + src + MAC
+    case PAYLOAD_TYPE_TXT_MSG:   // dest + src + MAC (+ timestamp inside cipher)
+    case PAYLOAD_TYPE_PATH:      // dest + src + MAC
+      return 4;
+    case PAYLOAD_TYPE_ACK:       // truncated hash
+      return 4;
+    case PAYLOAD_TYPE_ADVERT:    // identity advert header floor
+      return 32;
+    case PAYLOAD_TYPE_GRP_TXT:   // channel hash + MAC
+    case PAYLOAD_TYPE_GRP_DATA:  // channel hash + MAC
+      return 3;
+    case PAYLOAD_TYPE_ANON_REQ:  // dest + ephemeral pub key + MAC
+      return 1 + PUB_KEY_SIZE + 2;
+    case PAYLOAD_TYPE_TRACE:     // tag + auth + path
+      return 9;
+    case PAYLOAD_TYPE_MULTIPART: // multipart header
+      return 3;
+    case PAYLOAD_TYPE_CONTROL:   // control opcode
+      return 1;
+    default:
+      return 0;
+  }
 }
 
 }

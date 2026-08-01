@@ -1,269 +1,201 @@
-# MeshCore Unified Firmware
+# MeshCore Unified Companion Firmware
 
-A single companion firmware build that supports **BLE**, **WiFi**, and **USB** transport simultaneously — the user selects the active transport from the device screen using the device's physical buttons, **without reflashing**.
+This is companion firmware with every transport supported by a device in one
+image. USB/UART is always present, BLE is included where the upstream device
+has a BLE companion target, and WiFi is included on ESP32 devices. The default
+`All` mode keeps the available interfaces active together, so headless devices
+do not need a screen or a reflash to change connection type.
 
-## Overview
+The implementation is deliberately an overlay. Device definitions, radio
+drivers, UI code, and companion behavior continue to come from upstream
+MeshCore; only the entry point and transport multiplexer are replaced. This is
+what allows a new upstream device or release to be picked up without copying
+its firmware implementation into this directory.
 
-The standard MeshCore companion firmware (`examples/companion_radio/`) requires choosing a transport at **compile time** via build flags (`-D BLE_PIN_CODE=123456`, `-D WIFI_SSID=...`, etc.). Each transport requires a separate firmware build and flash.
+## Build a device
 
-The **Unified Firmware** (`examples/unified_radio/`) compiles all transports supported by the board into a single binary. At boot, the persisted transport mode is loaded. The user can change transports on the fly via the on-device menu.
-
-## Architecture
-
-```
-examples/unified_radio/
-├── main.cpp                     # Unified entry point — registers all transports
-├── UnifiedTransportConfig.h     # TransportType enum, board capability macros
-├── UnifiedTransportManager.h    # Proxy that delegates to the active transport
-├── UnifiedTransportManager.cpp  # Transport switching, persistence, delegation
-├── UnifiedTransportUI.h         # UIScreen for transport selection menu
-├── MyMesh.h                     # Copied from companion_radio (unchanged)
-├── MyMesh.cpp                   # Copied from companion_radio (unchanged)
-├── AbstractUITask.h             # Copied from companion_radio (unchanged)
-├── NodePrefs.h                  # Copied from companion_radio (unchanged)
-├── DataStore.h                  # Copied from companion_radio (unchanged)
-├── DataStore.cpp                # Copied from companion_radio (unchanged)
-└── ui-new/
-    ├── UITask.h                 # UI with transport page added
-    ├── UITask.cpp               # UI with transport page + TransportBrowserScreen
-    └── icons.h                  # Copied from companion_radio/ui-new (unchanged)
-```
-
-## Supported Boards
-
-| Board | BLE | WiFi | USB | Screen | Buttons | Status |
-|-------|-----|------|-----|--------|---------|--------|
-| LilyGo T-Deck (ESP32-S3) | ✅ | ✅ | ✅ | ✅ | ✅ | **Verified build** |
-
-**Adding a new board:**
-1. Create a variant under `variants/<board>/` if not already there (per MeshCore conventions)
-2. Create a board-specific `[env:<Board>_unified]` section in your variant's `platformio.ini`
-3. Set `UNIFIED_TRANSPORT_BLE=1`, `UNIFIED_TRANSPORT_WIFI=1`, `UNIFIED_TRANSPORT_USB=1` as appropriate
-4. Set credentials (`WIFI_SSID`, `WIFI_PWD`, `BLE_PIN_CODE`, `TCP_PORT`)
-5. Add the `-I examples/unified_radio*` include paths and source filters
-
-## Available Build Targets
-
-| Target | Transports | Size (Flash) | Size (RAM) |
-|--------|-----------|-------------|-----------|
-| `LilyGo_TDeck_unified` | BLE + WiFi + USB | 24.7% (1.62 MB) | 58.9% (193 KB) |
-| `LilyGo_TDeck_unified_ble_usb` | BLE + USB | 18.8% (1.23 MB) | 52.4% (172 KB) |
-| `LilyGo_TDeck_unified_usb` | USB only | 9.6% (630 KB) | 44.4% (146 KB) |
-| `LilyGo_TDeck_unified_8mb` | BLE + WiFi + USB | 52.5% (1.58 MB) | 58.9% (193 KB) |
-
-## Building & Flashing
-
-### Prerequisites
-
-- [PlatformIO](https://platformio.org/) installed
-- Clone the MeshCore-Unified-Open repo
-
-### Build
+Install PlatformIO, then generate the unified environments:
 
 ```bash
-# Build with all 3 transports (BLE + WiFi + USB)
-pio run -e LilyGo_TDeck_unified
-
-# Build with BLE + USB only
-pio run -e LilyGo_TDeck_unified_ble_usb
-
-# Build with USB only
-pio run -e LilyGo_TDeck_unified_usb
-
-# Build for 8MB flash T-Deck (no PSRAM)
-pio run -e LilyGo_TDeck_unified_8mb
+python3 tools/generate_unified_builds.py
 ```
 
-### Flash
+List the generated targets:
 
 ```bash
-pio run -e LilyGo_TDeck_unified -t upload
+python3 tools/generate_unified_builds.py --list
 ```
 
-### Configure WiFi Credentials
+Build one target using the generated configuration:
 
-Set your WiFi SSID and password **before flashing** in one of these places:
+```bash
+pio run -c .pio/unified-platformio.ini \
+  -e Heltec_v3_companion_radio_unified
+```
 
-1. **Directly in the variant's platformio.ini** (for single-use builds):
-   ```ini
-   -D WIFI_SSID='"MyNetwork"'
-   -D WIFI_PWD='"MyPassword"'
-   ```
+The generated files under `.pio/` are disposable. Run the generator again
+after syncing upstream or changing a variant's `platformio.ini`.
 
-2. **In `platformio.local.ini`** (project root, not committed to git):
-   ```ini
-   [LilyGo_TDeck_unified_base]
-   build_flags =
-     -D WIFI_SSID='"MyNetwork"'
-     -D WIFI_PWD='"MyPassword"'
-   ```
+To validate the entire matrix locally, with failures checked against their
+untouched upstream companion environments, run:
 
-3. **Override per env** in `platformio.local.ini`:
-   ```ini
-   [env:LilyGo_TDeck_unified]
-   build_flags =
-     -D WIFI_SSID='"MyNetwork"'
-     -D WIFI_PWD='"MyPassword"'
-   ```
+```bash
+python3 tools/validate_unified_builds.py --resume
+```
 
-## How to Switch BLE / WiFi / USB On-Device
+Per-target logs and resumable results are written under `.pio/`.
 
-The transport selection is available from the **Home Screen** of the device display:
+## Connection behavior
 
-1. Use the device button to cycle pages: **click** → cycles between pages (MSG → RECENT → RADIO → **Connection** → ADVERT → GPS → SENSORS → SHUTDOWN)
-2. Navigate to the **Connection** page (shows current transport name)
-3. **Press ENTER** (long press on single-button devices) to open the transport selection menu
-4. Use **LEFT/RIGHT** (or **click** on single-button devices) to highlight a transport
-5. **Press ENTER** to select and activate the highlighted transport
-6. The device immediately switches to the new transport and shows `[ACTIVE]`
+- `All` is the first-boot default and enables all registered transports.
+- Release builds return to `All` after every reboot, including when upgrading
+  a device that previously persisted a single transport.
+- Frames received through USB/UART, BLE, or WiFi enter the same companion
+  protocol handler.
+- Responses and asynchronous events are sent to every connected interface.
+- Polling rotates between interfaces so a busy connection cannot starve the
+  others.
+- The manager retains a single-transport API for future low-power controls,
+  but release builds require no display or transport-selection UI. A custom UI
+  can set `UNIFIED_RESTORE_TRANSPORT_MODE=1` to persist its selection.
 
-### Button Mapping
+## Connect after flashing
 
-| Button | Action |
-|--------|--------|
-| **Click** (single press) | Next home screen page / move selection down |
-| **Long Press** | Enter / confirm selection (on home page) or CLI rescue mode (first 8 seconds after boot) |
-| **Double Click** | Previous home screen page / move selection up |
+All supported transports run together. Connecting over BLE does not disable
+WiFi or USB, and connecting over USB does not stop BLE advertising. Use a
+MeshCore client rather than a generic serial terminal; the companion link uses
+MeshCore's framed binary protocol.
 
-### Visual Indicators
+### BLE
 
-- **Connection page**: Shows current transport name (e.g., "Bluetooth", "WiFi", "USB")
-- **Transport Selection screen**: Highlights current transport in **green** with `[ACTIVE]` label
-- **Selected (but not active)**: Highlighted with `*` prefix on dark background
-- **Alert popups**: Shows confirmation text like "Bluetooth" when switching
+BLE is present on ESP32 and nRF52 devices for which upstream provides a BLE
+companion target.
 
-## How Transport Persistence Works
+1. Open a MeshCore client and choose its BLE connection option.
+2. Select `MeshCore-<node name>` from the scan results.
+3. Pair when prompted. A device with a display shows a session PIN. A headless
+   device uses `123456` until a different BLE PIN is saved in its preferences.
 
-1. **At boot**: The firmware reads a single byte from `/transport_mode` on the primary filesystem
-2. **If the file exists and the transport is available**: That transport is started
-3. **If the file doesn't exist, or the saved transport is unavailable**: The safe default is used
-4. **Safe default logic**:
-   - BLE if the board has BLE hardware (`BLE_PIN_CODE` set)
-   - WiFi if the board has WiFi credentials configured
-   - USB otherwise (always available)
-5. **On each switch**: The new selection is saved to `/transport_mode` immediately
-6. **No filesystem?**: The firmware works without persistence — USB is always the fallback
+If an old bond prevents reconnection after changing the PIN, forget the device
+in the phone or computer's Bluetooth settings and pair again. Custom builds can
+change the fallback PIN with `-D BLE_PIN_CODE=654321`.
 
-The persistence file is a **single byte** (`/transport_mode`) stored on the primary filesystem (SPIFFS on ESP32, LittleFS on RP2040, InternalFS on nRF52/STM32). This is completely separate from the NodePrefs binary blob and does not affect or interfere with the existing preferences system.
+### WiFi
 
-## When Transport Switching Happens
+WiFi is present on ESP32 unified targets. With the release defaults the device
+starts its own access point:
 
-The following occurs during a transport switch:
+1. Join the `MeshCore-<node name>` WiFi network.
+2. Enter the WPA2 password `meshcore`.
+3. In a MeshCore client that supports a TCP connection, use host
+   `192.168.4.1` and port `5000`.
 
-1. **Current transport is gracefully stopped**:
-   - BLE: Advertising stops, clients disconnect, service stops
-   - WiFi: (external WiFi management preserves connection state)
-   - USB: Interface is disabled
-2. **Queued data is cleared** from both directions
-3. **New transport is enabled**: Advertising starts (BLE), server starts (WiFi), serial prepares (USB)
-4. **Selection is persisted** to `/transport_mode`
-5. **UI updates** to reflect the new active transport
+The firmware accepts one WiFi TCP client at a time; a new TCP connection
+replaces the previous one. To join an existing network instead, compile with
+`UNIFIED_WIFI_SSID` and `UNIFIED_WIFI_PASSWORD` as shown below. Find the
+device's DHCP address in the router, then connect the client to that address on
+port `5000`.
 
-## Known Limitations
+### USB or hardware UART
 
-| Limitation | Description | Workaround |
-|------------|-------------|------------|
-| **WiFi credentials hardcoded** | WiFi SSID/password must be set at build time via `-D WIFI_SSID` / `-D WIFI_PWD` | Use `platformio.local.ini` to avoid committing credentials |
-| **BLE PIN hardcoded** | BLE PIN is compiled in via `-D BLE_PIN_CODE` | Set in `platformio.ini` or `NodePrefs` default |
-| **No in-menu WiFi config** | Cannot enter/edit WiFi credentials on-device via UI | Planned for future release |
-| **Single-client WiFi** | WiFi transport accepts one TCP client at a time | Inherited from MeshCore's SerialWifiInterface |
-| **nRF52 WiFi not supported** | No WiFi BSP library for nRF52 in this project | Use USB or BLE on nRF52 boards |
-| **Simultaneous transports** | Only one transport active at a time | By design — prevents routing conflicts |
-|| **Persistence requires filesystem** | Boards without SPIFFS/LittleFS/InternalFS cannot save transport mode | Default transport (USB) is used |
-|| **ESP32-S3 no-PSRAM crash** | Pre-compiled ESP32-S3 SDK's `esp_spiram_init()` aborts fatally on boards without PSRAM | Use `LilyGo_TDeck_unified_8mb` target with `psram_stub.c` override; see build notes |
+1. Connect the device with a data-capable USB cable and allow the operating
+   system to create its serial port.
+2. Open a MeshCore client with USB/Web Serial support, choose that port, and
+   connect. Browser clients normally require Chromium, Chrome, or Edge and
+   permission to access the port.
 
-## Unsupported Boards / Transports
+The companion serial link runs at `115200` baud. Boards whose target defines
+dedicated `SERIAL_RX` and `SERIAL_TX` pins use that hardware UART instead of
+USB CDC; connect a 3.3 V USB-to-TTL adapter at 115200 8N1, cross TX/RX, and
+share ground. Do not feed 5 V serial levels into the board.
 
-| Board | Reason | Recommended Transport |
-|-------|--------|---------------------|
-| nRF52 boards (T-Echo, etc.) | WiFi not available on nRF52 | BLE or USB |
-| RP2040 boards | WiFi library not integrated for unified firmware | USB |
-| STM32 boards | WiFi/BLE not integrated for unified firmware | USB |
-| ESP32-C3 | Limited testing — should work with BLE + USB | USB initially |
-| ESP32-S2 | No BLE hardware | WiFi or USB |
+USB/UART is compiled into every generated target. BLE and WiFi only appear
+where the hardware and upstream companion definition support them; see the
+coverage table below.
 
-## Upstream Sync Notes
+## Easy configuration
 
-### New Files (not in upstream MeshCore)
+Common settings are in
+[`UnifiedFirmwareConfig.h`](UnifiedFirmwareConfig.h). You can edit that small
+file directly. To keep credentials out of Git, pass private overrides only to
+the build command:
 
-All files under `examples/unified_radio/` are new and do not exist in the upstream `meshcore-dev/MeshCore` repo. They can be carried forward without merge conflicts during upstream updates.
+```bash
+export PLATFORMIO_BUILD_FLAGS="\
+  -D UNIFIED_WIFI_SSID='\"Home WiFi\"' \
+  -D UNIFIED_WIFI_PASSWORD='\"secret\"' \
+  -D TCP_PORT=5000"
+pio run -c .pio/unified-platformio.ini \
+  -e Heltec_v3_companion_radio_unified
+```
 
-| File | Purpose | Upstream Equivalent |
-|------|---------|-------------------|
-| `examples/unified_radio/UnifiedTransportConfig.h` | Transport enum, board capability macros | None (new) |
-| `examples/unified_radio/UnifiedTransportManager.h` | Transport lifecycle manager | None (new) |
-| `examples/unified_radio/UnifiedTransportManager.cpp` | Implementation | None (new) |
-| `examples/unified_radio/UnifiedTransportUI.h` | Transport selection UIScreen | None (new) |
-| `examples/unified_radio/main.cpp` | Unified firmware entry point | Based on `examples/companion_radio/main.cpp` |
-| `examples/unified_radio/ui-new/UITask.h` | UI with transport page | Based on `examples/companion_radio/ui-new/UITask.h` |
-| `examples/unified_radio/ui-new/UITask.cpp` | UI with transport page | Based on `examples/companion_radio/ui-new/UITask.cpp` |
-| `examples/unified_radio/psram_stub.c` | Stub to override fatal PSRAM init on no-PSRAM boards | None (new) |
-| `variants/lilygo_tdeck/partitions_8mb.csv` | 8MB flash partition table | None (new) |
+The generated configuration is self-contained, so PlatformIO does not merge a
+normal `platformio.local.ini` automatically. CI uses the safe access-point
+defaults and never embeds repository secrets.
 
-### Modified Upstream Files
+## Device coverage
 
-| File | Change | Why |
-|------|--------|-----|
-| `variants/lilygo_tdeck/platformio.ini` | Added `[LilyGo_TDeck_unified_base]`, `[LilyGo_TDeck_unified_8mb_base]`, and 4 `[env:LilyGo_TDeck_unified_*]` targets; 8MB variant uses `board=esp32-s3-devkitc-1` for no-PSRAM support; adds `-Wl,--allow-multiple-definition` for PSRAM stub | Build configuration for unified firmware + 8MB flash variant |
+`tools/generate_unified_builds.py` resolves the current PlatformIO project and
+groups its transport-specific companion environments by device. One unified
+environment is generated for every group. On the current tree this covers
+ESP32, nRF52, RP2040, and STM32 companion variants.
 
-**No core MeshCore source files were modified.** The unified firmware uses only:
-- Public base classes (`BaseSerialInterface`, `UIScreen`, `AbstractUITask`)
-- Existing transport implementations (`SerialBLEInterface`, `SerialWifiInterface`, `ArduinoSerialInterface`)
-- Existing board framework (ESP32Board, TDeckBoard, etc.)
-- Existing filesystem abstraction (`DataStore`)
+Transport capability rules are:
 
-### How to Merge Future Upstream Updates
+| Platform | Included transports |
+|---|---|
+| ESP32 with upstream BLE target | USB/UART + BLE + WiFi |
+| ESP32 without upstream BLE target | USB/UART + WiFi |
+| nRF52 with upstream BLE target | USB/UART + BLE |
+| RP2040 | USB/UART |
+| STM32 | USB/UART |
 
-1. **Sync your fork** with upstream MeshCore:
-   ```bash
-   git fetch upstream
-   git checkout dev
-   git merge upstream/dev
-   ```
+This describes hardware/library capability, not a promise that every upstream
+board definition is defect-free. The unified CI is intended to identify only
+failures introduced by this overlay.
 
-2. **Check for conflicts in modified files:**
-   - `variants/lilygo_tdeck/platformio.ini` — may have conflicts if upstream added/changed build targets
-   - **Resolution**: Keep the unified firmware sections at the bottom; accept upstream's changes to the base `[LilyGo_TDeck]` section
+## Release automation
 
-3. **Sync copied files** from companion_radio:
-   When `examples/companion_radio/` files are updated upstream, you may want to re-copy them:
-   ```bash
-   # Review what changed
-   git diff upstream/dev -- examples/companion_radio/
-   
-   # Re-copy (then manually re-add transport page changes)
-   cp examples/companion_radio/MyMesh.h examples/unified_radio/
-   cp examples/companion_radio/MyMesh.cpp examples/unified_radio/
-   cp examples/companion_radio/AbstractUITask.h examples/unified_radio/
-   cp examples/companion_radio/NodePrefs.h examples/unified_radio/
-   cp examples/companion_radio/DataStore.h examples/unified_radio/
-   cp examples/companion_radio/DataStore.cpp examples/unified_radio/
-   cp examples/companion_radio/ui-new/icons.h examples/unified_radio/ui-new/
-   ```
+Two workflows maintain coverage:
 
-4. **Review UI changes needed:**
-   After re-copying `UITask.h/.cpp` from `companion_radio/ui-new/`, re-apply the transport page changes:
-   - Add `TransportBrowserScreen` class
-   - Add transport page to `HomeScreen::HomePage` enum
-   - Add `openTransportScreen()` and `getTransportManager()` methods to `UITask`
-   - Add transport rendering in `HomeScreen::render()`
+- `Unified Companion CI` regenerates and compiles every discovered companion
+  target on GitHub-hosted runners for changes to this implementation.
+- `Build Unified Firmware for MeshCore Release` checks daily for a new upstream
+  `companion-v*` tag. It overlays the unified files onto that exact tag,
+  generates every supported target, builds them on a bounded GitHub Actions
+  matrix, and creates a draft `Unified-Open-v*` release with device-named
+  images.
+  If a unified target fails, the workflow compiles its untouched upstream
+  source environment: a failure is ignored only when that baseline fails too.
 
-5. **Review build flags** in case upstream changed macro names or added new board features
+The release workflow can also be run manually for any upstream tag or commit,
+or triggered with a `meshcore-companion-release` repository dispatch event.
+Pushing a versioned tag such as `Unified-Open-v1.16.0` selects the matching
+upstream `companion-v1.16.0` source and attaches the completed artifacts to a
+draft GitHub release on that same tag.
 
-### Design Decisions for Mergeability
+## Implementation files
 
-- **No changes to MeshCore.h, Mesh.cpp, Dispatcher.cpp, or other core files**
-- **No changes to transport implementations** (the BLE/WiFi/USB classes are used as-is)
-- **No changes to UI framework** (UIScreen pattern is preserved)
-- **UnifiedTransportManager IS a BaseSerialInterface** — no interface widening needed
-- **Separate persistence** — transport mode is stored in its own file, independent of NodePrefs binary format
+| File | Purpose |
+|---|---|
+| `main.cpp` | Initializes upstream companion state and all available transports |
+| `UnifiedTransportManager.*` | Concurrent multiplexer and optional single-mode selection |
+| `UnifiedTransportConfig.h` | Transport identifiers and default mode |
+| `UnifiedFirmwareConfig.h` | Small, user-editable WiFi/BLE/TCP configuration surface |
+| `partitions_4mb.csv` | 3 MiB app plus persistent SPIFFS layout for unified 4 MB ESP32 builds |
+| `tools/generate_unified_builds.py` | Cross-variant environment discovery and generation |
+| `tools/apply_unified_overlay.py` | Reproduces the exact upstream release overlay locally and in CI |
+| `tools/validate_unified_builds.py` | Resumable full-matrix build and upstream-failure classifier |
 
-## Future Work
+Both the generated builds and the retained T-Deck convenience targets compile
+the authoritative files from `examples/companion_radio` and exclude only its
+single-transport `main.cpp`.
 
-- [ ] **On-device WiFi configuration** — scan and join networks from the UI
-- [ ] **BLE PIN entry on-device** — change PIN without reflashing
-- [ ] **Additional transports** — ESP-NOW, Thread, Zigbee as additional options
-- [ ] **ESP32-S3 Octal PSRAM** — enable for better multitasking
-- [ ] **Auto-detect board capabilities** — reduce build flag boilerplate
-- [ ] **OTA support** — transport switching paired with OTA updates
-- [ ] **nRF52 + ESP32 combo** — BLE on nRF52 + WiFi on co-processor
+Generated 4 MB ESP32 images use one factory application slot and therefore do
+not support OTA updates. They retain a 896 KiB SPIFFS partition for companion
+state; updates are installed over the board's normal USB/serial bootloader. On
+classic 4 MB ESP32 boards that request a larger offline message queue, the
+generator caps it at 96 entries so BLE and WiFi can operate together within
+internal DRAM.
+Generated 8 MB and 16 MB ESP32 images use the matching dual-OTA layout when a
+board definition otherwise inherits Arduino's undersized default app slot.

@@ -60,8 +60,8 @@ pio run -c .pio/unified-platformio.ini -e Heltec_t114_without_display_companion_
 PlatformIO Core 6.1.19. Commands below were run in
 `.pio/upstream-companion-v1.17.1`, built from the exact upstream commit above.
 All eleven staged source files (ten overlay files plus the patched helper)
-were checked byte-for-byte against the branch. The local sample has **21
-compile-and-link successes out of 25 attempts**. The four STM32 attempts are
+were checked byte-for-byte against the branch. The local sample has **26
+compile-and-link successes out of 30 attempts**. The four STM32 attempts are
 not counted as working firmware.
 
 | Exact command | Result | Seconds |
@@ -175,7 +175,7 @@ Repeated host checks pass: native utilities **5/5**, Python regressions **6/6**,
 `actionlint`, and the upstream transport contract with
 `-fsanitize=address,undefined`. No firmware behavior changed in this continuation.
 
-The additional board batch has **9 of 14** compile/link passes recorded so far.
+The additional board batch has **14 of 14** compile/link passes recorded so far.
 
 | Board batch | Exact command (run in the staged upstream tree) | Result | Seconds |
 | --- | --- | --- | ---: |
@@ -188,6 +188,11 @@ The additional board batch has **9 of 14** compile/link passes recorded so far.
 | Heltec ESP32 | `pio run -c .pio/unified-platformio.ini -e heltec_v4_r8_companion_radio_unified -j 4` | PASS, compile + link | 83.54 |
 | Heltec ESP32 | `pio run -c .pio/unified-platformio.ini -e heltec_v4_r8_tft_companion_radio_unified -j 4` | PASS, compile + link | 147.63 |
 | Heltec ESP32 | `pio run -c .pio/unified-platformio.ini -e heltec_tracker_v2_companion_radio_unified -j 4` | PASS, compile + link | 118.21 |
+| ThinkNode | `pio run -c .pio/unified-platformio.ini -e ThinkNode_M1_companion_radio_unified -j 4` | PASS, compile + link | 118.82 |
+| ThinkNode | `pio run -c .pio/unified-platformio.ini -e ThinkNode_M2_companion_radio_unified -j 4` | PASS, compile + link | 89.86 |
+| ThinkNode | `pio run -c .pio/unified-platformio.ini -e ThinkNode_M3_companion_radio_unified -j 4` | PASS, compile + link | 48.38 |
+| ThinkNode | `pio run -c .pio/unified-platformio.ini -e ThinkNode_M5_companion_radio_unified -j 4` | PASS, compile + link | 171.66 |
+| ThinkNode | `pio run -c .pio/unified-platformio.ini -e ThinkNode_M9_companion_radio_unified -j 4` | PASS, compile + link | 97.12 |
 
 Each new target was a failed job in daily run `36996304889`. Logs, command lines,
 source revisions, log hashes and linked-ELF hashes are in `.pio/review-evidence/round2/`

@@ -541,6 +541,116 @@
       "compile_link_verified": true,
       "log_sha256": "22762bb17b4e659bb79007dfa66cf8b0128d5ca4fdda6d6e23b1e870d97535ae",
       "elf_sha256": "0b2548d1ce99404acfa5f3fc0e89c4c4834fbb2a25c7a337cc5f6fbfac552bd0"
+    },
+    {
+      "target": "ThinkNode_M1_companion_radio_unified",
+      "batch": "ThinkNode",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M1_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 118.82,
+      "log": ".pio/review-evidence/round2/ThinkNode_M1_companion_radio_unified.log",
+      "source_commit": "93f1bd5d7217656554e50b8e164822f12f427772",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "d6d5374596662a478626d01059d2e3096c57d9d199e2693ddf93aefc59020f8f",
+      "elf_sha256": "d155cebf69004ee1f0ba63833e76a93f42f6312ef76d0b8f7c84b44f97d81e13"
+    },
+    {
+      "target": "ThinkNode_M2_companion_radio_unified",
+      "batch": "ThinkNode",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M2_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 89.86,
+      "log": ".pio/review-evidence/round2/ThinkNode_M2_companion_radio_unified.log",
+      "source_commit": "93f1bd5d7217656554e50b8e164822f12f427772",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "c5cdfeb21a0b9a8cd44e7b6691f7ad80dd02a41e2e7a7494e2d30d4da1c504c2",
+      "elf_sha256": "f3a2607e2d56e1cd017bf80a97d6a737542088f69dc5582c5c48654a6e47ec88"
+    },
+    {
+      "target": "ThinkNode_M3_companion_radio_unified",
+      "batch": "ThinkNode",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M3_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 48.38,
+      "log": ".pio/review-evidence/round2/ThinkNode_M3_companion_radio_unified.log",
+      "source_commit": "93f1bd5d7217656554e50b8e164822f12f427772",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "becbc1f12af1fb5a587ff0c60a782fda7099064866d5f76c6ba1f3383be4eee0",
+      "elf_sha256": "2feeab4788d29d090c61d6f4f14c368168e43e0d7556683e24d8a2299133f935"
+    },
+    {
+      "target": "ThinkNode_M5_companion_radio_unified",
+      "batch": "ThinkNode",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M5_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 171.66,
+      "log": ".pio/review-evidence/round2/ThinkNode_M5_companion_radio_unified.log",
+      "source_commit": "93f1bd5d7217656554e50b8e164822f12f427772",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "9c453d4ded878192a50c484821a650666dbff0b95369df71864adbe5dabe0e1b",
+      "elf_sha256": "89f13d3ae4ea24c134ff4104299168e2110eeabf3671f7099635e680f4b7a7c1"
+    },
+    {
+      "target": "ThinkNode_M9_companion_radio_unified",
+      "batch": "ThinkNode",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M9_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 97.12,
+      "log": ".pio/review-evidence/round2/ThinkNode_M9_companion_radio_unified.log",
+      "source_commit": "93f1bd5d7217656554e50b8e164822f12f427772",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "1240526e2912d18b8c06222814265fc81282c7d1fcfd7faf8bd6f187be5aa70d",
+      "elf_sha256": "382e01a61d4116d9bafb5ac2b9af750a6b3a2887fa3acb0fba2d4e07056ca1ed"
     }
   ],
   "targets": [
@@ -3016,7 +3126,7 @@
     "source_overlay_files": 10,
     "upstream_helper_backports": 1,
     "generated_configuration_reproduced_byte_for_byte": true,
-    "additional_local_builds_completed": 9,
+    "additional_local_builds_completed": 14,
     "additional_local_builds_planned": 14,
     "regression_checks": [
       {

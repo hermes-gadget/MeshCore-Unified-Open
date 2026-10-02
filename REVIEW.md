@@ -231,3 +231,13 @@ with the same four documented upstream STM32 failures. The full CI totals remain
 
 The tracked JSON includes source revisions, log and linked-ELF hashes, and essential
 build-log receipts (platform, memory use, linker and success lines). No hardware was used.
+
+## PlatformIO override resume verification
+
+Commit `d5607b17` also invalidates resumed results when `PLATFORMIO_*`
+environment overrides change. The CLI regression first reproduced a stale
+success after changing `PLATFORMIO_BUILD_FLAGS`, then passed after the fix.
+It confirms reuse for unchanged flags, rebuilding for changed or removed flags,
+and reuse when an unrelated output variable changes. Override values enter
+only the fingerprint hash. The complete Python suite now passes **7/7**;
+firmware sources and generated build configuration remain unchanged.

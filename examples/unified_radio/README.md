@@ -56,6 +56,9 @@ python3 tools/validate_unified_builds.py --resume
 ```
 
 Per-target logs and resumable results are written under `.pio/`.
+Changes to staged sources, generated configuration or `PLATFORMIO_*` overrides
+invalidate saved results. Override values are included only in the fingerprint
+hash, so private build flags are not written into the results file.
 
 ## Connection behavior
 

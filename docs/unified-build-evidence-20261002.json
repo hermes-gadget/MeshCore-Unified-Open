@@ -3998,6 +3998,22 @@
       "passed": 33,
       "upstream_failure": 4,
       "unique_targets_attempted": 37
+    },
+    "resume_environment_fix": {
+      "source_commit": "d5607b17",
+      "inputs": "PLATFORMIO_* environment overrides, including PLATFORMIO_BUILD_FLAGS",
+      "plaintext_override_values_written_to_results": false,
+      "cli_regression": {
+        "stale_result_reproduced_before_fix": true,
+        "unchanged_overrides_reuse_result": true,
+        "changed_or_removed_overrides_rebuild": true,
+        "unrelated_output_environment_preserves_result": true
+      },
+      "python_regression_tests": {
+        "passed": 7,
+        "failed": 0
+      },
+      "firmware_sources_changed": false
     }
   }
 }

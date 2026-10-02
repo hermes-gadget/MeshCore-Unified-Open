@@ -49,6 +49,10 @@ def apply_overlay(destination: Path) -> None:
             '    snprintf(p, 11, "%ld", static_cast<long>(int_part));',
         )
         if patched != original:
+            originals = destination / ".pio/unified-upstream-originals"
+            originals.mkdir(parents=True, exist_ok=True)
+            (originals / "TxtDataHelpers.cpp").write_text(original, encoding="utf-8")
+            (originals / "TxtDataHelpers.cpp.patched").write_text(patched, encoding="utf-8")
             helper.write_text(patched, encoding="utf-8")
             print("Applied portable integer conversion to upstream TxtDataHelpers")
 

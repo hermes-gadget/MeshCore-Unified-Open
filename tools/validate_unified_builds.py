@@ -16,6 +16,7 @@ import os
 import subprocess
 import sys
 import time
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Callable
 
@@ -76,6 +77,28 @@ def run_build(
 
 
 BuildRunner = Callable[[Path, str, Path, Path | None, bool], int]
+
+
+@contextmanager
+def upstream_baseline(project_dir: Path):
+    """Undo the helper backport only while compiling an untouched baseline."""
+    helper = project_dir / "src/helpers/TxtDataHelpers.cpp"
+    original = project_dir / ".pio/unified-upstream-originals/TxtDataHelpers.cpp"
+    patched = original.with_suffix(".cpp.patched")
+    if not (helper.is_file() and original.is_file() and patched.is_file()):
+        yield
+        return
+    current = helper.read_bytes()
+    # Do not restore an old checkout's snapshot over a subsequently edited
+    # helper or a newer upstream release that already fixed the conversion.
+    if current != patched.read_bytes():
+        yield
+        return
+    helper.write_bytes(original.read_bytes())
+    try:
+        yield
+    finally:
+        helper.write_bytes(current)
 
 
 def validation_fingerprint(
@@ -139,9 +162,10 @@ def validate_target(
     else:
         baseline_log = logs_dir / f"{target}.upstream.log"
         print(f"BASELINE {source}", flush=True)
-        baseline_status = runner(
-            project_dir, source, baseline_log, None, verbose
-        )
+        with upstream_baseline(project_dir):
+            baseline_status = runner(
+                project_dir, source, baseline_log, None, verbose
+            )
         result["baseline_exit_code"] = baseline_status
         result["baseline_log"] = str(baseline_log)
         result["status"] = (

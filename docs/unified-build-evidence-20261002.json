@@ -102,7 +102,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 15.77,
-      "log": ".pio/review-evidence/Heltec_t114_without_display_companion_radio_unified.log"
+      "log": ".pio/review-evidence/Heltec_t114_without_display_companion_radio_unified.log",
+      "log_sha256": "8a57d360c5a02906884c8bce8c5f14a4a78c1d90079cc0b7ad08f257348cf405",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing Heltec_t114_without_display_companion_radio_unified (board: heltec_t114; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Heltec T114 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/Heltec_t114_without_display_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.4% (used 146888 bytes from 235520 bytes)",
+        "Flash: [======    ]  59.0% (used 420424 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 15.33 seconds =========================",
+        "Heltec_t114_without_display_companion_radio_unified  SUCCESS   00:00:15.326"
+      ]
     },
     {
       "target": "Xiao_S3_WIO_companion_radio_unified",
@@ -118,7 +130,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 25.1,
-      "log": ".pio/review-evidence/Xiao_S3_WIO_companion_radio_unified.log"
+      "log": ".pio/review-evidence/Xiao_S3_WIO_companion_radio_unified.log",
+      "log_sha256": "fcaa0bf7970bc54b8e46bec2a79c694fb34396a7f8dd7a98afcce0d088d123fd",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing Xiao_S3_WIO_companion_radio_unified (board: seeed_xiao_esp32s3; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > Seeed Studio XIAO ESP32S3",
+        "HARDWARE: ESP32S3 240MHz, 320KB RAM, 8MB Flash",
+        "Linking .pio/build/Xiao_S3_WIO_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  59.2% (used 193852 bytes from 327680 bytes)",
+        "Flash: [=====     ]  48.8% (used 1630985 bytes from 3342336 bytes)",
+        "========================= [SUCCESS] Took 24.66 seconds =========================",
+        "Xiao_S3_WIO_companion_radio_unified  SUCCESS   00:00:24.659"
+      ]
     },
     {
       "target": "GAT562_30S_Mesh_Kit_companion_radio_unified",
@@ -134,7 +158,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 12.15,
-      "log": ".pio/review-evidence/GAT562_30S_Mesh_Kit_companion_radio_unified.log"
+      "log": ".pio/review-evidence/GAT562_30S_Mesh_Kit_companion_radio_unified.log",
+      "log_sha256": "f0ba6a4818fa6aaba51331f4453801fa547ea5f59d007422476c442717ba8f93",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing GAT562_30S_Mesh_Kit_companion_radio_unified (board: rak4631; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > WisCore RAK4631 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/GAT562_30S_Mesh_Kit_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.7% (used 147576 bytes from 235520 bytes)",
+        "Flash: [=======   ]  65.5% (used 466648 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 11.68 seconds =========================",
+        "GAT562_30S_Mesh_Kit_companion_radio_unified  SUCCESS   00:00:11.681"
+      ]
     },
     {
       "target": "Heltec_E290_companion_radio_unified",
@@ -150,7 +186,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 27.72,
-      "log": ".pio/review-evidence/Heltec_E290_companion_radio_unified.log"
+      "log": ".pio/review-evidence/Heltec_E290_companion_radio_unified.log",
+      "log_sha256": "687b1d842d9bf2ce10b33322b455bd8cf7329d49ccc2a1ba610d0a3ed31fdb03",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing Heltec_E290_companion_radio_unified (board: heltec_e290; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > Heltec Vision Master E290",
+        "HARDWARE: ESP32S3 240MHz, 8MB RAM, 6.25MB Flash",
+        "Linking .pio/build/Heltec_E290_companion_radio_unified/firmware.elf",
+        "RAM:   [          ]   2.4% (used 204060 bytes from 8388608 bytes)",
+        "Flash: [===       ]  25.1% (used 1643317 bytes from 6553600 bytes)",
+        "========================= [SUCCESS] Took 26.33 seconds =========================",
+        "Heltec_E290_companion_radio_unified  SUCCESS   00:00:26.326"
+      ]
     },
     {
       "target": "LilyGo_TDeck_companion_radio_unified",
@@ -166,7 +214,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 46.66,
-      "log": ".pio/review-evidence/LilyGo_TDeck_companion_radio_unified.log"
+      "log": ".pio/review-evidence/LilyGo_TDeck_companion_radio_unified.log",
+      "log_sha256": "a5758a52a699f099a55e766806822c9f6f2ae307c0904ab65ddee77bd4b88dfe",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing LilyGo_TDeck_companion_radio_unified (board: t-deck; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > LilyGo T-Deck (16M Flash 8M PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 320KB RAM, 6.25MB Flash",
+        "Linking .pio/build/LilyGo_TDeck_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  59.0% (used 193308 bytes from 327680 bytes)",
+        "Flash: [==        ]  24.8% (used 1626105 bytes from 6553600 bytes)",
+        "========================= [SUCCESS] Took 43.43 seconds =========================",
+        "LilyGo_TDeck_companion_radio_unified  SUCCESS   00:00:43.430"
+      ]
     },
     {
       "target": "Heltec_v3_companion_radio_unified",
@@ -182,7 +242,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 23.67,
-      "log": ".pio/review-evidence/Heltec_v3_companion_radio_unified.log"
+      "log": ".pio/review-evidence/Heltec_v3_companion_radio_unified.log",
+      "log_sha256": "2800e676638418d17354ef2bbd7854095a8993d0a89cf13810ed033bfd78750f",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing Heltec_v3_companion_radio_unified (board: esp32-s3-devkitc-1; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > Espressif ESP32-S3-DevKitC-1-N8 (8 MB QD, No PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 320KB RAM, 8MB Flash",
+        "Linking .pio/build/Heltec_v3_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  59.3% (used 194412 bytes from 327680 bytes)",
+        "Flash: [=====     ]  49.6% (used 1657813 bytes from 3342336 bytes)",
+        "========================= [SUCCESS] Took 23.17 seconds =========================",
+        "Heltec_v3_companion_radio_unified  SUCCESS   00:00:23.173"
+      ]
     },
     {
       "target": "ThinkNode_M7_companion_radio_unified",
@@ -198,7 +270,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 22.29,
-      "log": ".pio/review-evidence/ThinkNode_M7_companion_radio_unified.log"
+      "log": ".pio/review-evidence/ThinkNode_M7_companion_radio_unified.log",
+      "log_sha256": "fe678825dec3702536b5e838abf0aef6027ccf7d467d17e32de631a60f985d1a",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing ThinkNode_M7_companion_radio_unified (board: thinknode_m7; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > ELECROW ThinkNode M7",
+        "HARDWARE: ESP32S3 240MHz, 512KB RAM, 8MB Flash",
+        "Linking .pio/build/ThinkNode_M7_companion_radio_unified/firmware.elf",
+        "RAM:   [====      ]  36.9% (used 193568 bytes from 524288 bytes)",
+        "Flash: [=====     ]  48.4% (used 1618009 bytes from 3342336 bytes)",
+        "========================= [SUCCESS] Took 21.86 seconds =========================",
+        "ThinkNode_M7_companion_radio_unified  SUCCESS   00:00:21.857"
+      ]
     },
     {
       "target": "Heltec_t096_companion_radio_unified",
@@ -214,7 +298,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 13.1,
-      "log": ".pio/review-evidence/Heltec_t096_companion_radio_unified.log"
+      "log": ".pio/review-evidence/Heltec_t096_companion_radio_unified.log",
+      "log_sha256": "0ede08e025e8f20a22c92fe4de5c8745c6e5df22e3a11cf47b6dbb342fc996a7",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing Heltec_t096_companion_radio_unified (board: heltec_t096; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Heltec T096 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/Heltec_t096_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.5% (used 147176 bytes from 235520 bytes)",
+        "Flash: [=======   ]  65.0% (used 463372 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 12.62 seconds =========================",
+        "Heltec_t096_companion_radio_unified  SUCCESS   00:00:12.617"
+      ]
     },
     {
       "target": "Heltec_mesh_solar_companion_radio_unified",
@@ -230,7 +326,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 8.04,
-      "log": ".pio/review-evidence/Heltec_mesh_solar_companion_radio_unified.log"
+      "log": ".pio/review-evidence/Heltec_mesh_solar_companion_radio_unified.log",
+      "log_sha256": "63a39446e8d963f2ac7fbed4aa472399d38ffeeed0eb1a1199d6277f01bfac0c",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing Heltec_mesh_solar_companion_radio_unified (board: heltec_mesh_solar; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Heltec Mesh Solar Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/Heltec_mesh_solar_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.1% (used 146216 bytes from 235520 bytes)",
+        "Flash: [======    ]  56.7% (used 403880 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 7.58 seconds =========================",
+        "Heltec_mesh_solar_companion_radio_unified  SUCCESS   00:00:07.580"
+      ]
     },
     {
       "target": "RAK_4631_companion_radio_unified",
@@ -246,7 +354,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 12.21,
-      "log": ".pio/review-evidence/RAK_4631_companion_radio_unified.log"
+      "log": ".pio/review-evidence/RAK_4631_companion_radio_unified.log",
+      "log_sha256": "e77cb715f4ecdb8133bdfcc4f8caa70244c9c3808d1d3c7d39e87e94c1b4bac0",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing RAK_4631_companion_radio_unified (board: rak4631; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > WisCore RAK4631 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/RAK_4631_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  63.2% (used 148896 bytes from 235520 bytes)",
+        "Flash: [=======   ]  69.6% (used 496192 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 11.76 seconds =========================",
+        "RAK_4631_companion_radio_unified  SUCCESS   00:00:11.764"
+      ]
     },
     {
       "target": "LilyGo_TDeck_8MB_companion_radio_unified",
@@ -262,7 +382,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 25.68,
-      "log": ".pio/review-evidence/LilyGo_TDeck_8MB_companion_radio_unified.log"
+      "log": ".pio/review-evidence/LilyGo_TDeck_8MB_companion_radio_unified.log",
+      "log_sha256": "60139bd91dcf077621e05aa4cdbff589ffd6aad9aa94c367bbd3223626e8ce84",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing LilyGo_TDeck_8MB_companion_radio_unified (board: esp32-s3-devkitc-1; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > Espressif ESP32-S3-DevKitC-1-N8 (8 MB QD, No PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 320KB RAM, 6.25MB Flash",
+        "Linking .pio/build/LilyGo_TDeck_8MB_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  58.9% (used 193132 bytes from 327680 bytes)",
+        "Flash: [=====     ]  52.7% (used 1622581 bytes from 3080192 bytes)",
+        "========================= [SUCCESS] Took 25.22 seconds =========================",
+        "LilyGo_TDeck_8MB_companion_radio_unified  SUCCESS   00:00:25.216"
+      ]
     },
     {
       "target": "LilyGo_T-Echo_Card_companion_radio_unified",
@@ -278,7 +410,19 @@
       ],
       "exit_code": 0,
       "duration_seconds": 83.68,
-      "log": ".pio/review-evidence/LilyGo_T-Echo_Card_companion_radio_unified.log"
+      "log": ".pio/review-evidence/LilyGo_T-Echo_Card_companion_radio_unified.log",
+      "log_sha256": "ddb2db9cc6118994d81a04bd0a1c03af7da6313832020cd9bfa9b5a49a3516f6",
+      "compile_link_verified": true,
+      "build_receipt": [
+        "Processing LilyGo_T-Echo_Card_companion_radio_unified (board: t-echo; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > LilyGo T-ECHO",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/LilyGo_T-Echo_Card_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.4% (used 146932 bytes from 235520 bytes)",
+        "Flash: [=====     ]  54.1% (used 385396 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 83.20 seconds =========================",
+        "LilyGo_T-Echo_Card_companion_radio_unified  SUCCESS   00:01:23.199"
+      ]
     },
     {
       "target": "RAK_3x72_companion_radio_unified",
@@ -294,7 +438,19 @@
       ],
       "exit_code": 1,
       "duration_seconds": 28.46,
-      "log": ".pio/review-evidence/RAK_3x72_companion_radio_unified.log"
+      "log": ".pio/review-evidence/RAK_3x72_companion_radio_unified.log",
+      "log_sha256": "cb1d5b9f2536121c00768d0834292f73cf6b361e663c1be643d30af23b631d84",
+      "build_receipt": [
+        "Processing RAK_3x72_companion_radio_unified (board: rak3172; platform: ststm32; framework: arduino)",
+        "PLATFORM: ST STM32 (20.0.0) > BB-STM32WL",
+        "HARDWARE: STM32WLE5CCU 48MHz, 64KB RAM, 224KB Flash",
+        "========================= [FAILED] Took 27.86 seconds =========================",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:28:52: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:35:59: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:49:89: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:50:28: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:76:33: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]"
+      ]
     },
     {
       "target": "Tiny_Relay_companion_radio_unified",
@@ -310,7 +466,19 @@
       ],
       "exit_code": 1,
       "duration_seconds": 30.5,
-      "log": ".pio/review-evidence/Tiny_Relay_companion_radio_unified.log"
+      "log": ".pio/review-evidence/Tiny_Relay_companion_radio_unified.log",
+      "log_sha256": "9db77bb28c1a2c4d7a51de036e57a37314781814a6511c8fd1e20e7e4f5e704e",
+      "build_receipt": [
+        "Processing Tiny_Relay_companion_radio_unified (board: tiny_relay; platform: ststm32; framework: arduino)",
+        "PLATFORM: ST STM32 (20.0.0) > BB-STM32WL",
+        "HARDWARE: STM32WLE5CCU 48MHz, 64KB RAM, 224KB Flash",
+        "========================= [FAILED] Took 30.00 seconds =========================",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:28:52: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:35:59: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:49:89: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:50:28: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:76:33: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]"
+      ]
     },
     {
       "target": "wio-e5_companion_radio_unified",
@@ -326,7 +494,19 @@
       ],
       "exit_code": 1,
       "duration_seconds": 45.17,
-      "log": ".pio/review-evidence/wio-e5_companion_radio_unified.log"
+      "log": ".pio/review-evidence/wio-e5_companion_radio_unified.log",
+      "log_sha256": "2995e6b966623d493c6fe286e35ff8a8b827f6539326f18eece41898a9ba27d1",
+      "build_receipt": [
+        "Processing wio-e5_companion_radio_unified (board: lora_e5_dev_board; platform: ststm32; framework: arduino)",
+        "PLATFORM: ST STM32 (20.0.0) > SeeedStudio LoRa E5 Dev Board",
+        "HARDWARE: STM32WLE5JC 48MHz, 64KB RAM, 224KB Flash",
+        "========================= [FAILED] Took 44.70 seconds =========================",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:28:52: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:35:59: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:49:89: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:50:28: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:76:33: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]"
+      ]
     },
     {
       "target": "wio-e5-mini_companion_radio_unified",
@@ -342,7 +522,19 @@
       ],
       "exit_code": 1,
       "duration_seconds": 34.9,
-      "log": ".pio/review-evidence/wio-e5-mini_companion_radio_unified.log"
+      "log": ".pio/review-evidence/wio-e5-mini_companion_radio_unified.log",
+      "log_sha256": "c29a8748fbbb1990c9e1c8c671762b4597723e3a2996a1ea661d4b836e3329d9",
+      "build_receipt": [
+        "Processing wio-e5-mini_companion_radio_unified (board: lora_e5_mini; platform: ststm32; framework: arduino)",
+        "PLATFORM: ST STM32 (20.0.0) > SeeedStudio LoRa-E5 mini",
+        "HARDWARE: STM32WLE5JC 48MHz, 64KB RAM, 224KB Flash",
+        "========================= [FAILED] Took 34.00 seconds =========================",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:28:52: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:35:59: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:49:89: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:50:28: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:76:33: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]"
+      ]
     },
     {
       "target": "Heltec_t114_companion_radio_unified",
@@ -364,7 +556,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "15385d79b76c74dc948c487073516970c3a6152cd5142198abe30270fe50b264",
-      "elf_sha256": "e7567be8c01abe3cd7598b9c596024297e8b7471a438285a34f88e473e6fe78e"
+      "elf_sha256": "e7567be8c01abe3cd7598b9c596024297e8b7471a438285a34f88e473e6fe78e",
+      "build_receipt": [
+        "Processing Heltec_t114_companion_radio_unified (board: heltec_t114; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Heltec T114 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/Heltec_t114_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.4% (used 146976 bytes from 235520 bytes)",
+        "Flash: [======    ]  63.2% (used 450464 bytes from 712704 bytes)",
+        "======================== [SUCCESS] Took 108.24 seconds ========================",
+        "Heltec_t114_companion_radio_unified  SUCCESS   00:01:48.243"
+      ]
     },
     {
       "target": "Heltec_t1_companion_radio_unified",
@@ -386,7 +588,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "da518a7e796486a3db9e10bc404f71029a5a13b491d3d4b8d23d65ecf467a4d0",
-      "elf_sha256": "96bd4dd2da285599f8c4bb63d1b5b93dbc1150d57344112f588b1e552dc75ec0"
+      "elf_sha256": "96bd4dd2da285599f8c4bb63d1b5b93dbc1150d57344112f588b1e552dc75ec0",
+      "build_receipt": [
+        "Processing Heltec_t1_companion_radio_unified (board: heltec_t1; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Heltec Mesh Node T1 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/Heltec_t1_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.4% (used 146864 bytes from 235520 bytes)",
+        "Flash: [=======   ]  65.1% (used 464116 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 68.89 seconds =========================",
+        "Heltec_t1_companion_radio_unified  SUCCESS   00:01:08.888"
+      ]
     },
     {
       "target": "Heltec_tower_v2_companion_radio_unified",
@@ -408,7 +620,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "e24694fc4de14f94ca694d464af48d65cf6ed187fc038a5ce58ff1f54ae5dfc7",
-      "elf_sha256": "d28fb6a86bb58f5919105b5bceebfeff9368711b35e4e2cdc12c828d5920724d"
+      "elf_sha256": "d28fb6a86bb58f5919105b5bceebfeff9368711b35e4e2cdc12c828d5920724d",
+      "build_receipt": [
+        "Processing Heltec_tower_v2_companion_radio_unified (board: heltec_tower_v2; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Heltec Tower V2 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/Heltec_tower_v2_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  61.8% (used 145448 bytes from 235520 bytes)",
+        "Flash: [=====     ]  51.7% (used 368136 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 58.50 seconds =========================",
+        "Heltec_tower_v2_companion_radio_unified  SUCCESS   00:00:58.503"
+      ]
     },
     {
       "target": "Heltec_E213_companion_radio_unified",
@@ -430,7 +652,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "584f21bc7032f362afc049ba49babedc0627ad5b713fdf0df2959c0b4034e401",
-      "elf_sha256": "71458a68f3f09d06df3b882c10d63565421ca74c1aa0c9f9f60e39b883c2fe4f"
+      "elf_sha256": "71458a68f3f09d06df3b882c10d63565421ca74c1aa0c9f9f60e39b883c2fe4f",
+      "build_receipt": [
+        "Processing Heltec_E213_companion_radio_unified (board: heltec_e213; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > Heltec Vision Master E213",
+        "HARDWARE: ESP32S3 240MHz, 8MB RAM, 6.25MB Flash",
+        "Linking .pio/build/Heltec_E213_companion_radio_unified/firmware.elf",
+        "RAM:   [          ]   2.4% (used 203876 bytes from 8388608 bytes)",
+        "Flash: [===       ]  25.1% (used 1645409 bytes from 6553600 bytes)",
+        "======================== [SUCCESS] Took 100.02 seconds ========================",
+        "Heltec_E213_companion_radio_unified  SUCCESS   00:01:40.019"
+      ]
     },
     {
       "target": "heltec_v4_companion_radio_unified",
@@ -452,7 +684,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "00f665b35ad8c1ce3e920d64fffe74f5a9c55793df47872319495567fda83e5a",
-      "elf_sha256": "b305c3726ca6fbf06fc296595a5403f4047fa5b513c7cfa374094325123fbfe1"
+      "elf_sha256": "b305c3726ca6fbf06fc296595a5403f4047fa5b513c7cfa374094325123fbfe1",
+      "build_receipt": [
+        "Processing heltec_v4_companion_radio_unified (board: heltec_v4; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > heltec_wifi_lora_32 v4 (16 MB FLASH, 2 MB PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 2MB RAM, 6.25MB Flash",
+        "Linking .pio/build/heltec_v4_companion_radio_unified/firmware.elf",
+        "RAM:   [=         ]   9.3% (used 194368 bytes from 2097152 bytes)",
+        "Flash: [===       ]  25.3% (used 1655349 bytes from 6553600 bytes)",
+        "========================= [SUCCESS] Took 84.56 seconds =========================",
+        "heltec_v4_companion_radio_unified  SUCCESS   00:01:24.563"
+      ]
     },
     {
       "target": "heltec_v4_tft_companion_radio_unified",
@@ -474,7 +716,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "392cee74f13ee7306f90283b95995c8f3d479b3dc261545b077d109839d6a9b4",
-      "elf_sha256": "84bbab1d04bb55180a07522084897815748f7a8ac3ba67be8292c72f9dbfc2eb"
+      "elf_sha256": "84bbab1d04bb55180a07522084897815748f7a8ac3ba67be8292c72f9dbfc2eb",
+      "build_receipt": [
+        "Processing heltec_v4_tft_companion_radio_unified (board: heltec_v4; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > heltec_wifi_lora_32 v4 (16 MB FLASH, 2 MB PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 2MB RAM, 6.25MB Flash",
+        "Linking .pio/build/heltec_v4_tft_companion_radio_unified/firmware.elf",
+        "RAM:   [=         ]   9.3% (used 194464 bytes from 2097152 bytes)",
+        "Flash: [===       ]  25.3% (used 1657049 bytes from 6553600 bytes)",
+        "========================= [SUCCESS] Took 91.29 seconds =========================",
+        "heltec_v4_tft_companion_radio_unified  SUCCESS   00:01:31.292"
+      ]
     },
     {
       "target": "heltec_v4_r8_companion_radio_unified",
@@ -496,7 +748,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "586bc918d5287f3f85958243fb2532905535982db0580767e49905a344fc601e",
-      "elf_sha256": "ddd6b04ff288be4b58e4deb56aaf52ead1bdeb72a6229d66a468dd89d1d53b4e"
+      "elf_sha256": "ddd6b04ff288be4b58e4deb56aaf52ead1bdeb72a6229d66a468dd89d1d53b4e",
+      "build_receipt": [
+        "Processing heltec_v4_r8_companion_radio_unified (board: heltec_v4_r8; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > heltec_wifi_lora_32 v4 r8 (16 MB FLASH, 8 MB PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 320KB RAM, 6.25MB Flash",
+        "Linking .pio/build/heltec_v4_r8_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  59.3% (used 194292 bytes from 327680 bytes)",
+        "Flash: [===       ]  25.3% (used 1658817 bytes from 6553600 bytes)",
+        "========================= [SUCCESS] Took 83.10 seconds =========================",
+        "heltec_v4_r8_companion_radio_unified  SUCCESS   00:01:23.097"
+      ]
     },
     {
       "target": "heltec_v4_r8_tft_companion_radio_unified",
@@ -518,7 +780,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "41f01a4aa4a9de3a4918ec2b503ab3f2b0b93bf55dd751feda97824190be9ab4",
-      "elf_sha256": "34c2b4f956d9a9397770bfb90659156675bdb593fca09e622db3357600fcc761"
+      "elf_sha256": "34c2b4f956d9a9397770bfb90659156675bdb593fca09e622db3357600fcc761",
+      "build_receipt": [
+        "Processing heltec_v4_r8_tft_companion_radio_unified (board: heltec_v4_r8; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > heltec_wifi_lora_32 v4 r8 (16 MB FLASH, 8 MB PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 320KB RAM, 6.25MB Flash",
+        "Linking .pio/build/heltec_v4_r8_tft_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  59.3% (used 194436 bytes from 327680 bytes)",
+        "Flash: [===       ]  25.4% (used 1662765 bytes from 6553600 bytes)",
+        "======================== [SUCCESS] Took 147.06 seconds ========================",
+        "heltec_v4_r8_tft_companion_radio_unified  SUCCESS   00:02:27.064"
+      ]
     },
     {
       "target": "heltec_tracker_v2_companion_radio_unified",
@@ -540,7 +812,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "22762bb17b4e659bb79007dfa66cf8b0128d5ca4fdda6d6e23b1e870d97535ae",
-      "elf_sha256": "0b2548d1ce99404acfa5f3fc0e89c4c4834fbb2a25c7a337cc5f6fbfac552bd0"
+      "elf_sha256": "0b2548d1ce99404acfa5f3fc0e89c4c4834fbb2a25c7a337cc5f6fbfac552bd0",
+      "build_receipt": [
+        "Processing heltec_tracker_v2_companion_radio_unified (board: heltec_tracker_v2; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > heltec_tracker v2",
+        "HARDWARE: ESP32S3 240MHz, 320KB RAM, 3.19MB Flash",
+        "Linking .pio/build/heltec_tracker_v2_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.9% (used 206236 bytes from 327680 bytes)",
+        "Flash: [=====     ]  51.1% (used 1709125 bytes from 3342336 bytes)",
+        "======================== [SUCCESS] Took 117.18 seconds ========================",
+        "heltec_tracker_v2_companion_radio_unified  SUCCESS   00:01:57.180"
+      ]
     },
     {
       "target": "ThinkNode_M1_companion_radio_unified",
@@ -562,7 +844,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "d6d5374596662a478626d01059d2e3096c57d9d199e2693ddf93aefc59020f8f",
-      "elf_sha256": "d155cebf69004ee1f0ba63833e76a93f42f6312ef76d0b8f7c84b44f97d81e13"
+      "elf_sha256": "d155cebf69004ee1f0ba63833e76a93f42f6312ef76d0b8f7c84b44f97d81e13",
+      "build_receipt": [
+        "Processing ThinkNode_M1_companion_radio_unified (board: thinknode_m1; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > elecrow eink",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/ThinkNode_M1_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  64.1% (used 150980 bytes from 235520 bytes)",
+        "Flash: [======    ]  56.1% (used 400080 bytes from 712704 bytes)",
+        "======================== [SUCCESS] Took 118.33 seconds ========================",
+        "ThinkNode_M1_companion_radio_unified  SUCCESS   00:01:58.329"
+      ]
     },
     {
       "target": "ThinkNode_M2_companion_radio_unified",
@@ -584,7 +876,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "c5cdfeb21a0b9a8cd44e7b6691f7ad80dd02a41e2e7a7494e2d30d4da1c504c2",
-      "elf_sha256": "f3a2607e2d56e1cd017bf80a97d6a737542088f69dc5582c5c48654a6e47ec88"
+      "elf_sha256": "f3a2607e2d56e1cd017bf80a97d6a737542088f69dc5582c5c48654a6e47ec88",
+      "build_receipt": [
+        "Processing ThinkNode_M2_companion_radio_unified (board: ESP32-S3-WROOM-1-N4; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > ESP32-S3-WROOM-1-N4 (4 MB Flash, No PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 512KB RAM, 3MB Flash",
+        "Linking .pio/build/ThinkNode_M2_companion_radio_unified/firmware.elf",
+        "RAM:   [===       ]  31.2% (used 163676 bytes from 524288 bytes)",
+        "Flash: [=====     ]  50.7% (used 1594197 bytes from 3145728 bytes)",
+        "========================= [SUCCESS] Took 89.24 seconds =========================",
+        "ThinkNode_M2_companion_radio_unified  SUCCESS   00:01:29.237"
+      ]
     },
     {
       "target": "ThinkNode_M3_companion_radio_unified",
@@ -606,7 +908,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "becbc1f12af1fb5a587ff0c60a782fda7099064866d5f76c6ba1f3383be4eee0",
-      "elf_sha256": "2feeab4788d29d090c61d6f4f14c368168e43e0d7556683e24d8a2299133f935"
+      "elf_sha256": "2feeab4788d29d090c61d6f4f14c368168e43e0d7556683e24d8a2299133f935",
+      "build_receipt": [
+        "Processing ThinkNode_M3_companion_radio_unified (board: thinknode_m3; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > elecrow nrf",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 692KB Flash",
+        "Linking .pio/build/ThinkNode_M3_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  61.7% (used 145352 bytes from 235520 bytes)",
+        "Flash: [=====     ]  50.2% (used 355916 bytes from 708608 bytes)",
+        "========================= [SUCCESS] Took 47.95 seconds =========================",
+        "ThinkNode_M3_companion_radio_unified  SUCCESS   00:00:47.954"
+      ]
     },
     {
       "target": "ThinkNode_M5_companion_radio_unified",
@@ -628,7 +940,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "9c453d4ded878192a50c484821a650666dbff0b95369df71864adbe5dabe0e1b",
-      "elf_sha256": "89f13d3ae4ea24c134ff4104299168e2110eeabf3671f7099635e680f4b7a7c1"
+      "elf_sha256": "89f13d3ae4ea24c134ff4104299168e2110eeabf3671f7099635e680f4b7a7c1",
+      "build_receipt": [
+        "Processing ThinkNode_M5_companion_radio_unified (board: ESP32-S3-WROOM-1-N4; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > ESP32-S3-WROOM-1-N4 (4 MB Flash, No PSRAM)",
+        "HARDWARE: ESP32S3 240MHz, 512KB RAM, 3MB Flash",
+        "Linking .pio/build/ThinkNode_M5_companion_radio_unified/firmware.elf",
+        "RAM:   [===       ]  32.3% (used 169116 bytes from 524288 bytes)",
+        "Flash: [=====     ]  51.2% (used 1610989 bytes from 3145728 bytes)",
+        "======================== [SUCCESS] Took 168.96 seconds ========================",
+        "ThinkNode_M5_companion_radio_unified  SUCCESS   00:02:48.964"
+      ]
     },
     {
       "target": "ThinkNode_M9_companion_radio_unified",
@@ -650,7 +972,17 @@
       "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
       "compile_link_verified": true,
       "log_sha256": "1240526e2912d18b8c06222814265fc81282c7d1fcfd7faf8bd6f187be5aa70d",
-      "elf_sha256": "382e01a61d4116d9bafb5ac2b9af750a6b3a2887fa3acb0fba2d4e07056ca1ed"
+      "elf_sha256": "382e01a61d4116d9bafb5ac2b9af750a6b3a2887fa3acb0fba2d4e07056ca1ed",
+      "build_receipt": [
+        "Processing ThinkNode_M9_companion_radio_unified (board: thinknode_m9; platform: platformio/espressif32@6.11.0; framework: arduino)",
+        "PLATFORM: Espressif 32 (6.11.0) > elecrow-thinknode-m9",
+        "HARDWARE: ESP32S3 240MHz, 512KB RAM, 16MB Flash",
+        "Linking .pio/build/ThinkNode_M9_companion_radio_unified/firmware.elf",
+        "RAM:   [====      ]  37.0% (used 194084 bytes from 524288 bytes)",
+        "Flash: [===       ]  25.4% (used 1665621 bytes from 6553600 bytes)",
+        "========================= [SUCCESS] Took 96.33 seconds =========================",
+        "ThinkNode_M9_companion_radio_unified  SUCCESS   00:01:36.333"
+      ]
     },
     {
       "target": "GAT562_Mesh_Tracker_Pro_companion_radio_unified",
@@ -714,6 +1046,38 @@
         "Flash: [======    ]  60.5% (used 431520 bytes from 712704 bytes)",
         "========================= [SUCCESS] Took 72.38 seconds =========================",
         "GAT562_Mesh_Watch13_companion_radio_unified  SUCCESS   00:01:12.376"
+      ]
+    },
+    {
+      "target": "LilyGo_T-Echo-Lite_companion_radio_unified",
+      "batch": "LilyGo nRF52",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T-Echo-Lite_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 63.88,
+      "log": ".pio/review-evidence/round3/LilyGo_T-Echo-Lite_companion_radio_unified.log",
+      "source_commit": "d49e7a79dc27752158148a4384dc46cbd5222988",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "a873edb76aca520ffd1fa8c4054a24ea3200c8358e939465529df0634aca0581",
+      "elf_sha256": "ad573c307e9ca83cbfca67be3e39750edbe1a664c073e97156f595480d60df27",
+      "build_receipt": [
+        "Processing LilyGo_T-Echo-Lite_companion_radio_unified (board: t-echo; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > LilyGo T-ECHO",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/LilyGo_T-Echo-Lite_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  63.6% (used 149744 bytes from 235520 bytes)",
+        "Flash: [=====     ]  55.0% (used 391956 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 63.38 seconds =========================",
+        "LilyGo_T-Echo-Lite_companion_radio_unified  SUCCESS   00:01:03.380"
       ]
     }
   ],
@@ -3501,11 +3865,11 @@
       "log": ".pio/review-evidence/round2/resume-source-change.log",
       "log_sha256": "2c9d1d123f63a97006a6191b700c99008b039ca9482a323845020d97254ff99d"
     },
-    "additional_window_local_builds_completed": 2,
+    "additional_window_local_builds_completed": 3,
     "local_build_counts": {
-      "passed": 28,
+      "passed": 29,
       "upstream_failure": 4,
-      "unique_targets_attempted": 32
+      "unique_targets_attempted": 33
     }
   }
 }

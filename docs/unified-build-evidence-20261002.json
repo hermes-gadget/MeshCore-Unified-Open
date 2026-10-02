@@ -1207,6 +1207,68 @@
         "========================= [SUCCESS] Took 98.88 seconds =========================",
         "Xiao_nrf52_companion_radio_unified  SUCCESS   00:01:38.881"
       ]
+    },
+    {
+      "target": "WioTrackerL1Eink_companion_radio_unified",
+      "batch": "nRF52 display boards",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "WioTrackerL1Eink_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 141.91,
+      "log": ".pio/review-evidence/round6/WioTrackerL1Eink_companion_radio_unified.log",
+      "source_commit": "c9b016702673b4bc5923af2b7a251738dae2d332",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "fe3b0e8b6c40755d5c787d6ff0b4381d1dde876c97b5ae2dc553274c6a503a9e",
+      "elf_sha256": "c4e868b85de5e046e389f56ba00d8dfa293209a948c6188eb6a8038eddc1ef7a",
+      "build_receipt": [
+        "Processing WioTrackerL1Eink_companion_radio_unified (board: seeed-wio-tracker-l1; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Seeed Wio Tracker L1",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 692KB Flash",
+        "Linking .pio/build/WioTrackerL1Eink_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  64.4% (used 151740 bytes from 235520 bytes)",
+        "Flash: [======    ]  64.1% (used 454120 bytes from 708608 bytes)",
+        "======================== [SUCCESS] Took 141.03 seconds ========================"
+      ]
+    },
+    {
+      "target": "Mesh_pocket_companion_radio_unified",
+      "batch": "nRF52 display boards",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Mesh_pocket_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 62.7,
+      "log": ".pio/review-evidence/round6/Mesh_pocket_companion_radio_unified.log",
+      "source_commit": "c9b016702673b4bc5923af2b7a251738dae2d332",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "1dceaa807c4d693dcac5e2fd49a65048d339fa9d6f9d8b4d32eb57305c3b0a02",
+      "elf_sha256": "5b88932c94c2ca8546886a74ccffa509c30b4923781a2af0f830bc77e836ceae",
+      "build_receipt": [
+        "Processing Mesh_pocket_companion_radio_unified (board: heltec_mesh_pocket; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Heltec nrf (Adafruit BSP)",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/Mesh_pocket_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  63.2% (used 148896 bytes from 235520 bytes)",
+        "Flash: [=====     ]  53.4% (used 380824 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 62.08 seconds ========================="
+      ]
     }
   ],
   "targets": [
@@ -4191,11 +4253,11 @@
       "log": ".pio/review-evidence/round2/resume-source-change.log",
       "log_sha256": "2c9d1d123f63a97006a6191b700c99008b039ca9482a323845020d97254ff99d"
     },
-    "additional_window_local_builds_completed": 7,
+    "additional_window_local_builds_completed": 9,
     "local_build_counts": {
-      "passed": 33,
+      "passed": 35,
       "upstream_failure": 4,
-      "unique_targets_attempted": 37
+      "unique_targets_attempted": 39
     },
     "resume_environment_fix": {
       "source_commit": "d5607b17",
@@ -4873,6 +4935,14 @@
       },
       "includes_platformio_override_resume_fix": true,
       "includes_ci_concurrency_fix": true
+    },
+    "additional_display_board_batch": {
+      "source_commit": "c9b016702673b4bc5923af2b7a251738dae2d332",
+      "targets": [
+        "WioTrackerL1Eink_companion_radio_unified",
+        "Mesh_pocket_companion_radio_unified"
+      ],
+      "compile_link_verified": true
     }
   }
 }

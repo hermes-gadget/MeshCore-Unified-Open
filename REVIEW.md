@@ -215,8 +215,8 @@ actual CLI path as well as the six passing Python regression tests.
 
 ## Additional checkpoint board builds
 
-The final-window batch has **7** additional independent compile/link passes.
-Local coverage is now **33 passes in 37 unique target attempts**,
+The final-window batch has **9** additional independent compile/link passes.
+Local coverage is now **35 passes in 39 unique target attempts**,
 with the same four documented upstream STM32 failures. The full CI totals remain 93/6.
 
 | Target | Exact command in staged upstream tree | Seconds |
@@ -228,6 +228,8 @@ with the same four documented upstream STM32 failures. The full CI totals remain
 | `RAK_3401_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e RAK_3401_companion_radio_unified -j 4` | 78.26 |
 | `RAK_WisMesh_Tag_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e RAK_WisMesh_Tag_companion_radio_unified -j 4` | 64.35 |
 | `Xiao_nrf52_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e Xiao_nrf52_companion_radio_unified -j 4` | 99.36 |
+| `WioTrackerL1Eink_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e WioTrackerL1Eink_companion_radio_unified -j 4` | 141.91 |
+| `Mesh_pocket_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e Mesh_pocket_companion_radio_unified -j 4` | 62.7 |
 
 The tracked JSON includes source revisions, log and linked-ELF hashes, and essential
 build-log receipts (platform, memory use, linker and success lines). No hardware was used.
@@ -275,5 +277,9 @@ fix and workflow concurrency. All 99 target logs were individually audited:
 **93 firmware links, six reproduced upstream failures, zero overlay failures**.
 All 74 previously failing daily targets link, and all **112 PR checks pass**
 on this audited revision. The evidence JSON records every final job URL and log
-hash. The seven additional checkpoint boards all passed locally, bringing local
-coverage to **33 successes in 37 unique target attempts**. No hardware was used.
+hash. The nine additional checkpoint boards all passed locally, bringing local
+coverage to **35 successes in 39 unique target attempts**. No hardware was used.
+
+The e-ink WioTracker L1 and Mesh Pocket follow-up builds use source commit
+`c9b016702673b4bc5923af2b7a251738dae2d332` against the same pinned upstream release; each has
+an explicit linker step and `[SUCCESS]`. The complete CI matrix remains 93/6.

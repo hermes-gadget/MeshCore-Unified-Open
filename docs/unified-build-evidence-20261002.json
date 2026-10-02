@@ -475,6 +475,72 @@
       "compile_link_verified": true,
       "log_sha256": "392cee74f13ee7306f90283b95995c8f3d479b3dc261545b077d109839d6a9b4",
       "elf_sha256": "84bbab1d04bb55180a07522084897815748f7a8ac3ba67be8292c72f9dbfc2eb"
+    },
+    {
+      "target": "heltec_v4_r8_companion_radio_unified",
+      "batch": "Heltec ESP32",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_v4_r8_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 83.54,
+      "log": ".pio/review-evidence/round2/heltec_v4_r8_companion_radio_unified.log",
+      "source_commit": "93f1bd5d7217656554e50b8e164822f12f427772",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "586bc918d5287f3f85958243fb2532905535982db0580767e49905a344fc601e",
+      "elf_sha256": "ddd6b04ff288be4b58e4deb56aaf52ead1bdeb72a6229d66a468dd89d1d53b4e"
+    },
+    {
+      "target": "heltec_v4_r8_tft_companion_radio_unified",
+      "batch": "Heltec ESP32",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_v4_r8_tft_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 147.63,
+      "log": ".pio/review-evidence/round2/heltec_v4_r8_tft_companion_radio_unified.log",
+      "source_commit": "93f1bd5d7217656554e50b8e164822f12f427772",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "41f01a4aa4a9de3a4918ec2b503ab3f2b0b93bf55dd751feda97824190be9ab4",
+      "elf_sha256": "34c2b4f956d9a9397770bfb90659156675bdb593fca09e622db3357600fcc761"
+    },
+    {
+      "target": "heltec_tracker_v2_companion_radio_unified",
+      "batch": "Heltec ESP32",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_tracker_v2_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 118.21,
+      "log": ".pio/review-evidence/round2/heltec_tracker_v2_companion_radio_unified.log",
+      "source_commit": "93f1bd5d7217656554e50b8e164822f12f427772",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "22762bb17b4e659bb79007dfa66cf8b0128d5ca4fdda6d6e23b1e870d97535ae",
+      "elf_sha256": "0b2548d1ce99404acfa5f3fc0e89c4c4834fbb2a25c7a337cc5f6fbfac552bd0"
     }
   ],
   "targets": [
@@ -2950,7 +3016,7 @@
     "source_overlay_files": 10,
     "upstream_helper_backports": 1,
     "generated_configuration_reproduced_byte_for_byte": true,
-    "additional_local_builds_completed": 6,
+    "additional_local_builds_completed": 9,
     "additional_local_builds_planned": 14,
     "regression_checks": [
       {
@@ -2966,7 +3032,9 @@
           "test_*.py",
           "-v"
         ],
-        "exit_code": 0
+        "exit_code": 0,
+        "test_cases": 6,
+        "log": ".pio/review-evidence/round2/python-regressions.log"
       },
       {
         "check": "Workflow lint",

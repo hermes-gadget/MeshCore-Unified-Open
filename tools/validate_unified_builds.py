@@ -105,6 +105,15 @@ def validation_fingerprint(
     project_dir: Path, manifest_path: Path, config: Path
 ) -> str:
     digest = hashlib.sha256()
+    # PlatformIO accepts build overrides through the environment. A resumed
+    # result must describe the same overrides; retain only their hash, since
+    # flags can contain private credentials.
+    build_environment = {
+        name: value for name, value in os.environ.items()
+        if name.startswith("PLATFORMIO_")
+    }
+    digest.update(b"platformio-environment\0")
+    digest.update(json.dumps(build_environment, sort_keys=True).encode())
     for path in (manifest_path, config):
         digest.update(str(path.relative_to(project_dir)).encode())
         digest.update(path.read_bytes())

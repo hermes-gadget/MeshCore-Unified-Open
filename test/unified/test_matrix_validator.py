@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import subprocess
 import tempfile
 import unittest
@@ -141,6 +142,34 @@ class MatrixValidatorTest(unittest.TestCase):
                 original.parent.mkdir(parents=True)
                 original.write_text("pristine baseline helper")
                 self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
+
+    def test_resume_rebuilds_when_platformio_build_overrides_change(self):
+        item = {"target": "board_unified", "source_environment": "board_usb"}
+        with tempfile.TemporaryDirectory() as tmp_name:
+            project = Path(tmp_name)
+            output = project / ".pio"
+            output.mkdir()
+            (output / "unified-targets.json").write_text(json.dumps([item]))
+            (output / "unified-platformio.ini").write_text("[env:board_unified]\n")
+            build = Mock(return_value={"target": item["target"], "status": validator.RESULT_PASS})
+            with patch.object(validator.Path, "cwd", return_value=project), \
+                 patch.object(validator.subprocess, "check_output", return_value=b""), \
+                 patch.object(validator, "validate_target", build), \
+                 patch("sys.argv", ["validate_unified_builds.py", "--resume"]), \
+                 patch("builtins.print"):
+                with patch.dict(validator.os.environ, {"PLATFORMIO_BUILD_FLAGS": "-D TEST_OPTION=1"}, clear=True):
+                    self.assertEqual(validator.main(), 0)
+                    self.assertEqual(validator.main(), 0)
+                    self.assertEqual(build.call_count, 1)
+                with patch.dict(validator.os.environ, {"PLATFORMIO_BUILD_FLAGS": "-D TEST_OPTION=2"}, clear=True):
+                    self.assertEqual(validator.main(), 0)
+                    self.assertEqual(build.call_count, 2)
+                    with patch.dict(validator.os.environ, {"GITHUB_OUTPUT": "unrelated-output"}):
+                        self.assertEqual(validator.main(), 0)
+                        self.assertEqual(build.call_count, 2)
+                with patch.dict(validator.os.environ, {}, clear=True):
+                    self.assertEqual(validator.main(), 0)
+                    self.assertEqual(build.call_count, 3)
 
 
 if __name__ == "__main__":

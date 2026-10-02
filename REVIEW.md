@@ -215,9 +215,9 @@ actual CLI path as well as the six passing Python regression tests.
 
 ## Additional checkpoint board builds
 
-The final-window batch has **9** additional independent compile/link passes.
-Local coverage is now **35 passes in 39 unique target attempts**,
-with the same four documented upstream STM32 failures. The full CI totals remain 93/6.
+The final-window batch has **10** additional independent compile/link passes.
+Local coverage is now **36 passes in 41 unique target attempts**,
+with four documented upstream STM32 failures and one interrupted local build. The full CI totals remain 93/6.
 
 | Target | Exact command in staged upstream tree | Seconds |
 | --- | --- | ---: |
@@ -230,6 +230,7 @@ with the same four documented upstream STM32 failures. The full CI totals remain
 | `Xiao_nrf52_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e Xiao_nrf52_companion_radio_unified -j 4` | 99.36 |
 | `WioTrackerL1Eink_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e WioTrackerL1Eink_companion_radio_unified -j 4` | 141.91 |
 | `Mesh_pocket_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e Mesh_pocket_companion_radio_unified -j 4` | 62.7 |
+| `t1000e_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e t1000e_companion_radio_unified -j 4` | 45.24 |
 
 The tracked JSON includes source revisions, log and linked-ELF hashes, and essential
 build-log receipts (platform, memory use, linker and success lines). No hardware was used.
@@ -271,15 +272,49 @@ as verified firmware or change the complete 93/6 matrix result.
 
 ## Completed final follow-up matrix
 
-[PR CI run 37040956657](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657)
-completed successfully on `25471505`, including the PlatformIO override resume
+[PR CI run 37045319718](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37045319718)
+completed successfully on `c9b01670`, including the PlatformIO override resume
 fix and workflow concurrency. All 99 target logs were individually audited:
 **93 firmware links, six reproduced upstream failures, zero overlay failures**.
 All 74 previously failing daily targets link, and all **112 PR checks pass**
 on this audited revision. The evidence JSON records every final job URL and log
-hash. The nine additional checkpoint boards all passed locally, bringing local
-coverage to **35 successes in 39 unique target attempts**. No hardware was used.
+hash. The ten additional checkpoint boards all passed locally, bringing local
+coverage to **36 successes in 41 unique target attempts**, including one interrupted attempt. No hardware was used.
 
 The e-ink WioTracker L1 and Mesh Pocket follow-up builds use source commit
 `c9b016702673b4bc5923af2b7a251738dae2d332` against the same pinned upstream release; each has
 an explicit linker step and `[SUCCESS]`. The complete CI matrix remains 93/6.
+
+## Owner wrap-up handoff
+
+Stopped further local builds on Ben's explicit wrap-up signal. The completed
+T1000-E build is saved with linker/success receipts and log/ELF hashes;
+`MeshTracker_X1_companion_radio_unified` was interrupted and is **not locally
+verified**. Its exact attempted command was
+`pio run -c .pio/unified-platformio.ini -e MeshTracker_X1_companion_radio_unified -j 4`
+in the staged upstream tree. It is independently compile/link verified in the
+fully audited C9 CI matrix. Local totals are 36 successful links, four reproduced
+upstream failures, and one interrupted attempt across 41 unique targets.
+
+The last fully audited source revision is `c9b016702673b4bc5923af2b7a251738dae2d332`:
+99 targets individually audited, 93 links, six upstream failures, zero overlay
+failures; all 112 PR checks passed. Later commits change documentation and
+evidence only. Fresh CI for those commits is still pending at handoff and has
+not been claimed as completed. Python regressions are 7/7, native cases 5/5,
+and the actual upstream-header sanitizer contract and workflow lint passed.
+
+The six targets listed in the upstream-failure table remain unverified as
+working firmware: Generic_ESPNOW, SenseCapIndicator-ESPNow, RAK_3x72, Tiny_Relay,
+wio-e5 and wio-e5-mini (each with `_companion_radio_unified`). The ESPNow
+baselines lack `P_LORA_DIO_1`; the STM32 baselines reproduce upstream formatting
+and strict-enum incompatibilities. They are reported as upstream failures,
+not firmware passes. Of the 93 CI-linked targets, 36 also link locally and
+57 have CI-only compile verification.
+
+PR #4 remains open for the owner's review and merge. Main is unchanged, so the
+daily workflow does not gain the port until that merge. Release packaging was
+verified in a `publish_release=false` dry run; no release was published.
+No hardware testing was performed. All source fixes and compact build receipts
+are committed; transient staged sources, build products and raw logs remain
+ignored, with their relevant commands, source revisions and hashes in the
+tracked evidence JSON. No further scope was started after the stop signal.

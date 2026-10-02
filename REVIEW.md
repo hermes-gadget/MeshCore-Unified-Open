@@ -29,6 +29,14 @@ The upstream manager supplies the UI integration; the existing unified policy
 remains responsible for mesh I/O. The daily discovery job now runs the transport
 regression test against the exact upstream headers it will build.
 
+The PR unified CI lane now resolves the latest companion tag once, stages the
+overlay on that tag and uses the same upstream source for discovery, host tests
+and firmware builds. Its former use of the frozen root sources would miss the
+release API regression. The native test environment now declares
+`test_framework = googletest`, so PlatformIO reports all five tests instead of
+zero parsed cases. The shared setup action also has its required description;
+`actionlint` passes for both unified workflows and the unit-test lane.
+
 ## Reproduction
 
 All staged source and build artifacts live inside this worktree under `.pio/`.
@@ -50,7 +58,14 @@ pio run -c .pio/unified-platformio.ini -e Heltec_t114_without_display_companion_
 Host C++ regression test: PASS with `g++ -std=c++17 -Wall -Wextra -Werror`,
 using `test/unified`, `examples/unified_radio` and the staged upstream `src`
 include paths. Python generator and validator tests: 3/3 PASS. Root native
-utility tests: 5/5 assertions PASS; test-runner result reporting is being fixed.
+utility tests: 5/5 PASS, correctly reported by PlatformIO.
 
-Firmware builds and branch workflow verification are still pending. No claim
-of matrix-wide success is made here until actual build evidence is recorded.
+`pio run -c .pio/unified-platformio.ini -e Heltec_t114_without_display_companion_radio_unified -j 4`:
+PASS, compile and link, 53.71 seconds. The same target with the frozen overlay
+failed locally with the expected `UITask` constructor error.
+
+Additional local builds and [branch workflow 37009648483](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37009648483)
+are running. That workflow uses firmware commit `357e3c8f` and explicitly sets
+`upstream_ref=companion-v1.17.1` and `publish_release=false`. Subsequent commits
+change CI and native-test configuration, not firmware sources. No claim of
+matrix-wide success is made here until actual build evidence is recorded.

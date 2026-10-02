@@ -55,24 +55,107 @@ cd .pio/upstream-companion-v1.17.1
 pio run -c .pio/unified-platformio.ini -e Heltec_t114_without_display_companion_radio_unified -j 4
 ```
 
-## Verification in progress
+## Local compile and link evidence
 
-Host C++ regression test: PASS with `g++ -std=c++17 -Wall -Wextra -Werror`,
-using `test/unified`, `examples/unified_radio` and the staged upstream `src`
-include paths. Python generator and validator tests: 3/3 PASS. Root native
-utility tests: 5/5 PASS, correctly reported by PlatformIO.
+PlatformIO Core 6.1.19. Commands below were run in
+`.pio/upstream-companion-v1.17.1`, built from the exact upstream commit above.
+All eleven staged source files (ten overlay files plus the patched helper)
+were checked byte-for-byte against the branch. The local sample has **12
+compile-and-link successes out of 16 attempts**. The four STM32 attempts are
+not counted as working firmware.
 
-`pio run -c .pio/unified-platformio.ini -e Heltec_t114_without_display_companion_radio_unified -j 4`:
-PASS, compile and link, 53.71 seconds. The same target with the frozen overlay
-failed locally with the expected `UITask` constructor error.
+| Exact command | Result | Seconds |
+| --- | --- | ---: |
+| `pio run -c .pio/unified-platformio.ini -e Heltec_t114_without_display_companion_radio_unified -j 4` | PASS, compile + link | 15.77 |
+| `pio run -c .pio/unified-platformio.ini -e Xiao_S3_WIO_companion_radio_unified -j 4` | PASS, compile + link | 25.1 |
+| `pio run -c .pio/unified-platformio.ini -e GAT562_30S_Mesh_Kit_companion_radio_unified -j 4` | PASS, compile + link | 12.15 |
+| `pio run -c .pio/unified-platformio.ini -e Heltec_E290_companion_radio_unified -j 4` | PASS, compile + link | 27.72 |
+| `pio run -c .pio/unified-platformio.ini -e LilyGo_TDeck_companion_radio_unified -j 4` | PASS, compile + link | 46.66 |
+| `pio run -c .pio/unified-platformio.ini -e Heltec_v3_companion_radio_unified -j 4` | PASS, compile + link | 23.67 |
+| `pio run -c .pio/unified-platformio.ini -e ThinkNode_M7_companion_radio_unified -j 4` | PASS, compile + link | 22.29 |
+| `pio run -c .pio/unified-platformio.ini -e Heltec_t096_companion_radio_unified -j 4` | PASS, compile + link | 13.1 |
+| `pio run -c .pio/unified-platformio.ini -e Heltec_mesh_solar_companion_radio_unified -j 4` | PASS, compile + link | 8.04 |
+| `pio run -c .pio/unified-platformio.ini -e RAK_4631_companion_radio_unified -j 4` | PASS, compile + link | 12.21 |
+| `pio run -c .pio/unified-platformio.ini -e LilyGo_TDeck_8MB_companion_radio_unified -j 4` | PASS, compile + link | 25.68 |
+| `pio run -c .pio/unified-platformio.ini -e LilyGo_T-Echo_Card_companion_radio_unified -j 4` | PASS, compile + link | 83.68 |
+| `pio run -c .pio/unified-platformio.ini -e RAK_3x72_companion_radio_unified -j 4` | FAIL, upstream RadioLib/core enum API | 28.46 |
+| `pio run -c .pio/unified-platformio.ini -e Tiny_Relay_companion_radio_unified -j 4` | FAIL, upstream RadioLib/core enum API | 30.5 |
+| `pio run -c .pio/unified-platformio.ini -e wio-e5_companion_radio_unified -j 4` | FAIL, upstream RadioLib/core enum API | 45.17 |
+| `pio run -c .pio/unified-platformio.ini -e wio-e5-mini_companion_radio_unified -j 4` | FAIL, upstream RadioLib/core enum API | 34.9 |
 
-The five required local sample builds passed at port commit `357e3c8f`:
-T114 without display, Xiao S3 WIO, GAT562 30S, Heltec E290 and LilyGo T-Deck.
-Heltec V3 and Ethernet-enabled ThinkNode M7 also passed. The portable conversion
-fix subsequently compiles and links `pio run -e wio-e5-mini_repeater -j 4`
-in the root checkout: PASS, 221.79 seconds, 196976 bytes of flash.
+The sample covers ui-new (including e-ink and NullDisplayDriver), ui-orig with
+ThinkNode M7 Ethernet, ui-tiny on T-Echo Card, external watchdog servicing on
+Heltec Mesh Solar, classic ESP32, ESP32-S3, nRF52 with extra storage, and the
+8 MB/no-PSRAM T-Deck variant. All five required representative targets pass.
 
-The actual v1.17.1 helper was used to verify that the targeted patch preserves
-additional upstream content and is idempotent. Final local and branch matrix
-verification is being refreshed for the helper fix. No matrix-wide compile
-success is claimed until actual per-target results are recorded.
+The root checkout also passes `pio run -e wio-e5-mini_repeater -j 4`:
+compile + link, 221.79 seconds, 196976 bytes of flash. This fixes the previously
+red non-unified STM32 PR check without changing board behavior.
+
+## Remaining upstream failures
+
+Four local STM32 unified attempts fail in the pinned RadioLib HAL: conversion
+from `uint32_t` to the newer core's `PinMode`/`PinStatus` enums. Their **untouched**
+upstream companion baselines independently fail because the core lacks `ltoa`.
+The validator temporarily restores the original helper before a baseline and
+restores the backport afterward, including when a build raises an exception.
+An additional build of upstream's own `wio-e5-mini_companion_radio_usb` with only
+the portable helper fix also fails with the same RadioLib enum errors, proving
+that the unified entry point is not responsible for that dependency failure.
+
+Exact classification command, run in the staged tree:
+
+```sh
+python3 tools/validate_unified_builds.py --target RAK_3x72_companion_radio_unified --target Tiny_Relay_companion_radio_unified --target wio-e5_companion_radio_unified --target wio-e5-mini_companion_radio_unified --results ../review-evidence/stm32-validation-results.json --logs-dir ../review-evidence/stm32-validation-logs
+```
+
+Result: four `upstream_failure`, zero `unified_failure`. The additional dependency
+isolation command was `pio run -e wio-e5-mini_companion_radio_usb -j 4` with the
+portable helper present; it failed with `PinMode`/`PinStatus` conversion errors.
+
+The Generic ESP-NOW and SenseCap Indicator ESP-NOW unified targets and their
+untouched baselines lack `P_LORA_DIO_1` in `src/helpers/ESP32Board.h`. Their
+green jobs are classified skips, not successful firmware builds. The complete
+named target list and final matrix counts below come from the completed logs.
+
+## Regression and workflow checks
+
+- `python3 -m unittest discover -s test/unified -p 'test_*.py' -v`: 4/4 PASS.
+- `pio test -e native -vv`: 5/5 PASS with the correct GoogleTest runner.
+- Actual upstream interface contract regression: PASS with the exact command below.
+- Portable helper backport: applied to actual v1.17.1 source, preserves additional
+  upstream content, is idempotent, and is restored after all four baseline builds.
+- `actionlint .github/workflows/unified-upstream-release.yml .github/workflows/unified-companion-ci.yml .github/workflows/run-unit-tests.yml`: PASS.
+
+```sh
+g++ -std=c++17 -Wall -Wextra -Werror -I test/unified -I examples/unified_radio -I .pio/upstream-companion-v1.17.1/src test/unified/test_transport_manager.cpp examples/unified_radio/UnifiedTransportManager.cpp -o .pio/review-evidence/test-transport-manager
+.pio/review-evidence/test-transport-manager
+```
+
+## Completed matrix verification
+
+[Release verification run 37012566537](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537) and [unified PR CI run 37012568820](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012568820) both completed successfully on source commit `bbb53add652f7a20d1f785b4a932e6aa0fc029d3`. Both independently attempted all **99 targets** and agree on every target classification.
+
+**93/99 compile-and-link successes; 6 upstream failures/skips; zero overlay failures.** All 74 previously failed build targets now compile and link in both runs; their names are recorded in the evidence file. The 6 skipped targets remain unverified as working firmware and are not counted as fixed.
+
+| Unverified target | Untouched upstream environment | Build evidence |
+| --- | --- | --- |
+| `Generic_ESPNOW_companion_radio_unified` | `Generic_ESPNOW_comp_radio_usb` | [job log](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526385) |
+| `RAK_3x72_companion_radio_unified` | `RAK_3x72_companion_radio_usb` | [job log](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856537994) |
+| `SenseCapIndicator-ESPNow_companion_radio_unified` | `SenseCapIndicator-ESPNow_comp_radio_usb` | [job log](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856539078) |
+| `Tiny_Relay_companion_radio_unified` | `Tiny_Relay_companion_radio_usb` | [job log](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856541530) |
+| `wio-e5-mini_companion_radio_unified` | `wio-e5-mini_companion_radio_usb` | [job log](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856542433) |
+| `wio-e5_companion_radio_unified` | `wio-e5_companion_radio_usb` | [job log](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856542491) |
+
+The [complete per-target evidence](docs/unified-build-evidence-20261002.json) names every verified and unverified target, its upstream source environment, exact PIO command, classification and public job log. This is a compile verification result, not a claim that all 99 firmware images work.
+
+CI invokes `python3 tools/validate_unified_builds.py --target <target> --verbose`
+in the staged upstream tree (the release lane also adds `--github-output`). It
+runs `pio run -c .pio/unified-platformio.ini -e <target>`, then
+`pio run -e <source_environment>` on failure with the helper backport removed.
+Release compile flags set firmware version `v1.17.1` and date `02-Oct-2026`;
+the PR lane uses `ci` and `01-Jan-1970`.
+
+The release dispatch used `upstream_ref=companion-v1.17.1` and `publish_release=false`; ESP32 merged images and nRF52 UF2 packaging also passed for successful targets. No release was published. Native CI and all eleven non-unified PR build checks pass. Root native tests are 5/5 and Python overlay tests are 4/4.
+
+[PR #4](https://github.com/hermes-gadget/MeshCore-Unified-Open/pull/4) targets `main` and follows [issue #3](https://github.com/hermes-gadget/MeshCore-Unified-Open/issues/3). It is not merged. The daily schedule is active; it continues using main until the owner merges the port. No hardware testing or wiring was performed.

@@ -1,0 +1,2708 @@
+{
+  "upstream_ref": "companion-v1.17.1",
+  "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+  "verified_source_commit": "bbb53add652f7a20d1f785b4a932e6aa0fc029d3",
+  "release_run": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537",
+  "pr_ci_run": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012568820",
+  "release_publish_requested": false,
+  "counts": {
+    "passed": 93,
+    "upstream_failure": 6,
+    "unified_failure": 0
+  },
+  "previous_daily_run": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/36996304889",
+  "previously_failed_now_verified": [
+    "Ebyte_EoRa-S3_companion_radio_unified",
+    "GAT562_30S_Mesh_Kit_companion_radio_unified",
+    "GAT562_Mesh_Tracker_Pro_companion_radio_unified",
+    "GAT562_Mesh_Watch13_companion_radio_unified",
+    "Heltec_E213_companion_radio_unified",
+    "Heltec_E290_companion_radio_unified",
+    "heltec_rc32_companion_radio_unified",
+    "heltec_rc32_without_display_companion_radio_unified",
+    "Heltec_t096_companion_radio_unified",
+    "Heltec_t114_companion_radio_unified",
+    "Heltec_t114_without_display_companion_radio_unified",
+    "Heltec_T190_companion_radio_unified",
+    "Heltec_t1_companion_radio_unified",
+    "Heltec_tower_v2_companion_radio_unified",
+    "heltec_tracker_v2_companion_radio_unified",
+    "Heltec_v2_companion_radio_unified",
+    "Heltec_v3_companion_radio_unified",
+    "heltec_v4_companion_radio_unified",
+    "heltec_v4_r8_companion_radio_unified",
+    "heltec_v4_r8_tft_companion_radio_unified",
+    "heltec_v4_tft_companion_radio_unified",
+    "Heltec_Wireless_Paper_companion_radio_unified",
+    "Heltec_Wireless_Tracker_companion_radio_unified",
+    "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_unified",
+    "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_unified",
+    "ikoka_nano_nrf_22dbm_companion_radio_unified",
+    "ikoka_nano_nrf_30dbm_companion_radio_unified",
+    "ikoka_nano_nrf_33dbm_companion_radio_unified",
+    "ikoka_stick_nrf_22dbm_companion_radio_unified",
+    "ikoka_stick_nrf_30dbm_companion_radio_unified",
+    "ikoka_stick_nrf_33dbm_companion_radio_unified",
+    "KeepteenLT1_companion_radio_unified",
+    "LilyGo_T-Echo-Lite_companion_radio_unified",
+    "LilyGo_T-Echo_Card_companion_radio_unified",
+    "LilyGo_T-Echo_companion_radio_unified",
+    "LilyGo_T3S3_sx1262_companion_radio_unified",
+    "LilyGo_T3S3_sx1276_companion_radio_unified",
+    "LilyGo_T_Impulse_Plus_companion_radio_unified",
+    "LilyGo_TBeam_1W_companion_radio_unified",
+    "LilyGo_TDeck_8MB_companion_radio_unified",
+    "LilyGo_TDeck_companion_radio_unified",
+    "LilyGo_TLora_V2_1_1_6_companion_radio_unified",
+    "Mesh_pocket_companion_radio_unified",
+    "Meshadventurer_sx1262_companion_radio_unified",
+    "Meshadventurer_sx1268_companion_radio_unified",
+    "meshnology_w12_companion_radio_unified",
+    "Meshtiny_companion_radio_unified",
+    "MeshTracker_X1_companion_radio_unified",
+    "Minewsemi_me25ls01_companion_radio_unified",
+    "Nano_G2_Ultra_companion_radio_unified",
+    "nibble_screen_connect_companion_radio_unified",
+    "nibble_zero_connect_companion_radio_unified",
+    "ProMicro_companion_radio_unified",
+    "R1Neo_companion_radio_unified",
+    "RAK_3401_companion_radio_unified",
+    "RAK_4631_companion_radio_unified",
+    "RAK_WisMesh_Tag_companion_radio_unified",
+    "Station_G2_companion_radio_unified",
+    "Station_G3_ESP32_companion_radio_unified",
+    "t1000e_companion_radio_unified",
+    "T_Beam_S3_Supreme_SX1262_companion_radio_unified",
+    "Tbeam_SX1262_companion_radio_unified",
+    "Tbeam_SX1276_companion_radio_unified",
+    "ThinkNode_M1_companion_radio_unified",
+    "ThinkNode_M2_companion_radio_unified",
+    "ThinkNode_M3_companion_radio_unified",
+    "ThinkNode_M5_companion_radio_unified",
+    "ThinkNode_M7_companion_radio_unified",
+    "ThinkNode_M9_companion_radio_unified",
+    "WioTrackerL1_companion_radio_unified",
+    "WioTrackerL1Eink_companion_radio_unified",
+    "Xiao_nrf52_companion_radio_unified",
+    "Xiao_S3_companion_radio_unified",
+    "Xiao_S3_WIO_companion_radio_unified"
+  ],
+  "local_builds": [
+    {
+      "target": "Heltec_t114_without_display_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_t114_without_display_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 15.77,
+      "log": ".pio/review-evidence/Heltec_t114_without_display_companion_radio_unified.log"
+    },
+    {
+      "target": "Xiao_S3_WIO_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Xiao_S3_WIO_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 25.1,
+      "log": ".pio/review-evidence/Xiao_S3_WIO_companion_radio_unified.log"
+    },
+    {
+      "target": "GAT562_30S_Mesh_Kit_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "GAT562_30S_Mesh_Kit_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 12.15,
+      "log": ".pio/review-evidence/GAT562_30S_Mesh_Kit_companion_radio_unified.log"
+    },
+    {
+      "target": "Heltec_E290_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_E290_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 27.72,
+      "log": ".pio/review-evidence/Heltec_E290_companion_radio_unified.log"
+    },
+    {
+      "target": "LilyGo_TDeck_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_TDeck_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 46.66,
+      "log": ".pio/review-evidence/LilyGo_TDeck_companion_radio_unified.log"
+    },
+    {
+      "target": "Heltec_v3_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_v3_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 23.67,
+      "log": ".pio/review-evidence/Heltec_v3_companion_radio_unified.log"
+    },
+    {
+      "target": "ThinkNode_M7_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M7_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 22.29,
+      "log": ".pio/review-evidence/ThinkNode_M7_companion_radio_unified.log"
+    },
+    {
+      "target": "Heltec_t096_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_t096_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 13.1,
+      "log": ".pio/review-evidence/Heltec_t096_companion_radio_unified.log"
+    },
+    {
+      "target": "Heltec_mesh_solar_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_mesh_solar_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 8.04,
+      "log": ".pio/review-evidence/Heltec_mesh_solar_companion_radio_unified.log"
+    },
+    {
+      "target": "RAK_4631_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_4631_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 12.21,
+      "log": ".pio/review-evidence/RAK_4631_companion_radio_unified.log"
+    },
+    {
+      "target": "LilyGo_TDeck_8MB_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_TDeck_8MB_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 25.68,
+      "log": ".pio/review-evidence/LilyGo_TDeck_8MB_companion_radio_unified.log"
+    },
+    {
+      "target": "LilyGo_T-Echo_Card_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T-Echo_Card_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 83.68,
+      "log": ".pio/review-evidence/LilyGo_T-Echo_Card_companion_radio_unified.log"
+    },
+    {
+      "target": "RAK_3x72_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_3x72_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 28.46,
+      "log": ".pio/review-evidence/RAK_3x72_companion_radio_unified.log"
+    },
+    {
+      "target": "Tiny_Relay_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Tiny_Relay_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 30.5,
+      "log": ".pio/review-evidence/Tiny_Relay_companion_radio_unified.log"
+    },
+    {
+      "target": "wio-e5_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "wio-e5_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 45.17,
+      "log": ".pio/review-evidence/wio-e5_companion_radio_unified.log"
+    },
+    {
+      "target": "wio-e5-mini_companion_radio_unified",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "wio-e5-mini_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 1,
+      "duration_seconds": 34.9,
+      "log": ".pio/review-evidence/wio-e5-mini_companion_radio_unified.log"
+    }
+  ],
+  "targets": [
+    {
+      "target": "Ebyte_EoRa-S3_companion_radio_unified",
+      "source_environment": "Ebyte_EoRa-S3_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Ebyte_EoRa-S3_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526310",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Ebyte_EoRa-S3_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "GAT562_30S_Mesh_Kit_companion_radio_unified",
+      "source_environment": "GAT562_30S_Mesh_Kit_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "GAT562_30S_Mesh_Kit_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526259",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "GAT562_30S_Mesh_Kit_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "GAT562_Mesh_Tracker_Pro_companion_radio_unified",
+      "source_environment": "GAT562_Mesh_Tracker_Pro_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "GAT562_Mesh_Tracker_Pro_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526156",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "GAT562_Mesh_Tracker_Pro_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "GAT562_Mesh_Watch13_companion_radio_unified",
+      "source_environment": "GAT562_Mesh_Watch13_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "GAT562_Mesh_Watch13_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526951",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "GAT562_Mesh_Watch13_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Generic_ESPNOW_companion_radio_unified",
+      "source_environment": "Generic_ESPNOW_comp_radio_usb",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "wifi"
+      ],
+      "status": "upstream_failure",
+      "log_file": "Generic_ESPNOW_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [
+        "src/helpers/ESP32Board.h:70:12: error: 'P_LORA_DIO_1' was not declared in this scope"
+      ],
+      "compile_link_verified": false,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526385",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Generic_ESPNOW_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_ct62_companion_radio_unified",
+      "source_environment": "Heltec_ct62_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_ct62_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526354",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_ct62_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_E213_companion_radio_unified",
+      "source_environment": "Heltec_E213_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_E213_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526801",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_E213_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_E290_companion_radio_unified",
+      "source_environment": "Heltec_E290_companion_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_E290_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526205",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_E290_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_mesh_solar_companion_radio_unified",
+      "source_environment": "Heltec_mesh_solar_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_mesh_solar_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526379",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_mesh_solar_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "heltec_rc32_companion_radio_unified",
+      "source_environment": "heltec_rc32_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "heltec_rc32_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526287",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_rc32_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "heltec_rc32_without_display_companion_radio_unified",
+      "source_environment": "heltec_rc32_without_display_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "heltec_rc32_without_display_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526346",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_rc32_without_display_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_t096_companion_radio_unified",
+      "source_environment": "Heltec_t096_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_t096_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526210",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_t096_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_t114_companion_radio_unified",
+      "source_environment": "Heltec_t114_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_t114_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526621",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_t114_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_t114_without_display_companion_radio_unified",
+      "source_environment": "Heltec_t114_without_display_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_t114_without_display_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526311",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_t114_without_display_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_T190_companion_radio_unified",
+      "source_environment": "Heltec_T190_companion_radio_ble_",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_T190_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526344",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_T190_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_t1_companion_radio_unified",
+      "source_environment": "Heltec_t1_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_t1_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526244",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_t1_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_tower_v2_companion_radio_unified",
+      "source_environment": "Heltec_tower_v2_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_tower_v2_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526223",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_tower_v2_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "heltec_tracker_v2_companion_radio_unified",
+      "source_environment": "heltec_tracker_v2_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "heltec_tracker_v2_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856526495",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_tracker_v2_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_v2_companion_radio_unified",
+      "source_environment": "Heltec_v2_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_v2_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528023",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_v2_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_v3_companion_radio_unified",
+      "source_environment": "Heltec_v3_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_v3_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528314",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_v3_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "heltec_v4_companion_radio_unified",
+      "source_environment": "heltec_v4_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "heltec_v4_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528386",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_v4_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "heltec_v4_r8_companion_radio_unified",
+      "source_environment": "heltec_v4_r8_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "heltec_v4_r8_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528424",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_v4_r8_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "heltec_v4_r8_tft_companion_radio_unified",
+      "source_environment": "heltec_v4_r8_tft_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "heltec_v4_r8_tft_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528322",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_v4_r8_tft_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "heltec_v4_tft_companion_radio_unified",
+      "source_environment": "heltec_v4_tft_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "heltec_v4_tft_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528392",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "heltec_v4_tft_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_Wireless_Paper_companion_radio_unified",
+      "source_environment": "Heltec_Wireless_Paper_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_Wireless_Paper_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528365",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_Wireless_Paper_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_Wireless_Tracker_companion_radio_unified",
+      "source_environment": "Heltec_Wireless_Tracker_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_Wireless_Tracker_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528480",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_Wireless_Tracker_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Heltec_WSL3_companion_radio_unified",
+      "source_environment": "Heltec_WSL3_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Heltec_WSL3_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856528919",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Heltec_WSL3_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_unified",
+      "source_environment": "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856529006",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_unified",
+      "source_environment": "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856529884",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ikoka_nano_nrf_22dbm_companion_radio_unified",
+      "source_environment": "ikoka_nano_nrf_22dbm_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ikoka_nano_nrf_22dbm_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856530215",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ikoka_nano_nrf_22dbm_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ikoka_nano_nrf_30dbm_companion_radio_unified",
+      "source_environment": "ikoka_nano_nrf_30dbm_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ikoka_nano_nrf_30dbm_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856530160",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ikoka_nano_nrf_30dbm_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ikoka_nano_nrf_33dbm_companion_radio_unified",
+      "source_environment": "ikoka_nano_nrf_33dbm_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ikoka_nano_nrf_33dbm_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856530310",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ikoka_nano_nrf_33dbm_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ikoka_stick_nrf_22dbm_companion_radio_unified",
+      "source_environment": "ikoka_stick_nrf_22dbm_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ikoka_stick_nrf_22dbm_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856530378",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ikoka_stick_nrf_22dbm_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ikoka_stick_nrf_30dbm_companion_radio_unified",
+      "source_environment": "ikoka_stick_nrf_30dbm_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ikoka_stick_nrf_30dbm_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856530908",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ikoka_stick_nrf_30dbm_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ikoka_stick_nrf_33dbm_companion_radio_unified",
+      "source_environment": "ikoka_stick_nrf_33dbm_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ikoka_stick_nrf_33dbm_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856530414",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ikoka_stick_nrf_33dbm_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "KeepteenLT1_companion_radio_unified",
+      "source_environment": "KeepteenLT1_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "KeepteenLT1_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856530584",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "KeepteenLT1_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_T-Echo-Lite_companion_radio_unified",
+      "source_environment": "LilyGo_T-Echo-Lite_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_T-Echo-Lite_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856531778",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T-Echo-Lite_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_T-Echo-Lite_non_shell_companion_radio_unified",
+      "source_environment": "LilyGo_T-Echo-Lite_non_shell_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_T-Echo-Lite_non_shell_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856531952",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T-Echo-Lite_non_shell_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_T-Echo_Card_companion_radio_unified",
+      "source_environment": "LilyGo_T-Echo_Card_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_T-Echo_Card_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856532351",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T-Echo_Card_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_T-Echo_companion_radio_unified",
+      "source_environment": "LilyGo_T-Echo_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_T-Echo_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856531438",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T-Echo_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_T3S3_sx1262_companion_radio_unified",
+      "source_environment": "LilyGo_T3S3_sx1262_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_T3S3_sx1262_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856532537",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T3S3_sx1262_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_T3S3_sx1276_companion_radio_unified",
+      "source_environment": "LilyGo_T3S3_sx1276_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_T3S3_sx1276_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856532595",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T3S3_sx1276_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_T_Impulse_Plus_companion_radio_unified",
+      "source_environment": "LilyGo_T_Impulse_Plus_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_T_Impulse_Plus_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856533060",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T_Impulse_Plus_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_TBeam_1W_companion_radio_unified",
+      "source_environment": "LilyGo_TBeam_1W_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_TBeam_1W_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856532649",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_TBeam_1W_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_TDeck_8MB_companion_radio_unified",
+      "source_environment": "LilyGo_TDeck_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_TDeck_8MB_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856533142",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_TDeck_8MB_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_TDeck_companion_radio_unified",
+      "source_environment": "LilyGo_TDeck_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_TDeck_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856532799",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_TDeck_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_TETH_Elite_sx1262_companion_radio_unified",
+      "source_environment": "LilyGo_TETH_Elite_sx1262_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_TETH_Elite_sx1262_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856533654",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_TETH_Elite_sx1262_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_Tlora_C6_companion_radio_unified",
+      "source_environment": "LilyGo_Tlora_C6_companion_radio_ble_",
+      "platform": "esp32",
+      "architecture": "esp32-c6",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_Tlora_C6_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856534048",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_Tlora_C6_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "LilyGo_TLora_V2_1_1_6_companion_radio_unified",
+      "source_environment": "LilyGo_TLora_V2_1_1_6_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "LilyGo_TLora_V2_1_1_6_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856534521",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_TLora_V2_1_1_6_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "M5Stack_Unit_C6L_companion_radio_unified",
+      "source_environment": "M5Stack_Unit_C6L_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32-c6",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "M5Stack_Unit_C6L_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856534673",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "M5Stack_Unit_C6L_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Mesh_pocket_companion_radio_unified",
+      "source_environment": "Mesh_pocket_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Mesh_pocket_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856534610",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Mesh_pocket_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Meshadventurer_sx1262_companion_radio_unified",
+      "source_environment": "Meshadventurer_sx1262_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Meshadventurer_sx1262_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856534830",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Meshadventurer_sx1262_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Meshadventurer_sx1268_companion_radio_unified",
+      "source_environment": "Meshadventurer_sx1268_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Meshadventurer_sx1268_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856535008",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Meshadventurer_sx1268_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Meshimi_companion_radio_unified",
+      "source_environment": "Meshimi_companion_radio_ble_",
+      "platform": "esp32",
+      "architecture": "esp32-c6",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Meshimi_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856535000",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Meshimi_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "meshnology_w12_companion_radio_unified",
+      "source_environment": "meshnology_w12_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "meshnology_w12_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856535137",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "meshnology_w12_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Meshtiny_companion_radio_unified",
+      "source_environment": "Meshtiny_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Meshtiny_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856535256",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Meshtiny_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "MeshTracker_X1_companion_radio_unified",
+      "source_environment": "MeshTracker_X1_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "MeshTracker_X1_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856535823",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "MeshTracker_X1_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Minewsemi_me25ls01_companion_radio_unified",
+      "source_environment": "Minewsemi_me25ls01_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Minewsemi_me25ls01_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856536149",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Minewsemi_me25ls01_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Nano_G2_Ultra_companion_radio_unified",
+      "source_environment": "Nano_G2_Ultra_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Nano_G2_Ultra_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856536411",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Nano_G2_Ultra_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "nibble_screen_connect_companion_radio_unified",
+      "source_environment": "nibble_screen_connect_companion_radio_ble_",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "nibble_screen_connect_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856536620",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "nibble_screen_connect_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "nibble_zero_connect_companion_radio_unified",
+      "source_environment": "nibble_zero_connect_companion_radio_ble_",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "nibble_zero_connect_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856536681",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "nibble_zero_connect_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "PicoW_companion_radio_unified",
+      "source_environment": "PicoW_companion_radio_usb",
+      "platform": "rp2040",
+      "architecture": "rp2040",
+      "transports": [
+        "usb"
+      ],
+      "status": "passed",
+      "log_file": "PicoW_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856537056",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "PicoW_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ProMicro_companion_radio_unified",
+      "source_environment": "ProMicro_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ProMicro_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856537124",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ProMicro_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "R1Neo_companion_radio_unified",
+      "source_environment": "R1Neo_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "R1Neo_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856536992",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "R1Neo_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "RAK_11310_companion_radio_unified",
+      "source_environment": "RAK_11310_companion_radio_usb",
+      "platform": "rp2040",
+      "architecture": "rp2040",
+      "transports": [
+        "usb"
+      ],
+      "status": "passed",
+      "log_file": "RAK_11310_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856537057",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_11310_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "RAK_3112_companion_radio_unified",
+      "source_environment": "RAK_3112_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "RAK_3112_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856537411",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_3112_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "RAK_3401_companion_radio_unified",
+      "source_environment": "RAK_3401_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "RAK_3401_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856537399",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_3401_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "RAK_3x72_companion_radio_unified",
+      "source_environment": "RAK_3x72_companion_radio_usb",
+      "platform": "stm32",
+      "architecture": "stm32",
+      "transports": [
+        "usb"
+      ],
+      "status": "upstream_failure",
+      "log_file": "RAK_3x72_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:28:52: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:35:59: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:49:89: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:50:28: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/RAK_3x72_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:76:33: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        "src/helpers/TxtDataHelpers.cpp:105:5: error: 'ltoa' was not declared in this scope; did you mean 'utoa'?"
+      ],
+      "compile_link_verified": false,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856537994",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_3x72_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "RAK_4631_companion_radio_unified",
+      "source_environment": "RAK_4631_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "RAK_4631_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856538253",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_4631_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "RAK_WisMesh_Tag_companion_radio_unified",
+      "source_environment": "RAK_WisMesh_Tag_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "RAK_WisMesh_Tag_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856538756",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_WisMesh_Tag_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "SenseCap_Solar_companion_radio_unified",
+      "source_environment": "SenseCap_Solar_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "SenseCap_Solar_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856538976",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "SenseCap_Solar_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "SenseCapIndicator-ESPNow_companion_radio_unified",
+      "source_environment": "SenseCapIndicator-ESPNow_comp_radio_usb",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "wifi"
+      ],
+      "status": "upstream_failure",
+      "log_file": "SenseCapIndicator-ESPNow_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [
+        "src/helpers/ESP32Board.h:70:12: error: 'P_LORA_DIO_1' was not declared in this scope"
+      ],
+      "compile_link_verified": false,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856539078",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "SenseCapIndicator-ESPNow_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Station_G2_companion_radio_unified",
+      "source_environment": "Station_G2_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Station_G2_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856539269",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Station_G2_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Station_G3_ESP32_companion_radio_unified",
+      "source_environment": "Station_G3_ESP32_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Station_G3_ESP32_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856539166",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Station_G3_ESP32_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "t1000e_companion_radio_unified",
+      "source_environment": "t1000e_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "t1000e_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856539323",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "t1000e_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "T_Beam_S3_Supreme_SX1262_companion_radio_unified",
+      "source_environment": "T_Beam_S3_Supreme_SX1262_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "T_Beam_S3_Supreme_SX1262_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856539428",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "T_Beam_S3_Supreme_SX1262_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Tbeam_SX1262_companion_radio_unified",
+      "source_environment": "Tbeam_SX1262_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Tbeam_SX1262_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856539706",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Tbeam_SX1262_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Tbeam_SX1276_companion_radio_unified",
+      "source_environment": "Tbeam_SX1276_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Tbeam_SX1276_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856540121",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Tbeam_SX1276_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ThinkNode_M1_companion_radio_unified",
+      "source_environment": "ThinkNode_M1_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ThinkNode_M1_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856540322",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M1_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ThinkNode_M2_companion_radio_unified",
+      "source_environment": "ThinkNode_M2_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "ThinkNode_M2_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856540736",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M2_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ThinkNode_M3_companion_radio_unified",
+      "source_environment": "ThinkNode_M3_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ThinkNode_M3_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856540760",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M3_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ThinkNode_M5_companion_radio_unified",
+      "source_environment": "ThinkNode_M5_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "ThinkNode_M5_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856541035",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M5_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ThinkNode_M6_companion_radio_unified",
+      "source_environment": "ThinkNode_M6_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "ThinkNode_M6_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856541256",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M6_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ThinkNode_M7_companion_radio_unified",
+      "source_environment": "ThinkNode_M7_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi",
+        "ethernet"
+      ],
+      "status": "passed",
+      "log_file": "ThinkNode_M7_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856541156",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M7_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "ThinkNode_M9_companion_radio_unified",
+      "source_environment": "ThinkNode_M9_companion_radio_ble_",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "ThinkNode_M9_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856541454",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "ThinkNode_M9_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Tiny_Relay_companion_radio_unified",
+      "source_environment": "Tiny_Relay_companion_radio_usb",
+      "platform": "stm32",
+      "architecture": "stm32",
+      "transports": [
+        "usb"
+      ],
+      "status": "upstream_failure",
+      "log_file": "Tiny_Relay_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:28:52: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:35:59: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:49:89: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:50:28: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/Tiny_Relay_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:76:33: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        "src/helpers/TxtDataHelpers.cpp:105:5: error: 'ltoa' was not declared in this scope; did you mean 'utoa'?"
+      ],
+      "compile_link_verified": false,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856541530",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Tiny_Relay_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "waveshare_rp2040_lora_companion_radio_unified",
+      "source_environment": "waveshare_rp2040_lora_companion_radio_usb",
+      "platform": "rp2040",
+      "architecture": "rp2040",
+      "transports": [
+        "usb"
+      ],
+      "status": "passed",
+      "log_file": "waveshare_rp2040_lora_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856542476",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "waveshare_rp2040_lora_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "WHY2025_badge_companion_radio_unified",
+      "source_environment": "WHY2025_badge_companion_radio_ble_",
+      "platform": "esp32",
+      "architecture": "esp32-c6",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "WHY2025_badge_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856542390",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "WHY2025_badge_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "wio-e5-mini_companion_radio_unified",
+      "source_environment": "wio-e5-mini_companion_radio_usb",
+      "platform": "stm32",
+      "architecture": "stm32",
+      "transports": [
+        "usb"
+      ],
+      "status": "upstream_failure",
+      "log_file": "wio-e5-mini_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:28:52: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:35:59: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:49:89: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:50:28: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/wio-e5-mini_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:76:33: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        "src/helpers/TxtDataHelpers.cpp:105:5: error: 'ltoa' was not declared in this scope; did you mean 'utoa'?"
+      ],
+      "compile_link_verified": false,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856542433",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "wio-e5-mini_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "wio-e5_companion_radio_unified",
+      "source_environment": "wio-e5_companion_radio_usb",
+      "platform": "stm32",
+      "architecture": "stm32",
+      "transports": [
+        "usb"
+      ],
+      "status": "upstream_failure",
+      "log_file": "wio-e5_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:28:52: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:35:59: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Arduino/ArduinoHal.cpp:49:89: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:50:28: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinMode' [-fpermissive]",
+        ".pio/libdeps/wio-e5_companion_radio_unified/RadioLib/src/hal/Stm32duino/Stm32wlHal.cpp:76:33: error: invalid conversion from 'uint32_t' {aka 'long unsigned int'} to 'PinStatus' [-fpermissive]",
+        "src/helpers/TxtDataHelpers.cpp:105:5: error: 'ltoa' was not declared in this scope; did you mean 'utoa'?"
+      ],
+      "compile_link_verified": false,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856542491",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "wio-e5_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "wio_wm1110_companion_radio_unified",
+      "source_environment": "wio_wm1110_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "wio_wm1110_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856542717",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "wio_wm1110_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "WioTrackerL1_companion_radio_unified",
+      "source_environment": "WioTrackerL1_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "WioTrackerL1_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856543063",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "WioTrackerL1_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "WioTrackerL1Eink_companion_radio_unified",
+      "source_environment": "WioTrackerL1Eink_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "WioTrackerL1Eink_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856543047",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "WioTrackerL1Eink_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Xiao_C3_companion_radio_unified",
+      "source_environment": "Xiao_C3_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Xiao_C3_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856543442",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Xiao_C3_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Xiao_C6_companion_radio_unified",
+      "source_environment": "Xiao_C6_companion_radio_ble_",
+      "platform": "esp32",
+      "architecture": "esp32-c6",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Xiao_C6_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856543344",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Xiao_C6_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Xiao_nrf52_companion_radio_unified",
+      "source_environment": "Xiao_nrf52_companion_radio_ble",
+      "platform": "nrf52",
+      "architecture": "nrf52",
+      "transports": [
+        "usb",
+        "ble"
+      ],
+      "status": "passed",
+      "log_file": "Xiao_nrf52_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856543753",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Xiao_nrf52_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Xiao_rp2040_companion_radio_unified",
+      "source_environment": "Xiao_rp2040_companion_radio_usb",
+      "platform": "rp2040",
+      "architecture": "rp2040",
+      "transports": [
+        "usb"
+      ],
+      "status": "passed",
+      "log_file": "Xiao_rp2040_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856544014",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Xiao_rp2040_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Xiao_S3_companion_radio_unified",
+      "source_environment": "Xiao_S3_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Xiao_S3_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856544398",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Xiao_S3_companion_radio_unified"
+      ]
+    },
+    {
+      "target": "Xiao_S3_WIO_companion_radio_unified",
+      "source_environment": "Xiao_S3_WIO_companion_radio_ble",
+      "platform": "esp32",
+      "architecture": "esp32",
+      "transports": [
+        "usb",
+        "ble",
+        "wifi"
+      ],
+      "status": "passed",
+      "log_file": "Xiao_S3_WIO_companion_radio_unified/7_Compile firmware and classify upstream failures.txt",
+      "errors": [],
+      "compile_link_verified": true,
+      "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37012566537/job/110856544569",
+      "pio_command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Xiao_S3_WIO_companion_radio_unified"
+      ]
+    }
+  ],
+  "ci_build_environment": {
+    "working_directory": "upstream (companion-v1.17.1 with the overlay applied)",
+    "release": {
+      "PLATFORMIO_BUILD_FLAGS": "-DFIRMWARE_VERSION='\"v1.17.1\"' -DFIRMWARE_BUILD_DATE='\"02-Oct-2026\"'"
+    },
+    "pr": {
+      "PLATFORMIO_BUILD_FLAGS": "-DFIRMWARE_VERSION='\"ci\"' -DFIRMWARE_BUILD_DATE='\"01-Jan-1970\"'"
+    }
+  }
+}

@@ -27,6 +27,10 @@ on:
       - '.github/actions/setup-build-environment/**'
       - '.github/workflows/unified-*.yml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 

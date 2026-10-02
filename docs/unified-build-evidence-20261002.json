@@ -1079,6 +1079,38 @@
         "========================= [SUCCESS] Took 63.38 seconds =========================",
         "LilyGo_T-Echo-Lite_companion_radio_unified  SUCCESS   00:01:03.380"
       ]
+    },
+    {
+      "target": "LilyGo_T-Echo_companion_radio_unified",
+      "batch": "LilyGo nRF52",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "LilyGo_T-Echo_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 81.89,
+      "log": ".pio/review-evidence/round3/LilyGo_T-Echo_companion_radio_unified.log",
+      "source_commit": "d49e7a79dc27752158148a4384dc46cbd5222988",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "66667627873d9ebd04e5334d553dd3d545ba97ab4731d157dbeb396ba91a6d4b",
+      "elf_sha256": "613a21fc22bd1d96028c63ab6d0d833ea44555564531af3230c8d7b377dd2b6b",
+      "build_receipt": [
+        "Processing LilyGo_T-Echo_companion_radio_unified (board: t-echo; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > LilyGo T-ECHO",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/LilyGo_T-Echo_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  64.2% (used 151132 bytes from 235520 bytes)",
+        "Flash: [======    ]  56.9% (used 405820 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 81.40 seconds =========================",
+        "LilyGo_T-Echo_companion_radio_unified  SUCCESS   00:01:21.395"
+      ]
     }
   ],
   "targets": [
@@ -3865,11 +3897,11 @@
       "log": ".pio/review-evidence/round2/resume-source-change.log",
       "log_sha256": "2c9d1d123f63a97006a6191b700c99008b039ca9482a323845020d97254ff99d"
     },
-    "additional_window_local_builds_completed": 3,
+    "additional_window_local_builds_completed": 4,
     "local_build_counts": {
-      "passed": 29,
+      "passed": 30,
       "upstream_failure": 4,
-      "unique_targets_attempted": 33
+      "unique_targets_attempted": 34
     }
   }
 }

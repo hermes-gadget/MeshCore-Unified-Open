@@ -215,8 +215,8 @@ actual CLI path as well as the six passing Python regression tests.
 
 ## Additional checkpoint board builds
 
-The final-window batch has **3** additional independent compile/link passes.
-Local coverage is now **29 passes in 33 unique target attempts**,
+The final-window batch has **4** additional independent compile/link passes.
+Local coverage is now **30 passes in 34 unique target attempts**,
 with the same four documented upstream STM32 failures. The full CI totals remain 93/6.
 
 | Target | Exact command in staged upstream tree | Seconds |
@@ -224,6 +224,7 @@ with the same four documented upstream STM32 failures. The full CI totals remain
 | `GAT562_Mesh_Tracker_Pro_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e GAT562_Mesh_Tracker_Pro_companion_radio_unified -j 4` | 105.18 |
 | `GAT562_Mesh_Watch13_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e GAT562_Mesh_Watch13_companion_radio_unified -j 4` | 73.01 |
 | `LilyGo_T-Echo-Lite_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e LilyGo_T-Echo-Lite_companion_radio_unified -j 4` | 63.88 |
+| `LilyGo_T-Echo_companion_radio_unified` | `pio run -c .pio/unified-platformio.ini -e LilyGo_T-Echo_companion_radio_unified -j 4` | 81.89 |
 
 The tracked JSON includes source revisions, log and linked-ELF hashes, and essential
 build-log receipts (platform, memory use, linker and success lines). No hardware was used.

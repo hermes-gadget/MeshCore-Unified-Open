@@ -26,11 +26,7 @@ enum TransportType : uint8_t {
     TRANSPORT_BLE  = 1,   // Bluetooth Low Energy — requires BLE hardware
     TRANSPORT_WIFI = 2,   // WiFi TCP — requires WiFi hardware
     TRANSPORT_ALL  = 3,   // All registered transports are active concurrently
-
-    // Reserve slots for future transports:
-    // TRANSPORT_ESP_NOW   = 3,
-    // TRANSPORT_ZIGBEE    = 4,
-    // TRANSPORT_THREAD    = 5,
+    TRANSPORT_ETHERNET = 4, // Optional upstream Ethernet companion interface
 
     TRANSPORT_NONE = 0xFF // Sentinel — not a valid selection
 };
@@ -43,6 +39,7 @@ inline const char* transportTypeName(TransportType t) {
         case TRANSPORT_BLE:  return "Bluetooth";
         case TRANSPORT_WIFI: return "WiFi";
         case TRANSPORT_ALL:  return "All";
+        case TRANSPORT_ETHERNET: return "Ethernet";
         default:             return "None";
     }
 }

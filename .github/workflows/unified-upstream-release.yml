@@ -91,6 +91,19 @@ jobs:
       - uses: ./.github/actions/setup-build-environment
         if: steps.version.outputs.already_built != 'true'
 
+      - name: Verify overlay against upstream interface contracts
+        if: steps.version.outputs.already_built != 'true'
+        shell: bash
+        run: |
+          python3 -m unittest discover -s test/unified -p 'test_*.py' -v
+          mkdir -p .pio
+          g++ -std=c++17 -Wall -Wextra -Werror \
+            -I test/unified -I examples/unified_radio -I upstream/src \
+            test/unified/test_transport_manager.cpp \
+            examples/unified_radio/UnifiedTransportManager.cpp \
+            -o .pio/test-transport-manager
+          .pio/test-transport-manager
+
       - id: targets
         name: Discover every upstream companion device
         if: steps.version.outputs.already_built != 'true'

@@ -1,19 +1,19 @@
 #pragma once
 
 #include <Arduino.h>
-#include <helpers/BaseSerialInterface.h>
+#include <helpers/MultiSerialInterface.h>
 #include "UnifiedTransportConfig.h"
 
 /**
  * UnifiedTransportManager
  *
  * A proxy layer that presents USB/UART, BLE, and WiFi as one
- * BaseSerialInterface. All registered transports can run concurrently, while
+ * MultiSerialInterface. All registered transports can run concurrently, while
  * devices with a selector UI may still choose one interface to reduce power.
  *
- * The manager IS a BaseSerialInterface — call myMesh.startInterface(manager)
- * once and all delegation happens transparently. No changes to MyMesh or
- * BaseChatMesh are needed.
+ * The upstream UITask uses the inherited Bluetooth controls on the same
+ * registered interfaces. MyMesh still consumes the BaseSerialInterface API,
+ * with unified selection, fair polling and serial connection detection.
  *
  * Persistence is optional. Release builds always start in concurrent mode;
  * a custom selector UI may install callbacks and restore a saved mode.
@@ -24,7 +24,7 @@
 
 #define MAX_TRANSPORTS 4
 
-class UnifiedTransportManager : public BaseSerialInterface {
+class UnifiedTransportManager : public MultiSerialInterface {
 public:
     UnifiedTransportManager();
 
@@ -108,6 +108,7 @@ public:
     void disable() override;
     bool isEnabled() const override;
     bool isConnected() const override;
+    void loop() override;
     bool isWriteBusy() const override;
     size_t writeFrame(const uint8_t src[], size_t len) override;
     size_t checkRecvFrame(uint8_t dest[]) override;

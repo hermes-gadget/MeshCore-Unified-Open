@@ -18,6 +18,19 @@ void UnifiedTransportManager::addTransport(TransportType type, BaseSerialInterfa
     for (int i = 0; i < num_transports; i++) {
         if (transports[i].type == type) return;
     }
+
+    // UITask takes a MultiSerialInterface and toggles Bluetooth independently
+    // of USB/WiFi. Register the physical interface with that upstream API too.
+    InterfaceType interface_type;
+    switch (type) {
+        case TRANSPORT_USB:  interface_type = InterfaceType::USB; break;
+        case TRANSPORT_BLE:  interface_type = InterfaceType::Bluetooth; break;
+        case TRANSPORT_WIFI: interface_type = InterfaceType::WiFi; break;
+        case TRANSPORT_ETHERNET: interface_type = InterfaceType::Ethernet; break;
+        default: return;
+    }
+    if (!addInterface(interface_type, iface)) return;
+
     transports[num_transports].type = type;
     transports[num_transports].iface = iface;
     transports[num_transports].has_received_frame = false;
@@ -41,6 +54,7 @@ bool UnifiedTransportManager::hasTransport(TransportType type) const {
 }
 
 bool UnifiedTransportManager::isEntryConnected(const TransportEntry& entry) const {
+    if (!entry.iface->isEnabled()) return false;
     // ArduinoSerialInterface cannot observe whether a USB/UART host is
     // attached and therefore always returns true. Do not let its presence make
     // the whole unified device look connected from boot; a complete inbound
@@ -159,11 +173,18 @@ bool UnifiedTransportManager::isConnected() const {
 bool UnifiedTransportManager::isWriteBusy() const {
     if (active_type == TRANSPORT_ALL) {
         for (int i = 0; i < num_transports; i++) {
-            if (transports[i].iface->isWriteBusy()) return true;
+            if (transports[i].iface->isEnabled() &&
+                transports[i].iface->isWriteBusy()) return true;
         }
         return false;
     }
-    return active_iface ? active_iface->isWriteBusy() : false;
+    return active_iface && active_iface->isEnabled() && active_iface->isWriteBusy();
+}
+
+void UnifiedTransportManager::loop() {
+    for (int i = 0; i < num_transports; i++) {
+        if (transports[i].iface->isEnabled()) transports[i].iface->loop();
+    }
 }
 
 size_t UnifiedTransportManager::writeFrame(const uint8_t src[], size_t len) {
@@ -177,7 +198,7 @@ size_t UnifiedTransportManager::writeFrame(const uint8_t src[], size_t len) {
         }
         return wrote ? len : 0;
     }
-    if (!active_iface) return 0;
+    if (!active_iface || !active_iface->isEnabled()) return 0;
     return active_iface->writeFrame(src, len);
 }
 
@@ -185,6 +206,7 @@ size_t UnifiedTransportManager::checkRecvFrame(uint8_t dest[]) {
     if (active_type == TRANSPORT_ALL) {
         for (int checked = 0; checked < num_transports; checked++) {
             int index = (next_poll_index + checked) % num_transports;
+            if (!transports[index].iface->isEnabled()) continue;
             size_t len = transports[index].iface->checkRecvFrame(dest);
             if (len > 0) {
                 transports[index].has_received_frame = true;
@@ -195,7 +217,7 @@ size_t UnifiedTransportManager::checkRecvFrame(uint8_t dest[]) {
         if (num_transports > 0) next_poll_index = (next_poll_index + 1) % num_transports;
         return 0;
     }
-    if (!active_iface) return 0;
+    if (!active_iface || !active_iface->isEnabled()) return 0;
     size_t len = active_iface->checkRecvFrame(dest);
     if (len > 0) {
         int index = findIndex(active_type);

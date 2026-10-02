@@ -54,6 +54,12 @@ ArduinoSerialInterface usb_serial_interface;
   SerialWifiInterface wifi_serial_interface;
 #endif
 
+// Ethernet — retain interfaces enabled by the upstream board environment
+#if defined(ETHERNET_ENABLED)
+  #include <helpers/ethernet/EthernetInterface.h>
+  ETHERNET_CLASS ethernet_interface;
+#endif
+
 // ---------- Transport Manager ----------
 
 UnifiedTransportManager transport_manager;
@@ -135,6 +141,10 @@ void setup() {
   bool display_ready = false;
 
   board.begin();
+
+#ifdef HAS_EXTERNAL_WATCHDOG
+  external_watchdog.begin();
+#endif
 
 #ifdef DISPLAY_CLASS
   DisplayDriver* disp = NULL;
@@ -229,6 +239,11 @@ void setup() {
 
   // ---------- Set up transport persistence and load saved mode ----------
 
+  #if defined(ETHERNET_ENABLED)
+    ethernet_interface.begin();
+    transport_manager.addTransport(TRANSPORT_ETHERNET, &ethernet_interface);
+  #endif
+
   // Set safe default based on available transports
   transport_manager.setDefaultTransport(getDefaultTransport());
 
@@ -264,11 +279,15 @@ void setup() {
 
 void loop() {
   the_mesh.loop();
+  transport_manager.loop();
   sensors.loop();
 #ifdef DISPLAY_CLASS
   ui_task.loop();
 #endif
   rtc_clock.tick();
+#ifdef HAS_EXTERNAL_WATCHDOG
+  external_watchdog.loop();
+#endif
 
   if (!the_mesh.hasPendingWork()) {
 #if defined(NRF52_PLATFORM)

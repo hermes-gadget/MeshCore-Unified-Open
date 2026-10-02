@@ -4104,7 +4104,558 @@
       "group": "${{ github.workflow }}-${{ github.ref }}",
       "cancel_in_progress": true,
       "workflow_lint": "passed for all three port workflows",
-      "documentation": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency"
+      "documentation": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency",
+      "live_verification": {
+        "superseded_run": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040477154",
+        "superseded_source_commit": "c6feb6ceda0dfcc8d07c428d1b1a7cc4df9e21b7",
+        "superseded_conclusion": "cancelled",
+        "replacement_run": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040575781",
+        "replacement_source_commit": "0f71eec59afdc130218a049f6a16d0339201a7ca",
+        "manual_cancel_request_for_superseded_matrix": false
+      }
+    },
+    "post_override_partial_matrix_audit": {
+      "run_id": "37038964896",
+      "head_sha": "533874335d3fa3744d04636852762676ad00e2b6",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "target_count": 99,
+      "completed_target_count": 33,
+      "counts": {
+        "passed": 32,
+        "upstream_failure": 1
+      },
+      "targets": [
+        {
+          "target": "Ebyte_EoRa-S3_companion_radio_unified",
+          "source_environment": "Ebyte_EoRa-S3_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945013939",
+          "log_sha256": "556448ff6a434d395acb412e2c921feb43678e740fb92bcd9192cd5775d1249c",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Ebyte_EoRa-S3_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "GAT562_Mesh_Watch13_companion_radio_unified",
+          "source_environment": "GAT562_Mesh_Watch13_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014010",
+          "log_sha256": "6c80294ed89517be4f1ef6cea044597a1ac3a73ed80a533b798b41f03152dd68",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "GAT562_Mesh_Watch13_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Generic_ESPNOW_companion_radio_unified",
+          "source_environment": "Generic_ESPNOW_comp_radio_usb",
+          "status": "upstream_failure",
+          "compile_link_verified": false,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014076",
+          "log_sha256": "02b167ea53b31b64766431d2aac97b4b4060fb262b64cb835978f5f57fb64451",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Generic_ESPNOW_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_ct62_companion_radio_unified",
+          "source_environment": "Heltec_ct62_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014094",
+          "log_sha256": "6e4914ee35f6f94e5469f18b95d0c7dfc2a21d47c86c4d1ba21c3d5b6f7d1fe8",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_ct62_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "GAT562_Mesh_Tracker_Pro_companion_radio_unified",
+          "source_environment": "GAT562_Mesh_Tracker_Pro_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014096",
+          "log_sha256": "54bdc87702c5c7167e7a06cb5c8fe79c70e8cd8cb1aedd0ef8847ce6e18f66ab",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "GAT562_Mesh_Tracker_Pro_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "GAT562_30S_Mesh_Kit_companion_radio_unified",
+          "source_environment": "GAT562_30S_Mesh_Kit_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014117",
+          "log_sha256": "c29058d3f158f59309b486cec28b085c160a04a786bfb5748c9a251af84ee169",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "GAT562_30S_Mesh_Kit_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "heltec_tracker_v2_companion_radio_unified",
+          "source_environment": "heltec_tracker_v2_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014150",
+          "log_sha256": "5776d055236e72344af3f6ba35cc2a6eb9cf26a04f6a039efa822a59ec078d32",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "heltec_tracker_v2_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_T190_companion_radio_unified",
+          "source_environment": "Heltec_T190_companion_radio_ble_",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014152",
+          "log_sha256": "c05f540685678e61d454cc0165e2bd489ed64eb8c8d0ede762a1b4a0d6246b7b",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_T190_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_t096_companion_radio_unified",
+          "source_environment": "Heltec_t096_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014154",
+          "log_sha256": "697eca17541918149ce84d9e4ca81a29ee405d156d3ef3164c264013cce61c71",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_t096_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_E213_companion_radio_unified",
+          "source_environment": "Heltec_E213_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014172",
+          "log_sha256": "802a3409aeada6b9d67dd15c5b9380d4f2b9b6723c8cdfcf3602a45e35c6ee77",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_E213_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_tower_v2_companion_radio_unified",
+          "source_environment": "Heltec_tower_v2_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014178",
+          "log_sha256": "6d8c9070344e97eaf7e2f096758922e6bdbfa886430108ef55b9d82891950693",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_tower_v2_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "heltec_rc32_without_display_companion_radio_unified",
+          "source_environment": "heltec_rc32_without_display_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014183",
+          "log_sha256": "fcf2fd5248a3f3e918cd0753d0092de23dba7e564e69008459e0053b2bb06bd7",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "heltec_rc32_without_display_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "heltec_rc32_companion_radio_unified",
+          "source_environment": "heltec_rc32_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014193",
+          "log_sha256": "2581028758dec87e8a3e485cd21dfedeb4ed3d0adf72a583f86ebff3023c4ca3",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "heltec_rc32_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_E290_companion_radio_unified",
+          "source_environment": "Heltec_E290_companion_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014205",
+          "log_sha256": "d408a32113f6469363aebbeaba1385fdc8fafec65ac99a809f481b76b6b790f1",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_E290_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_t1_companion_radio_unified",
+          "source_environment": "Heltec_t1_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014216",
+          "log_sha256": "8f4707d3d49dbb98c9f899877c1c8177f96727a50b3885b97474a6a67993750e",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_t1_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_t114_companion_radio_unified",
+          "source_environment": "Heltec_t114_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014243",
+          "log_sha256": "4ebee32e64c2d31408e4ec817d089ab4578df38831036f7f72400f47d5fc712d",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_t114_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_mesh_solar_companion_radio_unified",
+          "source_environment": "Heltec_mesh_solar_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014259",
+          "log_sha256": "50b1da648a1f858f244ce5652daefc121ee46b469c3fe8417d361131a5adb10a",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_mesh_solar_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_t114_without_display_companion_radio_unified",
+          "source_environment": "Heltec_t114_without_display_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945014321",
+          "log_sha256": "5aa7f1962baa3cb3f69ca664c7c01d9c084610754803c4abfdcdfc4270d6805f",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_t114_without_display_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "heltec_v4_companion_radio_unified",
+          "source_environment": "heltec_v4_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016236",
+          "log_sha256": "bc79a21ae843c7a92d29841279e47878af4d0d60cef0ce25955fd9b9c10d071c",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "heltec_v4_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_v2_companion_radio_unified",
+          "source_environment": "Heltec_v2_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016303",
+          "log_sha256": "45cd11b430ff318cbf85a1bd375584def87eb95327a5dbcce38e1bbd8b320682",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_v2_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "heltec_v4_r8_companion_radio_unified",
+          "source_environment": "heltec_v4_r8_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016366",
+          "log_sha256": "5aec0523ca19b9b70edcae94b76ef3beb371c73960875cd9139eee0a45537455",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "heltec_v4_r8_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_v3_companion_radio_unified",
+          "source_environment": "Heltec_v3_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016399",
+          "log_sha256": "56cb32c8a84d8f751c9aac6bc1a3e22ad8500e07ca5a232f381e2f22e4d83a37",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_v3_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "heltec_v4_r8_tft_companion_radio_unified",
+          "source_environment": "heltec_v4_r8_tft_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016519",
+          "log_sha256": "194e533003b980de7e2dbfd07396deed18fa73c21519dc5c7795a5a29a383163",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "heltec_v4_r8_tft_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_WSL3_companion_radio_unified",
+          "source_environment": "Heltec_WSL3_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016554",
+          "log_sha256": "cfa9dc6136822b38dff08412e8d7555bf9525a84f5b3bb85d46f9f8f17250c9d",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_WSL3_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "heltec_v4_tft_companion_radio_unified",
+          "source_environment": "heltec_v4_tft_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016566",
+          "log_sha256": "a43ee694154e35b1d658e129b2b83011923d8436f6ffb11e346f1958b5f07df5",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "heltec_v4_tft_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_Wireless_Paper_companion_radio_unified",
+          "source_environment": "Heltec_Wireless_Paper_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016597",
+          "log_sha256": "44f620a8463103f0a2d8297b8109bc7db8a554f45f784b928796c11484aa9c85",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_Wireless_Paper_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "Heltec_Wireless_Tracker_companion_radio_unified",
+          "source_environment": "Heltec_Wireless_Tracker_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016652",
+          "log_sha256": "223c1f2a592e7d4ec084f6781897d5ba8fb865bd2ea32620a84629f05615f3dd",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "Heltec_Wireless_Tracker_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_unified",
+          "source_environment": "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945016743",
+          "log_sha256": "a04e44baaa149bebfaf53b9c4384b40586cc4aa9c5613579bdfe0705673ee656",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "ikoka_nano_nrf_30dbm_companion_radio_unified",
+          "source_environment": "ikoka_nano_nrf_30dbm_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945018578",
+          "log_sha256": "6333b1c4452508a45fc7ba68f1aafbc19c1bcb616bbdd97a61796e1458ecfe59",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "ikoka_nano_nrf_30dbm_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_unified",
+          "source_environment": "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945018588",
+          "log_sha256": "581479268f856532d945b81b57ba7dfcfc5da194d70d3a0a989d2d5b1a1b3bcc",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "ikoka_nano_nrf_33dbm_companion_radio_unified",
+          "source_environment": "ikoka_nano_nrf_33dbm_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945018707",
+          "log_sha256": "50455906d545da795fc3beea3dd95d0d8f5b85c230b0f91d228e01cceaa44cb6",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "ikoka_nano_nrf_33dbm_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "ikoka_stick_nrf_22dbm_companion_radio_unified",
+          "source_environment": "ikoka_stick_nrf_22dbm_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945018755",
+          "log_sha256": "9b7c2289d23db80d29839414a110f4ec1a30f1095f219aaa735378554e8a0300",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "ikoka_stick_nrf_22dbm_companion_radio_unified"
+          ]
+        },
+        {
+          "target": "ikoka_nano_nrf_22dbm_companion_radio_unified",
+          "source_environment": "ikoka_nano_nrf_22dbm_companion_radio_ble",
+          "status": "passed",
+          "compile_link_verified": true,
+          "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038964896/job/110945018943",
+          "log_sha256": "f7b6d12a039f4370f0fc7bcf387ee71004f6166bb70ef19f6c1caba0cf7ad916",
+          "pio_command": [
+            "pio",
+            "run",
+            "-c",
+            ".pio/unified-platformio.ini",
+            "-e",
+            "ikoka_nano_nrf_22dbm_companion_radio_unified"
+          ]
+        }
+      ],
+      "note": "Successful completed target logs audited before manually retiring this superseded matrix; remaining jobs were not classified."
     }
   }
 }

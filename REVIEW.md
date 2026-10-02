@@ -257,3 +257,12 @@ Commit `c6feb6ce` adds workflow concurrency keyed by workflow name and Git ref.
 Newer PR or branch updates cancel superseded unified matrices, avoiding duplicate
 99-target jobs after frequent checkpoint pushes. All three affected workflow
 lint checks pass. This uses [GitHub's documented concurrency behavior](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
+
+Live verification confirms that [run 37040477154](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040477154)
+on `c6feb6ce` was cancelled after the newer documentation checkpoint queued
+[run 37040575781](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040575781),
+without a manual cancellation request for the superseded matrix.
+The evidence also preserves 33 audited target logs from the validator follow-up
+on `53387433`: 32 firmware links and one known upstream failure, before that
+older run was manually retired. This partial audit does not count cancelled jobs
+as verified firmware or change the complete 93/6 matrix result.

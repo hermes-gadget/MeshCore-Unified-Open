@@ -266,3 +266,14 @@ The evidence also preserves 33 audited target logs from the validator follow-up
 on `53387433`: 32 firmware links and one known upstream failure, before that
 older run was manually retired. This partial audit does not count cancelled jobs
 as verified firmware or change the complete 93/6 matrix result.
+
+## Completed final follow-up matrix
+
+[PR CI run 37040956657](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657)
+completed successfully on `25471505`, including the PlatformIO override resume
+fix and workflow concurrency. All 99 target logs were individually audited:
+**93 firmware links, six reproduced upstream failures, zero overlay failures**.
+All 74 previously failing daily targets link, and all **112 PR checks pass**
+on this audited revision. The evidence JSON records every final job URL and log
+hash. The seven additional checkpoint boards all passed locally, bringing local
+coverage to **33 successes in 37 unique target attempts**. No hardware was used.

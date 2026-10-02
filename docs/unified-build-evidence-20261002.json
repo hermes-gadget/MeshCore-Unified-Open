@@ -1235,7 +1235,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134213",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430751",
-      "checkpoint_pr_ci_log_sha256": "fe3d0f284c83b9c89ba0d99d6d0d1460734a657e7b6b2176ba53813d8a22ca0f"
+      "checkpoint_pr_ci_log_sha256": "fe3d0f284c83b9c89ba0d99d6d0d1460734a657e7b6b2176ba53813d8a22ca0f",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034817",
+      "final_pr_ci_log_sha256": "75c76f24640f15bc0f9887fc85da206accc20dcf8d4d67a51487c5c454c8b88e"
     },
     {
       "target": "GAT562_30S_Mesh_Kit_companion_radio_unified",
@@ -1261,7 +1263,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134233",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430778",
-      "checkpoint_pr_ci_log_sha256": "b20aee0ce0a5f9963b30c66af08446b255cadcacdb1216fea0614ee07d0b02ce"
+      "checkpoint_pr_ci_log_sha256": "b20aee0ce0a5f9963b30c66af08446b255cadcacdb1216fea0614ee07d0b02ce",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034936",
+      "final_pr_ci_log_sha256": "a2db02c3aa843f518ee77a85dcb6ba77d854f499b7dba159e4738a673be3774d"
     },
     {
       "target": "GAT562_Mesh_Tracker_Pro_companion_radio_unified",
@@ -1287,7 +1291,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134221",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430902",
-      "checkpoint_pr_ci_log_sha256": "1ded6ad974b33b93b341118223b32dd34592dc04a7cb0475038345a57be77552"
+      "checkpoint_pr_ci_log_sha256": "1ded6ad974b33b93b341118223b32dd34592dc04a7cb0475038345a57be77552",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034907",
+      "final_pr_ci_log_sha256": "8855dde0f66faa32523a2cad5f70b084383f7b65e8b996a6f73c0c12b1805a32"
     },
     {
       "target": "GAT562_Mesh_Watch13_companion_radio_unified",
@@ -1313,7 +1319,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134089",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430981",
-      "checkpoint_pr_ci_log_sha256": "a616c1acec530757f6f46a7bb8966aff4727aa89be6c3a81d17ab2fd77dd53d8"
+      "checkpoint_pr_ci_log_sha256": "a616c1acec530757f6f46a7bb8966aff4727aa89be6c3a81d17ab2fd77dd53d8",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951035163",
+      "final_pr_ci_log_sha256": "0fd19e07ee12be65086a26efee9d81294cd2f70165cb9c4338701ccf3c1ef3c1"
     },
     {
       "target": "Generic_ESPNOW_companion_radio_unified",
@@ -1341,7 +1349,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134399",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430714",
-      "checkpoint_pr_ci_log_sha256": "c6da7e63a0c0e3674d6ccef9636507e6895dd0641736b80cf4bfeed53b92377f"
+      "checkpoint_pr_ci_log_sha256": "c6da7e63a0c0e3674d6ccef9636507e6895dd0641736b80cf4bfeed53b92377f",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034886",
+      "final_pr_ci_log_sha256": "b9eba3bf8f504879f7599e7d2fa6d18e4f58ebc2fe63cde2b2b7d2ac025fd00c"
     },
     {
       "target": "Heltec_ct62_companion_radio_unified",
@@ -1368,7 +1378,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134158",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430889",
-      "checkpoint_pr_ci_log_sha256": "d42fac88a7eca6429d14d5e7d19f029816ecb11660ed9a942dfcd4c39baa6fdc"
+      "checkpoint_pr_ci_log_sha256": "d42fac88a7eca6429d14d5e7d19f029816ecb11660ed9a942dfcd4c39baa6fdc",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034804",
+      "final_pr_ci_log_sha256": "40a15c4caff990327d1bd989e60069b083a2da976639e014862139d92d4767e8"
     },
     {
       "target": "Heltec_E213_companion_radio_unified",
@@ -1395,7 +1407,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134088",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430815",
-      "checkpoint_pr_ci_log_sha256": "b144cc9ffe4c0eef6bc6eb0d031650355de3e625b938a4e9095d1e30871ed46a"
+      "checkpoint_pr_ci_log_sha256": "b144cc9ffe4c0eef6bc6eb0d031650355de3e625b938a4e9095d1e30871ed46a",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034916",
+      "final_pr_ci_log_sha256": "dc6deb84503c805260b566b7d6db4f77ea39cf6063d88b203bfe3d42ad905070"
     },
     {
       "target": "Heltec_E290_companion_radio_unified",
@@ -1422,7 +1436,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134191",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430780",
-      "checkpoint_pr_ci_log_sha256": "32293da71936f541668452282d4f5724fb55a0dea8e915266c67444a1fee0cf1"
+      "checkpoint_pr_ci_log_sha256": "32293da71936f541668452282d4f5724fb55a0dea8e915266c67444a1fee0cf1",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034870",
+      "final_pr_ci_log_sha256": "dc5926c4cadd4af55d2c2f7ce74e3ba4092c487e1252b121343d1bd4712c4c55"
     },
     {
       "target": "Heltec_mesh_solar_companion_radio_unified",
@@ -1448,7 +1464,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134072",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430788",
-      "checkpoint_pr_ci_log_sha256": "e30f5b6cd9ef98f44668a9c0ad74db8d03e8838a384b2dba497fbf550d87de4c"
+      "checkpoint_pr_ci_log_sha256": "e30f5b6cd9ef98f44668a9c0ad74db8d03e8838a384b2dba497fbf550d87de4c",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034970",
+      "final_pr_ci_log_sha256": "10a01200260be71e69d44eefeb5e8192bfa4a6961c3d75e284325f6789664ee5"
     },
     {
       "target": "heltec_rc32_companion_radio_unified",
@@ -1475,7 +1493,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134022",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430926",
-      "checkpoint_pr_ci_log_sha256": "02c7d202f58a6130dc88bf1d712b385ec406cca1b250fc42478349b45b05e17c"
+      "checkpoint_pr_ci_log_sha256": "02c7d202f58a6130dc88bf1d712b385ec406cca1b250fc42478349b45b05e17c",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034983",
+      "final_pr_ci_log_sha256": "030ee36388cf1a5cc5d3f1190aac0b1adc92f59a42eefbbdfd72e7375274c52d"
     },
     {
       "target": "heltec_rc32_without_display_companion_radio_unified",
@@ -1502,7 +1522,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134071",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430736",
-      "checkpoint_pr_ci_log_sha256": "5e27e3d7a9ae69561246b31bd239c5ab0c1c5a565ae855061dad0532003ff414"
+      "checkpoint_pr_ci_log_sha256": "5e27e3d7a9ae69561246b31bd239c5ab0c1c5a565ae855061dad0532003ff414",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034906",
+      "final_pr_ci_log_sha256": "e9d4834707f4d774ad9ef791ad3a7d4ea27e2ae2cec22497d8462ece8a5db897"
     },
     {
       "target": "Heltec_t096_companion_radio_unified",
@@ -1528,7 +1550,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134151",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430793",
-      "checkpoint_pr_ci_log_sha256": "df6072b091c3cc42c2f236643fd027b940a0fe9519302739582006eaf64a26a6"
+      "checkpoint_pr_ci_log_sha256": "df6072b091c3cc42c2f236643fd027b940a0fe9519302739582006eaf64a26a6",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951035014",
+      "final_pr_ci_log_sha256": "40d71ae57ce2f06b6f8ee1505ec0a27bb21f875dce81202f9adc8eb055c0fbd1"
     },
     {
       "target": "Heltec_t114_companion_radio_unified",
@@ -1554,7 +1578,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134130",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430903",
-      "checkpoint_pr_ci_log_sha256": "10a75dc25cd8ffd21ecfe94dbe79242940692c144ca34ca0d7dceff1ea871981"
+      "checkpoint_pr_ci_log_sha256": "10a75dc25cd8ffd21ecfe94dbe79242940692c144ca34ca0d7dceff1ea871981",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034915",
+      "final_pr_ci_log_sha256": "ccf377631e932adc7cfef775e8bb5d1aa9a874a76de81a56fb6297ad55388d5a"
     },
     {
       "target": "Heltec_t114_without_display_companion_radio_unified",
@@ -1580,7 +1606,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134236",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430864",
-      "checkpoint_pr_ci_log_sha256": "eb71ece6129d24adbe18d41c016028de54281d093162a756c8f63cddf8fc4f15"
+      "checkpoint_pr_ci_log_sha256": "eb71ece6129d24adbe18d41c016028de54281d093162a756c8f63cddf8fc4f15",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034993",
+      "final_pr_ci_log_sha256": "db20f8f8c2c1973635090790b62706e9de7f0d35ff293a6b186d70a81bf4d35c"
     },
     {
       "target": "Heltec_T190_companion_radio_unified",
@@ -1607,7 +1635,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134302",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430801",
-      "checkpoint_pr_ci_log_sha256": "19ccaec01270837be087e8c1612ba809742dbe80ba02dc30ff2433ce805b4fd5"
+      "checkpoint_pr_ci_log_sha256": "19ccaec01270837be087e8c1612ba809742dbe80ba02dc30ff2433ce805b4fd5",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034872",
+      "final_pr_ci_log_sha256": "8e5ab73eddfa7bbb76f9329b664472b8d599eab147312a9ab65caa26b0f09b36"
     },
     {
       "target": "Heltec_t1_companion_radio_unified",
@@ -1633,7 +1663,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134220",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430858",
-      "checkpoint_pr_ci_log_sha256": "409608c659d0a84c36f4b5255ecb55b9773d0fda423468bab08c1dba03114c3d"
+      "checkpoint_pr_ci_log_sha256": "409608c659d0a84c36f4b5255ecb55b9773d0fda423468bab08c1dba03114c3d",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034895",
+      "final_pr_ci_log_sha256": "b8ff1fbc587b930b8acb1148c1748602c06ce1edfbf366df6c68d96bd37d166f"
     },
     {
       "target": "Heltec_tower_v2_companion_radio_unified",
@@ -1659,7 +1691,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134093",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430808",
-      "checkpoint_pr_ci_log_sha256": "58490161e0635fde733f749d83e8ccc3ed91700549892071fff9367f051914be"
+      "checkpoint_pr_ci_log_sha256": "58490161e0635fde733f749d83e8ccc3ed91700549892071fff9367f051914be",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034852",
+      "final_pr_ci_log_sha256": "9439562daeea73cb961c764f30ee07adc9f234a3c7296c6c3997e8aca736a774"
     },
     {
       "target": "heltec_tracker_v2_companion_radio_unified",
@@ -1686,7 +1720,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873134132",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919430760",
-      "checkpoint_pr_ci_log_sha256": "ce86d285d4fbab1a15b2dabe702b37ef7ec1e989982e0ce01240bfee32cb05c9"
+      "checkpoint_pr_ci_log_sha256": "ce86d285d4fbab1a15b2dabe702b37ef7ec1e989982e0ce01240bfee32cb05c9",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951034847",
+      "final_pr_ci_log_sha256": "e585eecc4f071af110ac052464cf68f1da8c1a6c36d4f2255f01ced5fc537363"
     },
     {
       "target": "Heltec_v2_companion_radio_unified",
@@ -1713,7 +1749,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873135783",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432280",
-      "checkpoint_pr_ci_log_sha256": "c40d3dc0f5db923b938469f55b626764bb70d214bcea17183ad7c4eaeac282f2"
+      "checkpoint_pr_ci_log_sha256": "c40d3dc0f5db923b938469f55b626764bb70d214bcea17183ad7c4eaeac282f2",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951036364",
+      "final_pr_ci_log_sha256": "bd2de0251015b1cf5c3b3d03ceb7a5490d04a54ae67019d332fb531d3f94457e"
     },
     {
       "target": "Heltec_v3_companion_radio_unified",
@@ -1740,7 +1778,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873135963",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432465",
-      "checkpoint_pr_ci_log_sha256": "da303aa91aba1da2d6f26091a032efc64d735afb860aa9c20326487c1241ffb1"
+      "checkpoint_pr_ci_log_sha256": "da303aa91aba1da2d6f26091a032efc64d735afb860aa9c20326487c1241ffb1",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951036490",
+      "final_pr_ci_log_sha256": "00dd54cc8e8ddc5186309d5c68b4bb39cf6b8c6527b529f78c17caf9108b9885"
     },
     {
       "target": "heltec_v4_companion_radio_unified",
@@ -1767,7 +1807,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873135910",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432520",
-      "checkpoint_pr_ci_log_sha256": "75eabd065a3ee13148b6289da606f9ee8f00c40a6022d33df89e7bd027a1a2c8"
+      "checkpoint_pr_ci_log_sha256": "75eabd065a3ee13148b6289da606f9ee8f00c40a6022d33df89e7bd027a1a2c8",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951036624",
+      "final_pr_ci_log_sha256": "f4e5553b5bcd67dd96a0bcc4daac4c56f2e932d32d90bd29360b480271b187bc"
     },
     {
       "target": "heltec_v4_r8_companion_radio_unified",
@@ -1794,7 +1836,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873136021",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432514",
-      "checkpoint_pr_ci_log_sha256": "7633591ba1fef09a62ddbf122e9defb560288e875b7a5055a814dfbfc4c75c7b"
+      "checkpoint_pr_ci_log_sha256": "7633591ba1fef09a62ddbf122e9defb560288e875b7a5055a814dfbfc4c75c7b",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951036836",
+      "final_pr_ci_log_sha256": "32409f162fd89d5b522d60182148affcfa16677c3fe301a8df3b61596773f68a"
     },
     {
       "target": "heltec_v4_r8_tft_companion_radio_unified",
@@ -1821,7 +1865,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873136170",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432709",
-      "checkpoint_pr_ci_log_sha256": "065d83f40d13b802da440da00c64a5db3333876398649bad919f140ffb16745b"
+      "checkpoint_pr_ci_log_sha256": "065d83f40d13b802da440da00c64a5db3333876398649bad919f140ffb16745b",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951036952",
+      "final_pr_ci_log_sha256": "91299a6cbb6c72e29cf339e69e10e1974adc2d2a3e1cf611cf8c0c8b73fb3f27"
     },
     {
       "target": "heltec_v4_tft_companion_radio_unified",
@@ -1848,7 +1894,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873136195",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432730",
-      "checkpoint_pr_ci_log_sha256": "a93f8d1ed6c015ef95703f48bf2a839b46cf5a9098eddc98315f786d581ab893"
+      "checkpoint_pr_ci_log_sha256": "a93f8d1ed6c015ef95703f48bf2a839b46cf5a9098eddc98315f786d581ab893",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951036999",
+      "final_pr_ci_log_sha256": "51d44b4407b407e25e4916c3bbf75809880419a306513cb217a6b0a112e0650a"
     },
     {
       "target": "Heltec_Wireless_Paper_companion_radio_unified",
@@ -1875,7 +1923,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873136312",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432671",
-      "checkpoint_pr_ci_log_sha256": "437d002f015c04b14b6f8013393d7adab354a63a0df65e5bf5efbed28a251654"
+      "checkpoint_pr_ci_log_sha256": "437d002f015c04b14b6f8013393d7adab354a63a0df65e5bf5efbed28a251654",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951037053",
+      "final_pr_ci_log_sha256": "985f1c3380e9b27a8e95a995ece3cc4fe623dbc3f626bc0f27f5bc60fa2f77cf"
     },
     {
       "target": "Heltec_Wireless_Tracker_companion_radio_unified",
@@ -1902,7 +1952,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873137441",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432827",
-      "checkpoint_pr_ci_log_sha256": "fdb017ed439873f73f91e7091d9471840b6526f5cc38bc78627053180d4cc61c"
+      "checkpoint_pr_ci_log_sha256": "fdb017ed439873f73f91e7091d9471840b6526f5cc38bc78627053180d4cc61c",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951037025",
+      "final_pr_ci_log_sha256": "866a95a83c1be583f402dfdff7d20dc4c175cfc687de8796778639062539418d"
     },
     {
       "target": "Heltec_WSL3_companion_radio_unified",
@@ -1929,7 +1981,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873136559",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432882",
-      "checkpoint_pr_ci_log_sha256": "13e9b6514d733eeac7b1d2d84c6cffef735013c92aebf2cb3f722296e2ff4e25"
+      "checkpoint_pr_ci_log_sha256": "13e9b6514d733eeac7b1d2d84c6cffef735013c92aebf2cb3f722296e2ff4e25",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951037170",
+      "final_pr_ci_log_sha256": "60b968256d055637b0349e94952bce0282d956f3d7986bc290b24eee311a985a"
     },
     {
       "target": "ikoka_handheld_nrf_e22_30dbm_096_companion_radio_unified",
@@ -1955,7 +2009,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873136972",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919432875",
-      "checkpoint_pr_ci_log_sha256": "5c2327a806def2d97a9a0ec0e5548ae325d93f4706368db446b309f229577dad"
+      "checkpoint_pr_ci_log_sha256": "5c2327a806def2d97a9a0ec0e5548ae325d93f4706368db446b309f229577dad",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951037495",
+      "final_pr_ci_log_sha256": "67867ca6bb8d10f10530078d5ef38a2161802211dc9bbfbfdb25ad4bf949a544"
     },
     {
       "target": "ikoka_handheld_nrf_e22_30dbm_096_rotated_companion_radio_unified",
@@ -1981,7 +2037,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873137582",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919433878",
-      "checkpoint_pr_ci_log_sha256": "ed196526f90e27ecddfc063c928ed9c1da8d0baa92ed3b6e959449594dabddf7"
+      "checkpoint_pr_ci_log_sha256": "ed196526f90e27ecddfc063c928ed9c1da8d0baa92ed3b6e959449594dabddf7",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951038018",
+      "final_pr_ci_log_sha256": "cc6f02d80eddeb9165994d59f92b449168d25bbdfd5ebe81d438f7035cd98fba"
     },
     {
       "target": "ikoka_nano_nrf_22dbm_companion_radio_unified",
@@ -2007,7 +2065,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873137988",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919434087",
-      "checkpoint_pr_ci_log_sha256": "b65b31db6b10ba34a279a810a7383e6f67f8a8396bbc3fa1f6720a81d6677b3b"
+      "checkpoint_pr_ci_log_sha256": "b65b31db6b10ba34a279a810a7383e6f67f8a8396bbc3fa1f6720a81d6677b3b",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951038149",
+      "final_pr_ci_log_sha256": "7c4a3ac56c16e68a0c41c3f6677db6a78ce3453de2dd5f0f5d1968d2a8275393"
     },
     {
       "target": "ikoka_nano_nrf_30dbm_companion_radio_unified",
@@ -2033,7 +2093,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873137729",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919434320",
-      "checkpoint_pr_ci_log_sha256": "1503f4974836831b13843ce190294d9734f47d931b119d6ae13808fe1a27901c"
+      "checkpoint_pr_ci_log_sha256": "1503f4974836831b13843ce190294d9734f47d931b119d6ae13808fe1a27901c",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951038425",
+      "final_pr_ci_log_sha256": "dde7dbe0d0a3d0bcdf0b4b39348091fbbb56238b76688d9a1eefde674f3bf4cf"
     },
     {
       "target": "ikoka_nano_nrf_33dbm_companion_radio_unified",
@@ -2059,7 +2121,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873137807",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919434309",
-      "checkpoint_pr_ci_log_sha256": "d0cf733272616ff0bb0b61bb37c59c3d58d205d0757e503fc908d97740191cb7"
+      "checkpoint_pr_ci_log_sha256": "d0cf733272616ff0bb0b61bb37c59c3d58d205d0757e503fc908d97740191cb7",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951038451",
+      "final_pr_ci_log_sha256": "b898e04e0ff1b3fa77082ae6f7cc7a852d68e0dd763bb574cb02191a5886d1fd"
     },
     {
       "target": "ikoka_stick_nrf_22dbm_companion_radio_unified",
@@ -2085,7 +2149,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873138138",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919434444",
-      "checkpoint_pr_ci_log_sha256": "29f88c8f3e4e963229e01b84828e514b69145a2571e5cbaed47300e4851ead5a"
+      "checkpoint_pr_ci_log_sha256": "29f88c8f3e4e963229e01b84828e514b69145a2571e5cbaed47300e4851ead5a",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951038598",
+      "final_pr_ci_log_sha256": "52b815bc326230413ee320d4fbe61eaa09f3b8d0fe95aa34eaec90fe9e563682"
     },
     {
       "target": "ikoka_stick_nrf_30dbm_companion_radio_unified",
@@ -2111,7 +2177,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873138024",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919434863",
-      "checkpoint_pr_ci_log_sha256": "d30f5f395fcc3bdf1185655c41ba7d4cb12e532dd86c7301dd0b60c7c72b95c9"
+      "checkpoint_pr_ci_log_sha256": "d30f5f395fcc3bdf1185655c41ba7d4cb12e532dd86c7301dd0b60c7c72b95c9",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951039172",
+      "final_pr_ci_log_sha256": "6e583dea52146214313cfc31467a61b769a4b062b7612e7da657a5b06287cee9"
     },
     {
       "target": "ikoka_stick_nrf_33dbm_companion_radio_unified",
@@ -2137,7 +2205,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873138297",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919434661",
-      "checkpoint_pr_ci_log_sha256": "1d68069784b0aef91b6b45182ae42b0f4d5b18d856559dc8fbba96a468d826e9"
+      "checkpoint_pr_ci_log_sha256": "1d68069784b0aef91b6b45182ae42b0f4d5b18d856559dc8fbba96a468d826e9",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951039235",
+      "final_pr_ci_log_sha256": "79d2978ab952f82cae654ed946d9d3b0c51424639f7430dba0753f019fbab559"
     },
     {
       "target": "KeepteenLT1_companion_radio_unified",
@@ -2163,7 +2233,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873138689",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919434751",
-      "checkpoint_pr_ci_log_sha256": "f8cdc4c478813bab43b7fde6efd19577df2efb759419f66f110e31c610a36990"
+      "checkpoint_pr_ci_log_sha256": "f8cdc4c478813bab43b7fde6efd19577df2efb759419f66f110e31c610a36990",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951039188",
+      "final_pr_ci_log_sha256": "fe47a7bc5a39bdbe4b04366dee78cac962b0e0ce5aceb227c47d63cff3b5b7e1"
     },
     {
       "target": "LilyGo_T-Echo-Lite_companion_radio_unified",
@@ -2189,7 +2261,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873139213",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919435192",
-      "checkpoint_pr_ci_log_sha256": "f09e7cb1fb6401d518364ec36dbb41a71a7dbcdcb2404cfe1d9bda42c65e9fe6"
+      "checkpoint_pr_ci_log_sha256": "f09e7cb1fb6401d518364ec36dbb41a71a7dbcdcb2404cfe1d9bda42c65e9fe6",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951039108",
+      "final_pr_ci_log_sha256": "6d0beaf6029e268cd245799084b52bd2ee41f3f3827a436f33d5f04033e539ed"
     },
     {
       "target": "LilyGo_T-Echo-Lite_non_shell_companion_radio_unified",
@@ -2215,7 +2289,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873139429",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919435817",
-      "checkpoint_pr_ci_log_sha256": "d476baf05b4660ba3cf7f7a0ab15e0d9f27a13e9225a8126fdaf4b28a49bf390"
+      "checkpoint_pr_ci_log_sha256": "d476baf05b4660ba3cf7f7a0ab15e0d9f27a13e9225a8126fdaf4b28a49bf390",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951039577",
+      "final_pr_ci_log_sha256": "6caeb7b225b3d34a94a986d413610872a37a282147733132c116cfb4a88241af"
     },
     {
       "target": "LilyGo_T-Echo_Card_companion_radio_unified",
@@ -2241,7 +2317,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873139367",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919436292",
-      "checkpoint_pr_ci_log_sha256": "bc0e080c9b0a8593c1af6a7a999fd6419f2c68c7d0178ba26e984cf3a6e66661"
+      "checkpoint_pr_ci_log_sha256": "bc0e080c9b0a8593c1af6a7a999fd6419f2c68c7d0178ba26e984cf3a6e66661",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951039644",
+      "final_pr_ci_log_sha256": "65a6f94452a736f6e3129918fd2f4ad1850f5eb26ccd13a94bb860c9c96b94a9"
     },
     {
       "target": "LilyGo_T-Echo_companion_radio_unified",
@@ -2267,7 +2345,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873138760",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919434907",
-      "checkpoint_pr_ci_log_sha256": "27f26c2bba59024a5369959e11e49c3a0119c514a1f2d93696aedc471ecd6c00"
+      "checkpoint_pr_ci_log_sha256": "27f26c2bba59024a5369959e11e49c3a0119c514a1f2d93696aedc471ecd6c00",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951039093",
+      "final_pr_ci_log_sha256": "382e5158bedaea3e06a8e0b9e30acaeecefe6c9bf6cb76bb124ad3625941853c"
     },
     {
       "target": "LilyGo_T3S3_sx1262_companion_radio_unified",
@@ -2294,7 +2374,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873139606",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919436366",
-      "checkpoint_pr_ci_log_sha256": "6cadaef6e461c4e35d414a2b31bec77028a9c05bdbaa804b8127f6839ae7342a"
+      "checkpoint_pr_ci_log_sha256": "6cadaef6e461c4e35d414a2b31bec77028a9c05bdbaa804b8127f6839ae7342a",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951040150",
+      "final_pr_ci_log_sha256": "d09e332dbd69c93aefb83535a68ce11789ca746266dc3e010d5c210844ff6535"
     },
     {
       "target": "LilyGo_T3S3_sx1276_companion_radio_unified",
@@ -2321,7 +2403,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873139678",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919436434",
-      "checkpoint_pr_ci_log_sha256": "3c9a7a311d8e82bcc0ac736ff5ad5cb6ebdd15a46005ccbcd435c481e3503623"
+      "checkpoint_pr_ci_log_sha256": "3c9a7a311d8e82bcc0ac736ff5ad5cb6ebdd15a46005ccbcd435c481e3503623",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951040409",
+      "final_pr_ci_log_sha256": "0b3f1dad26f9cbadc3d12e6f76c9df6f707f0b1464603f9b3ce91b8c053da2ea"
     },
     {
       "target": "LilyGo_T_Impulse_Plus_companion_radio_unified",
@@ -2347,7 +2431,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873139701",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919436497",
-      "checkpoint_pr_ci_log_sha256": "29a644cc403693e3157620b3aa5f479f763120d5fb7223a725bbab94d8733586"
+      "checkpoint_pr_ci_log_sha256": "29a644cc403693e3157620b3aa5f479f763120d5fb7223a725bbab94d8733586",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951040597",
+      "final_pr_ci_log_sha256": "2b2ae831c4449ad5920ca087746f521c664818db4312d51ffd37c3b991d530aa"
     },
     {
       "target": "LilyGo_TBeam_1W_companion_radio_unified",
@@ -2374,7 +2460,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873139841",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919436559",
-      "checkpoint_pr_ci_log_sha256": "c4a6b5057e2b7f220d1c2ea7702c36a813799c763b4825f9181ad840a0bb5da3"
+      "checkpoint_pr_ci_log_sha256": "c4a6b5057e2b7f220d1c2ea7702c36a813799c763b4825f9181ad840a0bb5da3",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951040951",
+      "final_pr_ci_log_sha256": "0440ca3b10355b76cccf98c23558bee4e5400851230f91a29d903e6c7dfc3a1e"
     },
     {
       "target": "LilyGo_TDeck_8MB_companion_radio_unified",
@@ -2401,7 +2489,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873140394",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919436764",
-      "checkpoint_pr_ci_log_sha256": "c428820705313d98aa4f27d3de6cfd0fbf5b7f226487d92393ef07a62a413c78"
+      "checkpoint_pr_ci_log_sha256": "c428820705313d98aa4f27d3de6cfd0fbf5b7f226487d92393ef07a62a413c78",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951041002",
+      "final_pr_ci_log_sha256": "30362869652e6e594c4b758142f1366be62040ddc1ddefee2ba330f7a3c8c7f7"
     },
     {
       "target": "LilyGo_TDeck_companion_radio_unified",
@@ -2428,7 +2518,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873140332",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919436755",
-      "checkpoint_pr_ci_log_sha256": "ba3a89fdfa5e007c6f1297d37415f965929321614cf931cc9e17ad242a9057f7"
+      "checkpoint_pr_ci_log_sha256": "ba3a89fdfa5e007c6f1297d37415f965929321614cf931cc9e17ad242a9057f7",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951040861",
+      "final_pr_ci_log_sha256": "e8ab1946687a50f0de3676205ee03c37bc28bc2cdbbe48cd8bbc63d0d6672eb1"
     },
     {
       "target": "LilyGo_TETH_Elite_sx1262_companion_radio_unified",
@@ -2455,7 +2547,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873141364",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919437244",
-      "checkpoint_pr_ci_log_sha256": "84eff26250ab9dbd87c9428fd0d88fd863c2ab6608de7553ef492e4872d143d2"
+      "checkpoint_pr_ci_log_sha256": "84eff26250ab9dbd87c9428fd0d88fd863c2ab6608de7553ef492e4872d143d2",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951041094",
+      "final_pr_ci_log_sha256": "b5e17ac1c1ed3e83942dba7f3a51a26df5ee3788cd1ac296387cfff048d0de09"
     },
     {
       "target": "LilyGo_Tlora_C6_companion_radio_unified",
@@ -2482,7 +2576,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873140896",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919437207",
-      "checkpoint_pr_ci_log_sha256": "00099af32b21047c7b83f8928922d97bb00d60ed048b8744a8129ad11f3fdd5e"
+      "checkpoint_pr_ci_log_sha256": "00099af32b21047c7b83f8928922d97bb00d60ed048b8744a8129ad11f3fdd5e",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951041127",
+      "final_pr_ci_log_sha256": "d3b1c186f9ccd794c36bbd61c1388def72e73691e37dce41b89e93f9ae8a46f3"
     },
     {
       "target": "LilyGo_TLora_V2_1_1_6_companion_radio_unified",
@@ -2509,7 +2605,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873140726",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919437408",
-      "checkpoint_pr_ci_log_sha256": "abc787878ce64a57f0787ee1d91504a28f5cd0233a83ffb96555eab3bdb62623"
+      "checkpoint_pr_ci_log_sha256": "abc787878ce64a57f0787ee1d91504a28f5cd0233a83ffb96555eab3bdb62623",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951041242",
+      "final_pr_ci_log_sha256": "116f8cefda1a42b8bf55b1451f6374d76eb1453b8da50fc71fb652a9bcf60049"
     },
     {
       "target": "M5Stack_Unit_C6L_companion_radio_unified",
@@ -2536,7 +2634,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873140974",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919437857",
-      "checkpoint_pr_ci_log_sha256": "ff90b80d744d08cf9552b2319c115048a16d35c543e601104b7643245da0572f"
+      "checkpoint_pr_ci_log_sha256": "ff90b80d744d08cf9552b2319c115048a16d35c543e601104b7643245da0572f",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951041693",
+      "final_pr_ci_log_sha256": "40252b4e2a1f101e316f60bbc6861ed58630cfd82f03ce13cceac75365fc5def"
     },
     {
       "target": "Mesh_pocket_companion_radio_unified",
@@ -2562,7 +2662,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873140962",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919438093",
-      "checkpoint_pr_ci_log_sha256": "0f9bb5354ddadaf95f407d529ea89169aa582bb63a062bbbced02011a1dde504"
+      "checkpoint_pr_ci_log_sha256": "0f9bb5354ddadaf95f407d529ea89169aa582bb63a062bbbced02011a1dde504",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951041833",
+      "final_pr_ci_log_sha256": "75ff8aad6d186642f2bd474b8cf7b56b01c7cb69da66f8055cc40c69f85d1400"
     },
     {
       "target": "Meshadventurer_sx1262_companion_radio_unified",
@@ -2589,7 +2691,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873141022",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919438102",
-      "checkpoint_pr_ci_log_sha256": "f134aafc83140ccde50bf2ab54374586886998b32a602483e86372c71a65662c"
+      "checkpoint_pr_ci_log_sha256": "f134aafc83140ccde50bf2ab54374586886998b32a602483e86372c71a65662c",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951042129",
+      "final_pr_ci_log_sha256": "b592285f9f7d5122fcb521301c871f79ebcbb96452bf9ec0aafb3fbf5576b933"
     },
     {
       "target": "Meshadventurer_sx1268_companion_radio_unified",
@@ -2616,7 +2720,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873141171",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919438334",
-      "checkpoint_pr_ci_log_sha256": "821e3a05a059bc92a750bb154c34121ee635700bc3c01da3e6a86358d132a97f"
+      "checkpoint_pr_ci_log_sha256": "821e3a05a059bc92a750bb154c34121ee635700bc3c01da3e6a86358d132a97f",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951042091",
+      "final_pr_ci_log_sha256": "115a0e0d036c9b3b8b477aca10c69e459cb7133d078c80dca96db28d8774004e"
     },
     {
       "target": "Meshimi_companion_radio_unified",
@@ -2643,7 +2749,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873141263",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919438522",
-      "checkpoint_pr_ci_log_sha256": "42a85d66fbf26330a0ced771b768b3e29ecc0b8511aa317248faa1be9d950a62"
+      "checkpoint_pr_ci_log_sha256": "42a85d66fbf26330a0ced771b768b3e29ecc0b8511aa317248faa1be9d950a62",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951042514",
+      "final_pr_ci_log_sha256": "5ef772b4e6802e411dd674e0d9db54d4da99df75feff10b853b574c7bfcc977c"
     },
     {
       "target": "meshnology_w12_companion_radio_unified",
@@ -2670,7 +2778,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873142054",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919438560",
-      "checkpoint_pr_ci_log_sha256": "65f742c1bf89bb200a61dcf9a7cd405ada85a96ec05eb7b95373340c5778f3a9"
+      "checkpoint_pr_ci_log_sha256": "65f742c1bf89bb200a61dcf9a7cd405ada85a96ec05eb7b95373340c5778f3a9",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951042530",
+      "final_pr_ci_log_sha256": "40ed2c750f1f2750682f2330feb2c0f7810c7ca294d3b0e5c4a3812e485a0ba3"
     },
     {
       "target": "Meshtiny_companion_radio_unified",
@@ -2696,7 +2806,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873141796",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919438583",
-      "checkpoint_pr_ci_log_sha256": "09a0164f6bdea7897f2d253859b3c43a8ebf8cd312b0a7f9fe467eeb23d99226"
+      "checkpoint_pr_ci_log_sha256": "09a0164f6bdea7897f2d253859b3c43a8ebf8cd312b0a7f9fe467eeb23d99226",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951042760",
+      "final_pr_ci_log_sha256": "aaa5c4d4e091a8755a507116f4fde594fa510a77369e921f53477c700d6d8a2f"
     },
     {
       "target": "MeshTracker_X1_companion_radio_unified",
@@ -2722,7 +2834,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873142761",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919438827",
-      "checkpoint_pr_ci_log_sha256": "349f18dea5952dc1798b88842bccaadf74ea83736cc4c0454a4b92ede27adee9"
+      "checkpoint_pr_ci_log_sha256": "349f18dea5952dc1798b88842bccaadf74ea83736cc4c0454a4b92ede27adee9",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951042783",
+      "final_pr_ci_log_sha256": "ed2c1818e19140ced478f725b71771fd3f656ccaf7ead824bd3f187185b0d09d"
     },
     {
       "target": "Minewsemi_me25ls01_companion_radio_unified",
@@ -2748,7 +2862,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873142457",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919438937",
-      "checkpoint_pr_ci_log_sha256": "4186ac1c756931629bb9d8a40503c4338b3a84aad8b89885d2c2bdefe7bc82db"
+      "checkpoint_pr_ci_log_sha256": "4186ac1c756931629bb9d8a40503c4338b3a84aad8b89885d2c2bdefe7bc82db",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951043060",
+      "final_pr_ci_log_sha256": "d41badccb098bd2e9323cce4c4c0560b251d9ab4692a3d3162c1ff68919db27d"
     },
     {
       "target": "Nano_G2_Ultra_companion_radio_unified",
@@ -2774,7 +2890,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873142687",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919439231",
-      "checkpoint_pr_ci_log_sha256": "3b1a0d816af6936a5c64d2f1d8f67fe9df518bcf2390cbc924c4b9445fc6aaf2"
+      "checkpoint_pr_ci_log_sha256": "3b1a0d816af6936a5c64d2f1d8f67fe9df518bcf2390cbc924c4b9445fc6aaf2",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951043101",
+      "final_pr_ci_log_sha256": "f4647a007dd0f99c29420539dbde7fb680d89b9cc5a4bd41009d4fb1d8e874b5"
     },
     {
       "target": "nibble_screen_connect_companion_radio_unified",
@@ -2801,7 +2919,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873142541",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919439394",
-      "checkpoint_pr_ci_log_sha256": "973024929d6c262428ef7b5b708ea4e5730a129d03c3531a296105c64f0257fe"
+      "checkpoint_pr_ci_log_sha256": "973024929d6c262428ef7b5b708ea4e5730a129d03c3531a296105c64f0257fe",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951043842",
+      "final_pr_ci_log_sha256": "8c12a9f20cdb10420cef19b567f28bac2a00b3116651d33263ab590ca3f29f6f"
     },
     {
       "target": "nibble_zero_connect_companion_radio_unified",
@@ -2828,7 +2948,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873142591",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919439744",
-      "checkpoint_pr_ci_log_sha256": "12c7b8b3ae02f7704b7ef5b66b11470b23523bc9ba5d050640ed4b9a1a78b736"
+      "checkpoint_pr_ci_log_sha256": "12c7b8b3ae02f7704b7ef5b66b11470b23523bc9ba5d050640ed4b9a1a78b736",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951043743",
+      "final_pr_ci_log_sha256": "5d64d9943121bb30c3bfc163aa30e01d4ee1a3fa46f283bd9a4dcb0f077730b9"
     },
     {
       "target": "PicoW_companion_radio_unified",
@@ -2853,7 +2975,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873142870",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919439877",
-      "checkpoint_pr_ci_log_sha256": "044c98871b7b86215f7fa93b59b7ea4735b0b1e8dfeba9ca5a2f5614a9fb74a8"
+      "checkpoint_pr_ci_log_sha256": "044c98871b7b86215f7fa93b59b7ea4735b0b1e8dfeba9ca5a2f5614a9fb74a8",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951043765",
+      "final_pr_ci_log_sha256": "7ccb25452171eafc6006ee3ed0471ca13f0019606a8bf688a21f22116eaebd0a"
     },
     {
       "target": "ProMicro_companion_radio_unified",
@@ -2879,7 +3003,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873142634",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919440261",
-      "checkpoint_pr_ci_log_sha256": "344edd4d96aca9d9740922a099fce4d463b6beab23244a61f520222ae4ff7c93"
+      "checkpoint_pr_ci_log_sha256": "344edd4d96aca9d9740922a099fce4d463b6beab23244a61f520222ae4ff7c93",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951044011",
+      "final_pr_ci_log_sha256": "867a4a5db3c2196847506dca103059ba0af9040f9886e91b5eeb61e2f8b80f0e"
     },
     {
       "target": "R1Neo_companion_radio_unified",
@@ -2905,7 +3031,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873143630",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919440234",
-      "checkpoint_pr_ci_log_sha256": "90041a59d7c606d2d27206198e6205df4de9bbd04f088ec8b710894c684b5c6a"
+      "checkpoint_pr_ci_log_sha256": "90041a59d7c606d2d27206198e6205df4de9bbd04f088ec8b710894c684b5c6a",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951044135",
+      "final_pr_ci_log_sha256": "d39c9f12df914a8d433c191ca899a7c5fc2b4a3456a5dc6c236d1b5633158a0f"
     },
     {
       "target": "RAK_11310_companion_radio_unified",
@@ -2930,7 +3058,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873143082",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919440244",
-      "checkpoint_pr_ci_log_sha256": "d7fd5bf4702f9049973f7943da0cc8e5f729ecec114ac745d16a2a96e4330258"
+      "checkpoint_pr_ci_log_sha256": "d7fd5bf4702f9049973f7943da0cc8e5f729ecec114ac745d16a2a96e4330258",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951044260",
+      "final_pr_ci_log_sha256": "44b22b7bd2a06d99de40c34f2a72304539ac8adcb686671916f25044437bcbf0"
     },
     {
       "target": "RAK_3112_companion_radio_unified",
@@ -2957,7 +3087,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873144236",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919440485",
-      "checkpoint_pr_ci_log_sha256": "9ff38a13fad6bff00e99cc2de691b823491f1f7e9ba1d51a9bf03c8ab79260b9"
+      "checkpoint_pr_ci_log_sha256": "9ff38a13fad6bff00e99cc2de691b823491f1f7e9ba1d51a9bf03c8ab79260b9",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951044322",
+      "final_pr_ci_log_sha256": "aad485e60e10401d6b096ed063fa7ebdcc517c1040ab33bb7ef6ed46680a8e88"
     },
     {
       "target": "RAK_3401_companion_radio_unified",
@@ -2983,7 +3115,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873143825",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919440532",
-      "checkpoint_pr_ci_log_sha256": "a4b31b0139ae8d8a00ffebdddec3d3b0098777cc1cb4a96fbb792ca275ef9dc5"
+      "checkpoint_pr_ci_log_sha256": "a4b31b0139ae8d8a00ffebdddec3d3b0098777cc1cb4a96fbb792ca275ef9dc5",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951044377",
+      "final_pr_ci_log_sha256": "d93663fe99aa8139a51ef0aaeac4393ab7c9b1eb7a33ad154d7a3b6fc9037f1b"
     },
     {
       "target": "RAK_3x72_companion_radio_unified",
@@ -3015,7 +3149,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873143954",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919440788",
-      "checkpoint_pr_ci_log_sha256": "14dbd85d9ea945c1c774e62275a27f098b625bc74929250376d84495ccae7729"
+      "checkpoint_pr_ci_log_sha256": "14dbd85d9ea945c1c774e62275a27f098b625bc74929250376d84495ccae7729",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951044943",
+      "final_pr_ci_log_sha256": "5e1a44edf4a4b4f40175eea0a083feec380c41f9b1a5e2ffc215fb56e7be774b"
     },
     {
       "target": "RAK_4631_companion_radio_unified",
@@ -3041,7 +3177,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873143979",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919440978",
-      "checkpoint_pr_ci_log_sha256": "aa1f78118a2e4391c9b9a9509729d359e443bad194f9c75ac72551c81c49a916"
+      "checkpoint_pr_ci_log_sha256": "aa1f78118a2e4391c9b9a9509729d359e443bad194f9c75ac72551c81c49a916",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951044941",
+      "final_pr_ci_log_sha256": "538b8dfd38c88c526d16e1d92dbe1b4ced0933f93098a9c2bc43380ad76cd4e2"
     },
     {
       "target": "RAK_WisMesh_Tag_companion_radio_unified",
@@ -3067,7 +3205,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873143939",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919441236",
-      "checkpoint_pr_ci_log_sha256": "7f06acb3c444410c9d5931a4ab3709d5f4fc4bb27534ed4b9d9ae4c01c427e00"
+      "checkpoint_pr_ci_log_sha256": "7f06acb3c444410c9d5931a4ab3709d5f4fc4bb27534ed4b9d9ae4c01c427e00",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951045161",
+      "final_pr_ci_log_sha256": "ddbee41eaec2a4e2d5274b78c9a77ca66c3a957b1dd0656e987bd1ab04fa5a68"
     },
     {
       "target": "SenseCap_Solar_companion_radio_unified",
@@ -3093,7 +3233,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873144308",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919441756",
-      "checkpoint_pr_ci_log_sha256": "b8b7799173f73454742110538dc78569e358c5ada374d3e7573eb33e26789a0c"
+      "checkpoint_pr_ci_log_sha256": "b8b7799173f73454742110538dc78569e358c5ada374d3e7573eb33e26789a0c",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951045537",
+      "final_pr_ci_log_sha256": "cf2ce5262120c1f7756b68d9800719249e43c92bbcde72319cf2b396636c07ba"
     },
     {
       "target": "SenseCapIndicator-ESPNow_companion_radio_unified",
@@ -3121,7 +3263,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873144063",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919441792",
-      "checkpoint_pr_ci_log_sha256": "cfef3375273dcda82900e570f220dcf2167a9d2f1f28df7a1aa509951869142f"
+      "checkpoint_pr_ci_log_sha256": "cfef3375273dcda82900e570f220dcf2167a9d2f1f28df7a1aa509951869142f",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046151",
+      "final_pr_ci_log_sha256": "884c1dded4b08bd08e5b2ce66cec2a6948be9ef7e94abb82bb9613d008a12a68"
     },
     {
       "target": "Station_G2_companion_radio_unified",
@@ -3148,7 +3292,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873144258",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919441957",
-      "checkpoint_pr_ci_log_sha256": "c5a9b13d24b8b1d1c11eb30cba770c4de0753b09c2b2ba8a5f2a0729aeabf908"
+      "checkpoint_pr_ci_log_sha256": "c5a9b13d24b8b1d1c11eb30cba770c4de0753b09c2b2ba8a5f2a0729aeabf908",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046148",
+      "final_pr_ci_log_sha256": "962e7a9b5066d7bf7efcecec8b9d4e0203c9df0636be969c39745ea99cd777e4"
     },
     {
       "target": "Station_G3_ESP32_companion_radio_unified",
@@ -3175,7 +3321,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873144423",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919442181",
-      "checkpoint_pr_ci_log_sha256": "9bc46dd674484c0a318c57f9f80af5d5912cf316f0f86fff0ac9c2a273f4945d"
+      "checkpoint_pr_ci_log_sha256": "9bc46dd674484c0a318c57f9f80af5d5912cf316f0f86fff0ac9c2a273f4945d",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046262",
+      "final_pr_ci_log_sha256": "ad625d3b3ecf3c0759633c8fa56773b6effa019941868810deb141aaef6c096c"
     },
     {
       "target": "t1000e_companion_radio_unified",
@@ -3201,7 +3349,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873145043",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919442340",
-      "checkpoint_pr_ci_log_sha256": "8c138a80b5aa77b7aae0e4d8c5b2076ddfeeb646737a5dbb8cf3370d4a16a895"
+      "checkpoint_pr_ci_log_sha256": "8c138a80b5aa77b7aae0e4d8c5b2076ddfeeb646737a5dbb8cf3370d4a16a895",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046083",
+      "final_pr_ci_log_sha256": "0f8700056b88f62a960aaf9b1e5def06b65579b25917943e25821cb906dc76a1"
     },
     {
       "target": "T_Beam_S3_Supreme_SX1262_companion_radio_unified",
@@ -3228,7 +3378,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873145223",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919442488",
-      "checkpoint_pr_ci_log_sha256": "4a00c42b5399cf4bba869af681a2e9761e61532a2e96a630ad0fc0d97aa6912e"
+      "checkpoint_pr_ci_log_sha256": "4a00c42b5399cf4bba869af681a2e9761e61532a2e96a630ad0fc0d97aa6912e",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046199",
+      "final_pr_ci_log_sha256": "ada591e693c83ab0f10a832d11370c38f7531727276d41fad83daaf4bf9f0961"
     },
     {
       "target": "Tbeam_SX1262_companion_radio_unified",
@@ -3255,7 +3407,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873145386",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919442788",
-      "checkpoint_pr_ci_log_sha256": "6bfc0947e8cdadb500757ac80035cba3bdde3612da1c9efb36ab4c2451274cf4"
+      "checkpoint_pr_ci_log_sha256": "6bfc0947e8cdadb500757ac80035cba3bdde3612da1c9efb36ab4c2451274cf4",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046362",
+      "final_pr_ci_log_sha256": "b6dbab0dbe2f6e2a902aa4eeb3c35ccffd0cd9bda07a336b249f9c4e6f95983a"
     },
     {
       "target": "Tbeam_SX1276_companion_radio_unified",
@@ -3282,7 +3436,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873145474",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919443021",
-      "checkpoint_pr_ci_log_sha256": "4844fddc8fdf8efcda3209309fa08d50ecbb6dae15ee8c97fd072d533a1ff8bc"
+      "checkpoint_pr_ci_log_sha256": "4844fddc8fdf8efcda3209309fa08d50ecbb6dae15ee8c97fd072d533a1ff8bc",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046624",
+      "final_pr_ci_log_sha256": "c28af22757a6af9f9c93c78eb5d987b772da0f196a5bd5d7322c0d5ec7ada199"
     },
     {
       "target": "ThinkNode_M1_companion_radio_unified",
@@ -3308,7 +3464,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873145518",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919443465",
-      "checkpoint_pr_ci_log_sha256": "4828484bc794c72397861476e524ab992e418b3dd146d8038c5d567ba714b46b"
+      "checkpoint_pr_ci_log_sha256": "4828484bc794c72397861476e524ab992e418b3dd146d8038c5d567ba714b46b",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046857",
+      "final_pr_ci_log_sha256": "e4dbb3fd5691ea793f8965b834381611ba466ce725301ec90dc5d049f4285be2"
     },
     {
       "target": "ThinkNode_M2_companion_radio_unified",
@@ -3335,7 +3493,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873146095",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919443610",
-      "checkpoint_pr_ci_log_sha256": "94450960b8de48537be8ee465028639992113c20f1f4a65915c67a9a8c35cdf2"
+      "checkpoint_pr_ci_log_sha256": "94450960b8de48537be8ee465028639992113c20f1f4a65915c67a9a8c35cdf2",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951046954",
+      "final_pr_ci_log_sha256": "246171fd1fbf5cea4f68feeb3040a00d4a9e73cc76b53f5198b3bb2b29f92e79"
     },
     {
       "target": "ThinkNode_M3_companion_radio_unified",
@@ -3361,7 +3521,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873145614",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919443850",
-      "checkpoint_pr_ci_log_sha256": "cbac2788f51855eaea256cee0aa59c64a756d36fc8f0ac73840eb573479e7fc3"
+      "checkpoint_pr_ci_log_sha256": "cbac2788f51855eaea256cee0aa59c64a756d36fc8f0ac73840eb573479e7fc3",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951047166",
+      "final_pr_ci_log_sha256": "2825fbeff63a63f224c383fb5b7af6f33334a6f63f7be8cdaafec1338e8bc6f9"
     },
     {
       "target": "ThinkNode_M5_companion_radio_unified",
@@ -3388,7 +3550,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873145519",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919443941",
-      "checkpoint_pr_ci_log_sha256": "7225a4f5d0a834f144e79ec7a479122e352ecb4dc8d2b7c8e061b6de5c5fecea"
+      "checkpoint_pr_ci_log_sha256": "7225a4f5d0a834f144e79ec7a479122e352ecb4dc8d2b7c8e061b6de5c5fecea",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951047518",
+      "final_pr_ci_log_sha256": "f52e7aa12b9f35498973ad071d3aebf7539125bff23000f683e7e7b43e7a3615"
     },
     {
       "target": "ThinkNode_M6_companion_radio_unified",
@@ -3414,7 +3578,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873145953",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919444037",
-      "checkpoint_pr_ci_log_sha256": "ae9f764ec8d15840d294e6cafbd4ebc63120736e40c469fc6dd7c8b5beb7fb18"
+      "checkpoint_pr_ci_log_sha256": "ae9f764ec8d15840d294e6cafbd4ebc63120736e40c469fc6dd7c8b5beb7fb18",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951047573",
+      "final_pr_ci_log_sha256": "414d98e9fba0da4f306b66c0619f370a99b2716fa4bb01c684f4d14806b2e18e"
     },
     {
       "target": "ThinkNode_M7_companion_radio_unified",
@@ -3442,7 +3608,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873146108",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919444223",
-      "checkpoint_pr_ci_log_sha256": "fe56bbcdbd7c797e9e685ca8f6e4a773f468c1f1f9fa85e5fc9cee2b32105224"
+      "checkpoint_pr_ci_log_sha256": "fe56bbcdbd7c797e9e685ca8f6e4a773f468c1f1f9fa85e5fc9cee2b32105224",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951047567",
+      "final_pr_ci_log_sha256": "56314d7319bbc49ee548746e17c419daaf8a8686feede8073b43f4f91019ae2e"
     },
     {
       "target": "ThinkNode_M9_companion_radio_unified",
@@ -3469,7 +3637,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873146524",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919444243",
-      "checkpoint_pr_ci_log_sha256": "81cdf09f5fdb0692051912ffbd21e179a7a1ee5189bcc774de24a5d4e4d438a6"
+      "checkpoint_pr_ci_log_sha256": "81cdf09f5fdb0692051912ffbd21e179a7a1ee5189bcc774de24a5d4e4d438a6",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951047581",
+      "final_pr_ci_log_sha256": "fb82f72ca21488a6b9f2e68a32790090f82402c001ecd9d0dfe59000871483fb"
     },
     {
       "target": "Tiny_Relay_companion_radio_unified",
@@ -3501,7 +3671,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873146870",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919444497",
-      "checkpoint_pr_ci_log_sha256": "a669ac7714f6335295d5273d88c535e640de0ef51c4db0d56320ad96dd907e80"
+      "checkpoint_pr_ci_log_sha256": "a669ac7714f6335295d5273d88c535e640de0ef51c4db0d56320ad96dd907e80",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951047811",
+      "final_pr_ci_log_sha256": "08a3ade32c71c85f20bc4a580def55f5af39d180ba4fd9bafaaffb90f42602e8"
     },
     {
       "target": "waveshare_rp2040_lora_companion_radio_unified",
@@ -3526,7 +3698,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873146990",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919444736",
-      "checkpoint_pr_ci_log_sha256": "fbce50ae1713eae9cbe0fe52da50a1ca89319dad9e247f30040c9a631ebf3621"
+      "checkpoint_pr_ci_log_sha256": "fbce50ae1713eae9cbe0fe52da50a1ca89319dad9e247f30040c9a631ebf3621",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951047857",
+      "final_pr_ci_log_sha256": "5488501b5e59d1f4980590723a90dc648b542659b9cd3aa2b46191c7780b7474"
     },
     {
       "target": "WHY2025_badge_companion_radio_unified",
@@ -3553,7 +3727,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873147110",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919444993",
-      "checkpoint_pr_ci_log_sha256": "bf2ce7041d471f62e3475d350a4e226e33cc9d18bba50532ab0541e0cf2bc2cf"
+      "checkpoint_pr_ci_log_sha256": "bf2ce7041d471f62e3475d350a4e226e33cc9d18bba50532ab0541e0cf2bc2cf",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951047966",
+      "final_pr_ci_log_sha256": "ae08822ee8a862e10859a31fd4a3a6c30fa79fb2188e701db075d5fae65a3f18"
     },
     {
       "target": "wio-e5-mini_companion_radio_unified",
@@ -3585,7 +3761,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873147149",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919445362",
-      "checkpoint_pr_ci_log_sha256": "9ee6e037b9dd61f7852880c74db391da446e6d145692affa384eeb99059eccb2"
+      "checkpoint_pr_ci_log_sha256": "9ee6e037b9dd61f7852880c74db391da446e6d145692affa384eeb99059eccb2",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951048594",
+      "final_pr_ci_log_sha256": "3928d9d42fc51f71e411994516cabadd557e0a7f4a519ba26b8431180ab7c357"
     },
     {
       "target": "wio-e5_companion_radio_unified",
@@ -3617,7 +3795,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873147136",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919445219",
-      "checkpoint_pr_ci_log_sha256": "9f76da61b59d8eaf8d6bee70b2fe164235c1003055e19acf1a9b7c33ff6c76e9"
+      "checkpoint_pr_ci_log_sha256": "9f76da61b59d8eaf8d6bee70b2fe164235c1003055e19acf1a9b7c33ff6c76e9",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951048159",
+      "final_pr_ci_log_sha256": "8a3a33c6f6b9f6bb1495ef8f4a63c930e951ffb3fdcd9e640ff6c09b5bfae8b4"
     },
     {
       "target": "wio_wm1110_companion_radio_unified",
@@ -3643,7 +3823,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873147084",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919445507",
-      "checkpoint_pr_ci_log_sha256": "6b7c8a565b5a4f65e4edae1456fb54309259b473e35376eae605d2fa6a1788cc"
+      "checkpoint_pr_ci_log_sha256": "6b7c8a565b5a4f65e4edae1456fb54309259b473e35376eae605d2fa6a1788cc",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951048997",
+      "final_pr_ci_log_sha256": "9b5a300aacb12f2b940bc9456714da2d44cc6060b6ea6959df56b66f3d1318c0"
     },
     {
       "target": "WioTrackerL1_companion_radio_unified",
@@ -3669,7 +3851,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873147208",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919445639",
-      "checkpoint_pr_ci_log_sha256": "8f5a6a79b11f186aec6eff4d70c1aaefb4f6c258aaff1e8f1e522bdfe8d3c990"
+      "checkpoint_pr_ci_log_sha256": "8f5a6a79b11f186aec6eff4d70c1aaefb4f6c258aaff1e8f1e522bdfe8d3c990",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951049308",
+      "final_pr_ci_log_sha256": "2ff4359f854b999db2d01a013f5b76c58b7683a30868b301de686e8cd16ae50f"
     },
     {
       "target": "WioTrackerL1Eink_companion_radio_unified",
@@ -3695,7 +3879,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873147656",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919445870",
-      "checkpoint_pr_ci_log_sha256": "56fb669c98fbcd7fb981a752e4946ef46fc9f4b449b9ab13c2b47a04b63c9e9f"
+      "checkpoint_pr_ci_log_sha256": "56fb669c98fbcd7fb981a752e4946ef46fc9f4b449b9ab13c2b47a04b63c9e9f",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951049310",
+      "final_pr_ci_log_sha256": "08a7f314f2554214f713d671da01336294043f8e57b335ed6b0269323b60f414"
     },
     {
       "target": "Xiao_C3_companion_radio_unified",
@@ -3722,7 +3908,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873147551",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919445829",
-      "checkpoint_pr_ci_log_sha256": "b7dbc67bc835d89ab4e556c7e20ee0b47bf713e3fe0c2be2531ec0129c702475"
+      "checkpoint_pr_ci_log_sha256": "b7dbc67bc835d89ab4e556c7e20ee0b47bf713e3fe0c2be2531ec0129c702475",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951049512",
+      "final_pr_ci_log_sha256": "02cde2c4399818f89562bd87adce88d533971086bf02ae7c223a4b3ea558cc5c"
     },
     {
       "target": "Xiao_C6_companion_radio_unified",
@@ -3749,7 +3937,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873148318",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919446082",
-      "checkpoint_pr_ci_log_sha256": "ee30c465669923789a1409208d42d1efea00027f1c885162dedf1f6f8d49f1d9"
+      "checkpoint_pr_ci_log_sha256": "ee30c465669923789a1409208d42d1efea00027f1c885162dedf1f6f8d49f1d9",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951049392",
+      "final_pr_ci_log_sha256": "a4e698c2a6c8437c5796423a0ab4c6bb231b5e7b3506597fdfa635cc57bd01fd"
     },
     {
       "target": "Xiao_nrf52_companion_radio_unified",
@@ -3775,7 +3965,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873148378",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919446315",
-      "checkpoint_pr_ci_log_sha256": "741ce05dcd3b35d4162bbdbd4e250605c5af62b2a3ce2403ca98bd4e97322d0e"
+      "checkpoint_pr_ci_log_sha256": "741ce05dcd3b35d4162bbdbd4e250605c5af62b2a3ce2403ca98bd4e97322d0e",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951049524",
+      "final_pr_ci_log_sha256": "e082fc2295fa530a4a5c34bfa095b5a5108df69733062f09b0ec0a718fa3d80a"
     },
     {
       "target": "Xiao_rp2040_companion_radio_unified",
@@ -3800,7 +3992,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873148790",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919446430",
-      "checkpoint_pr_ci_log_sha256": "90f20d0f1c975716eb40106c4c97aebaf16892b1dd4f4c9e84015f1c1d8eb2e7"
+      "checkpoint_pr_ci_log_sha256": "90f20d0f1c975716eb40106c4c97aebaf16892b1dd4f4c9e84015f1c1d8eb2e7",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951049750",
+      "final_pr_ci_log_sha256": "026f1efcff8bd36cea8b40847e5bc07b436690c874e35f96eab5851fe004e272"
     },
     {
       "target": "Xiao_S3_companion_radio_unified",
@@ -3827,7 +4021,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873148622",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919446598",
-      "checkpoint_pr_ci_log_sha256": "090449aa3d9563954b4def6eabc1e92d275eb22393ccbe6bcd2625b048104f90"
+      "checkpoint_pr_ci_log_sha256": "090449aa3d9563954b4def6eabc1e92d275eb22393ccbe6bcd2625b048104f90",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951049745",
+      "final_pr_ci_log_sha256": "0e8a4e261806b054f70caf6f3333ad219127d66e4356cec17e759a64b05ed998"
     },
     {
       "target": "Xiao_S3_WIO_companion_radio_unified",
@@ -3854,7 +4050,9 @@
       ],
       "audited_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586/job/110873148628",
       "checkpoint_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709/job/110919446984",
-      "checkpoint_pr_ci_log_sha256": "c85bd4be78f93f737acc1e99e4a7bbc5326d22968f9994bed1c3484d975d2158"
+      "checkpoint_pr_ci_log_sha256": "c85bd4be78f93f737acc1e99e4a7bbc5326d22968f9994bed1c3484d975d2158",
+      "final_pr_ci_job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657/job/110951050095",
+      "final_pr_ci_log_sha256": "906cfe389f4e7104fea0e62b028110ed1422fef533a94c7bf145b75afa113443"
     }
   ],
   "ci_build_environment": {
@@ -4656,6 +4854,25 @@
         }
       ],
       "note": "Successful completed target logs audited before manually retiring this superseded matrix; remaining jobs were not classified."
+    },
+    "latest_complete_matrix": {
+      "run_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37040956657",
+      "source_commit": "25471505c7cdc9523b6c488a205353e03bb538f4",
+      "conclusion": "success",
+      "counts": {
+        "passed": 93,
+        "upstream_failure": 6,
+        "unified_failure": 0
+      },
+      "all_99_target_logs_individually_audited": true,
+      "previously_failed_now_verified": 74,
+      "pr_checks": {
+        "passed": 112,
+        "pending": 0,
+        "failed": 0
+      },
+      "includes_platformio_override_resume_fix": true,
+      "includes_ci_concurrency_fix": true
     }
   }
 }

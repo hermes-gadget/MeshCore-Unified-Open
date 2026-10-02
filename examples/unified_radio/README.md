@@ -184,6 +184,8 @@ Two workflows maintain coverage:
 - `Unified Companion CI` resolves the latest upstream companion tag once,
   overlays this implementation, and compiles every discovered companion target
   on GitHub-hosted runners. Its host regression test uses that tag's headers.
+  Each PR or branch keeps its newest matrix run; a new update cancels an older
+  queued or running matrix for the same workflow and Git ref.
 - `Build Unified Firmware for MeshCore Release` checks daily for a new upstream
   `companion-v*` tag. It overlays the unified files onto that exact tag,
   generates every supported target, builds them on a bounded GitHub Actions

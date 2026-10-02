@@ -250,3 +250,10 @@ source revision, fingerprints and log hashes are preserved in the evidence JSON.
 [CI discovery](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038533330/job/110942617552)
 on `0795944a` independently passes all seven Python regressions and the upstream
 transport contract; its native CI lane also passes.
+
+## Superseded matrix cancellation
+
+Commit `c6feb6ce` adds workflow concurrency keyed by workflow name and Git ref.
+Newer PR or branch updates cancel superseded unified matrices, avoiding duplicate
+99-target jobs after frequent checkpoint pushes. All three affected workflow
+lint checks pass. This uses [GitHub's documented concurrency behavior](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).

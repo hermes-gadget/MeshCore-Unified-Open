@@ -4097,6 +4097,14 @@
         "log_sha256": "28734b2f6165156cbb4a569627daec059af7eec728ebf3ea85245e17ad5757ca"
       },
       "native_ci_run": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038533161"
+    },
+    "ci_concurrency_fix": {
+      "source_commit": "c6feb6ce",
+      "workflow": ".github/workflows/unified-companion-ci.yml",
+      "group": "${{ github.workflow }}-${{ github.ref }}",
+      "cancel_in_progress": true,
+      "workflow_lint": "passed for all three port workflows",
+      "documentation": "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency"
     }
   }
 }

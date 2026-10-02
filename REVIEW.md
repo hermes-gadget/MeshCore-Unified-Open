@@ -20,6 +20,7 @@ had 74 failed build jobs out of 99 targets.
 | ThinkNode M7's selected BLE environment also enables CH390 Ethernet. | Initialize and register the inherited Ethernet interface, poll it, and list it in the generated transport manifest. Existing persisted USB/BLE/WiFi/All values remain unchanged. |
 | Headers and enums | The relevant new dependency is `helpers/MultiSerialInterface.h`; `InterfaceType` supplies Bluetooth/USB/WiFi/Ethernet. `UIEventType` and the selected UI header paths remain compatible. |
 | Mesh, board and storage APIs | `MyMesh` construction, `startInterface(BaseSerialInterface&)`, `begin(bool)`, `getNodePrefs()`, `getBLEPin()`, `DataStore` construction, `getPrimaryFS()`, radio initialization and board boot/sleep calls still match v1.17.1. Upstream preference serialization changes stay in the authoritative companion sources. |
+| STM32 helper portability | The PR's existing `wio-e5-mini_repeater` check exposed `ltoa` missing from the STM32 core. Use standard `snprintf` for the nonnegative 32-bit integer part; backport only this conversion when applying the overlay, preserving the rest of the upstream helper. |
 
 Upstream has no entry-point hook for substituting this transport policy. Keep
 the small unified entry point, using upstream UI and mesh implementations.
@@ -40,8 +41,9 @@ zero parsed cases. The shared setup action also has its required description;
 ## Reproduction
 
 All staged source and build artifacts live inside this worktree under `.pio/`.
-The staging copy is an archive of the fetched tag, with only the files in
-`tools/apply_unified_overlay.py` copied on top; it is not another repository.
+The staging copy is an archive of the fetched tag, with the ten files in
+`tools/apply_unified_overlay.py` copied on top and the portable integer
+conversion patched in place; it is not another repository.
 
 ```sh
 git fetch https://github.com/meshcore-dev/MeshCore.git refs/tags/companion-v1.17.1:refs/tags/companion-v1.17.1
@@ -64,8 +66,13 @@ utility tests: 5/5 PASS, correctly reported by PlatformIO.
 PASS, compile and link, 53.71 seconds. The same target with the frozen overlay
 failed locally with the expected `UITask` constructor error.
 
-Additional local builds and [branch workflow 37009648483](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37009648483)
-are running. That workflow uses firmware commit `357e3c8f` and explicitly sets
-`upstream_ref=companion-v1.17.1` and `publish_release=false`. Subsequent commits
-change CI and native-test configuration, not firmware sources. No claim of
-matrix-wide success is made here until actual build evidence is recorded.
+The five required local sample builds passed at port commit `357e3c8f`:
+T114 without display, Xiao S3 WIO, GAT562 30S, Heltec E290 and LilyGo T-Deck.
+Heltec V3 and Ethernet-enabled ThinkNode M7 also passed. The portable conversion
+fix subsequently compiles and links `pio run -e wio-e5-mini_repeater -j 4`
+in the root checkout: PASS, 221.79 seconds, 196976 bytes of flash.
+
+The actual v1.17.1 helper was used to verify that the targeted patch preserves
+additional upstream content and is idempotent. Final local and branch matrix
+verification is being refreshed for the helper fix. No matrix-wide compile
+success is claimed until actual per-target results are recorded.

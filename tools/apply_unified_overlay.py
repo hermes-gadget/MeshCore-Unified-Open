@@ -38,6 +38,20 @@ def apply_overlay(destination: Path) -> None:
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
 
+    # STM32's Arduino core does not provide ltoa. Backport only this conversion
+    # rather than freezing the rest of the upstream formatting helper.
+    helper = destination / "src/helpers/TxtDataHelpers.cpp"
+    if helper.is_file():
+        original = helper.read_text(encoding="utf-8")
+        patched = original.replace(
+            "ltoa(int_part, p, 10);",
+            '// int_part is nonnegative int32_t: at most ten digits plus the terminator.\n'
+            '    snprintf(p, 11, "%ld", static_cast<long>(int_part));',
+        )
+        if patched != original:
+            helper.write_text(patched, encoding="utf-8")
+            print("Applied portable integer conversion to upstream TxtDataHelpers")
+
     print(f"Applied {len(OVERLAY_FILES)} unified files to {destination}")
 
 

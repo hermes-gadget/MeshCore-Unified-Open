@@ -102,7 +102,8 @@ static void _ftoa(float f, char *p, int *status)
     *p++ = '0';
   else 
   {
-    ltoa(int_part, p, 10);
+    // int_part is nonnegative int32_t: at most ten digits plus the terminator.
+    snprintf(p, 11, "%ld", static_cast<long>(int_part));
     while (*p)
       p++;
   }

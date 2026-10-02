@@ -5,6 +5,7 @@ image. USB/UART is always present, BLE is included where the upstream device
 has a BLE companion target, and WiFi is included on ESP32 devices. The default
 `All` mode keeps the available interfaces active together, so headless devices
 do not need a screen or a reflash to change connection type.
+Ethernet is retained when the selected upstream environment enables it.
 
 The implementation is deliberately an overlay. Device definitions, radio
 drivers, UI code, and companion behavior continue to come from upstream
@@ -14,9 +15,18 @@ its firmware implementation into this directory.
 
 ## Build a device
 
-Install PlatformIO, then generate the unified environments:
+Install PlatformIO, then stage the overlay onto a supported upstream companion
+release. The root checkout retains historical MeshCore sources; release and PR
+CI compile the staged upstream tree. This port targets `companion-v1.17.1` and
+its `MultiSerialInterface` UI API.
 
 ```bash
+git fetch https://github.com/meshcore-dev/MeshCore.git \
+  refs/tags/companion-v1.17.1:refs/tags/companion-v1.17.1
+mkdir -p .pio/upstream
+git archive companion-v1.17.1 | tar -x -C .pio/upstream
+python3 tools/apply_unified_overlay.py .pio/upstream
+cd .pio/upstream
 python3 tools/generate_unified_builds.py
 ```
 
@@ -33,8 +43,10 @@ pio run -c .pio/unified-platformio.ini \
   -e Heltec_v3_companion_radio_unified
 ```
 
-The generated files under `.pio/` are disposable. Run the generator again
-after syncing upstream or changing a variant's `platformio.ini`.
+Run the remaining build commands from the staged tree. Use a fresh staging
+directory when changing upstream releases. Generated files under its `.pio/`
+are disposable; regenerate them after changing a variant's `platformio.ini`.
+After editing the overlay in the root checkout, reapply it before rebuilding.
 
 To validate the entire matrix locally, with failures checked against their
 untouched upstream companion environments, run:
@@ -50,7 +62,7 @@ Per-target logs and resumable results are written under `.pio/`.
 - `All` is the first-boot default and enables all registered transports.
 - Release builds return to `All` after every reboot, including when upgrading
   a device that previously persisted a single transport.
-- Frames received through USB/UART, BLE, or WiFi enter the same companion
+- Frames received through USB/UART, BLE, WiFi or inherited Ethernet enter the same companion
   protocol handler.
 - Responses and asynchronous events are sent to every connected interface.
 - Polling rotates between interfaces so a busy connection cannot starve the
@@ -58,6 +70,8 @@ Per-target logs and resumable results are written under `.pio/`.
 - The manager retains a single-transport API for future low-power controls,
   but release builds require no display or transport-selection UI. A custom UI
   can set `UNIFIED_RESTORE_TRANSPORT_MODE=1` to persist its selection.
+- The upstream UI's Bluetooth toggle affects BLE alone; USB/WiFi keep their
+  independent enabled states.
 
 ## Connect after flashing
 
@@ -120,6 +134,9 @@ Common settings are in
 file directly. To keep credentials out of Git, pass private overrides only to
 the build command:
 
+The file is copied into the staged tree. After editing it in the root checkout,
+reapply the overlay; run the build command from the staged directory.
+
 ```bash
 export PLATFORMIO_BUILD_FLAGS="\
   -D UNIFIED_WIFI_SSID='\"Home WiFi\"' \
@@ -150,6 +167,9 @@ Transport capability rules are:
 | RP2040 | USB/UART |
 | STM32 | USB/UART |
 
+Ethernet is additionally included when the selected environment defines
+`ETHERNET_ENABLED`, such as ThinkNode M7 in companion v1.17.1.
+
 This describes hardware/library capability, not a promise that every upstream
 board definition is defect-free. The unified CI is intended to identify only
 failures introduced by this overlay.
@@ -158,8 +178,9 @@ failures introduced by this overlay.
 
 Two workflows maintain coverage:
 
-- `Unified Companion CI` regenerates and compiles every discovered companion
-  target on GitHub-hosted runners for changes to this implementation.
+- `Unified Companion CI` resolves the latest upstream companion tag once,
+  overlays this implementation, and compiles every discovered companion target
+  on GitHub-hosted runners. Its host regression test uses that tag's headers.
 - `Build Unified Firmware for MeshCore Release` checks daily for a new upstream
   `companion-v*` tag. It overlays the unified files onto that exact tag,
   generates every supported target, builds them on a bounded GitHub Actions
@@ -170,8 +191,8 @@ Two workflows maintain coverage:
 
 The release workflow can also be run manually for any upstream tag or commit,
 or triggered with a `meshcore-companion-release` repository dispatch event.
-Pushing a versioned tag such as `Unified-Open-v1.16.0` selects the matching
-upstream `companion-v1.16.0` source and attaches the completed artifacts to a
+Pushing a versioned tag such as `Unified-Open-v1.17.1` selects the matching
+upstream `companion-v1.17.1` source and attaches the completed artifacts to a
 draft GitHub release on that same tag.
 
 ## Implementation files
@@ -187,9 +208,11 @@ draft GitHub release on that same tag.
 | `tools/apply_unified_overlay.py` | Reproduces the exact upstream release overlay locally and in CI |
 | `tools/validate_unified_builds.py` | Resumable full-matrix build and upstream-failure classifier |
 
-Both the generated builds and the retained T-Deck convenience targets compile
-the authoritative files from `examples/companion_radio` and exclude only its
-single-transport `main.cpp`.
+The generated builds compile the staged upstream files from
+`examples/companion_radio` and exclude only its entry point, `main.cpp`.
+The overlay also backports a portable integer conversion in
+`TxtDataHelpers.cpp` for STM32 cores that lack `ltoa`, preserving the rest of
+that upstream helper.
 
 Generated 4 MB ESP32 images use one factory application slot and therefore do
 not support OTA updates. They retain a 896 KiB SPIFFS partition for companion

@@ -198,3 +198,17 @@ Each new target was a failed job in daily run `36996304889`. Logs, command lines
 source revisions, log hashes and linked-ELF hashes are in `.pio/review-evidence/round2/`
 and the committed evidence JSON. The verified/unverified matrix totals remain **93/6**;
 additional local passes increase independent verification, not the overall target count.
+
+## Safety checkpoint verification
+
+[PR CI run 37031501709](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37031501709)
+completed successfully on `7fb9408d521183d97a2eb1ffb534ab51d28f10a0`, including the
+resume-validation fix and all fourteen additional local board receipts. An individual
+audit of all 99 job logs confirms **93 compile/link passes, six upstream failures,
+zero unified failures**, with every one of the 74 previously failing targets linked.
+The evidence JSON preserves each checkpoint job URL and downloaded log SHA-256.
+
+The real `--resume` integration check reused an unchanged T114 success, then rebuilt
+successfully after adding a temporary ignored staged-source file. The probe was
+removed after verification. This confirms that the fingerprint fix affects the
+actual CLI path as well as the six passing Python regression tests.

@@ -60,8 +60,8 @@ pio run -c .pio/unified-platformio.ini -e Heltec_t114_without_display_companion_
 PlatformIO Core 6.1.19. Commands below were run in
 `.pio/upstream-companion-v1.17.1`, built from the exact upstream commit above.
 All eleven staged source files (ten overlay files plus the patched helper)
-were checked byte-for-byte against the branch. The local sample has **12
-compile-and-link successes out of 16 attempts**. The four STM32 attempts are
+were checked byte-for-byte against the branch. The local sample has **18
+compile-and-link successes out of 22 attempts**. The four STM32 attempts are
 not counted as working firmware.
 
 | Exact command | Result | Seconds |
@@ -120,7 +120,7 @@ named target list and final matrix counts below come from the completed logs.
 
 ## Regression and workflow checks
 
-- `python3 -m unittest discover -s test/unified -p 'test_*.py' -v`: 4/4 PASS.
+- `python3 -m unittest discover -s test/unified -p 'test_*.py' -v`: 6/6 PASS after the resume fix.
 - `pio test -e native -vv`: 5/5 PASS with the correct GoogleTest runner.
 - Actual upstream interface contract regression: PASS with the exact command below.
 - Portable helper backport: applied to actual v1.17.1 source, preserves additional
@@ -159,3 +159,34 @@ the PR lane uses `ci` and `01-Jan-1970`.
 The release dispatch used `upstream_ref=companion-v1.17.1` and `publish_release=false`; ESP32 merged images and nRF52 UF2 packaging also passed for successful targets. No release was published. Native CI and all eleven non-unified PR build checks pass. Root native tests are 5/5 and Python overlay tests are 4/4.
 
 [PR #4](https://github.com/hermes-gadget/MeshCore-Unified-Open/pull/4) targets `main` and follows [issue #3](https://github.com/hermes-gadget/MeshCore-Unified-Open/issues/3). It is not merged. The daily schedule is active; it continues using main until the owner merges the port. No hardware testing or wiring was performed.
+
+## Continuation verification
+
+The final audit rechecked [PR CI run 37017833586](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37017833586) on source commit `93f1bd5d7217656554e50b8e164822f12f427772`: **93 compile/link passes, six upstream failures, zero unified failures**. Every passing target has an explicit linker step and `[SUCCESS]` in the downloaded logs; the named 74 old failed jobs independently match the previously-failed list. The generated manifest and configuration reproduce byte-for-byte, and all 863 untouched staged upstream files match the pinned tag.
+
+The deep review found that `--resume` could reuse an old result after an ignored archive
+source edit: Git resolved the enclosing overlay checkout instead of the staged sources.
+Commit `242e9e1e` adds source-content and pristine-helper-snapshot hashing while excluding
+compiler output and Python caches. The real ignored-directory reproduction now invalidates
+the fingerprint; two regression tests cover source edits, additions/deletions, standalone
+archives, baseline configuration/snapshots and excluded build output.
+
+Repeated host checks pass: native utilities **5/5**, Python regressions **6/6**,
+`actionlint`, and the upstream transport contract with
+`-fsanitize=address,undefined`. No firmware behavior changed in this continuation.
+
+The additional board batch has **6 of 14** compile/link passes recorded so far.
+
+| Board batch | Exact command (run in the staged upstream tree) | Result | Seconds |
+| --- | --- | --- | ---: |
+| Heltec nRF52 | `pio run -c .pio/unified-platformio.ini -e Heltec_t114_companion_radio_unified -j 4` | PASS, compile + link | 110.12 |
+| Heltec nRF52 | `pio run -c .pio/unified-platformio.ini -e Heltec_t1_companion_radio_unified -j 4` | PASS, compile + link | 69.48 |
+| Heltec nRF52 | `pio run -c .pio/unified-platformio.ini -e Heltec_tower_v2_companion_radio_unified -j 4` | PASS, compile + link | 59.08 |
+| Heltec ESP32 | `pio run -c .pio/unified-platformio.ini -e Heltec_E213_companion_radio_unified -j 4` | PASS, compile + link | 100.53 |
+| Heltec ESP32 | `pio run -c .pio/unified-platformio.ini -e heltec_v4_companion_radio_unified -j 4` | PASS, compile + link | 85.07 |
+| Heltec ESP32 | `pio run -c .pio/unified-platformio.ini -e heltec_v4_tft_companion_radio_unified -j 4` | PASS, compile + link | 91.72 |
+
+Each new target was a failed job in daily run `36996304889`. Logs, command lines,
+source revisions, log hashes and linked-ELF hashes are in `.pio/review-evidence/round2/`
+and the committed evidence JSON. The verified/unverified matrix totals remain **93/6**;
+additional local passes increase independent verification, not the overall target count.

@@ -1,8 +1,9 @@
 import importlib.util
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -92,6 +93,54 @@ class MatrixValidatorTest(unittest.TestCase):
             with validator.upstream_baseline(project):
                 self.assertEqual(helper.read_text(), "newer upstream helper")
             self.assertEqual(helper.read_text(), "newer upstream helper")
+
+    def test_resume_fingerprint_tracks_staged_sources_without_git_changes(self):
+        for git_state in (b"", subprocess.CalledProcessError(128, ["git"])):
+            with self.subTest(git_available=isinstance(git_state, bytes)):
+                with tempfile.TemporaryDirectory() as tmp_name:
+                    project = Path(tmp_name)
+                    manifest, config = project / "targets.json", project / "generated.ini"
+                    manifest.write_text("[]")
+                    config.write_text("[env:board]")
+                    source = project / "src/main.cpp"
+                    source.parent.mkdir()
+                    source.write_text("int main() { return 0; }")
+                    git = (Mock(return_value=git_state) if isinstance(git_state, bytes)
+                           else Mock(side_effect=git_state))
+                    with patch.object(validator.subprocess, "check_output", git):
+                        before = validator.validation_fingerprint(project, manifest, config)
+                        source.write_text("int main() { compile_error }")
+                        self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
+                        source.write_text("int main() { return 0; }")
+                        self.assertEqual(before, validator.validation_fingerprint(project, manifest, config))
+                        header = project / "src/new.h"
+                        header.write_text("#define NEW_FEATURE 1")
+                        self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
+                        header.unlink()
+                        self.assertEqual(before, validator.validation_fingerprint(project, manifest, config))
+
+    def test_resume_fingerprint_ignores_outputs_but_tracks_baseline_snapshot(self):
+        with tempfile.TemporaryDirectory() as tmp_name:
+            project = Path(tmp_name)
+            manifest, config = project / "targets.json", project / "generated.ini"
+            manifest.write_text("[]")
+            config.write_text("[env:board]")
+            with patch.object(validator.subprocess, "check_output", return_value=b""):
+                before = validator.validation_fingerprint(project, manifest, config)
+                for name in (".pio/build/firmware.elf", "tools/__pycache__/validator.pyc",
+                             "src/.pio/cache"):
+                    artifact = project / name
+                    artifact.parent.mkdir(parents=True, exist_ok=True)
+                    artifact.write_text("build output")
+                self.assertEqual(before, validator.validation_fingerprint(project, manifest, config))
+                upstream_config = project / "platformio.ini"
+                upstream_config.write_text("[env:baseline]\n")
+                self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
+                upstream_config.unlink()
+                original = project / ".pio/unified-upstream-originals/TxtDataHelpers.cpp"
+                original.parent.mkdir(parents=True)
+                original.write_text("pristine baseline helper")
+                self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
 
 
 if __name__ == "__main__":

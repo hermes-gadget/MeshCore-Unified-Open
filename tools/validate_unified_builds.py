@@ -109,6 +109,25 @@ def validation_fingerprint(
         digest.update(str(path.relative_to(project_dir)).encode())
         digest.update(path.read_bytes())
 
+    # Release archives are often staged below an ignored .pio directory. Git
+    # may then describe the enclosing overlay checkout, not these build inputs.
+    # Hash the actual source tree as well, excluding compiler/cache output.
+    upstream_config = project_dir / "platformio.ini"
+    if upstream_config.is_file():
+        digest.update(b"platformio.ini\0" + upstream_config.read_bytes())
+    for name in ("src", "examples", "variants", "boards", "lib", "tools",
+                 ".pio/unified-upstream-originals"):
+        for directory, subdirs, filenames in os.walk(project_dir / name):
+            subdirs[:] = sorted(
+                d for d in subdirs if d not in {".git", ".pio", "__pycache__"}
+            )
+            for filename in sorted(filenames):
+                path = Path(directory) / filename
+                digest.update(str(path.relative_to(project_dir)).encode() + b"\0")
+                content = path.read_bytes()
+                digest.update(len(content).to_bytes(8, "big"))
+                digest.update(content)
+
     try:
         digest.update(
             subprocess.check_output(
@@ -130,7 +149,7 @@ def validation_fingerprint(
                 digest.update(raw_name)
                 digest.update(path.read_bytes())
     except (OSError, subprocess.CalledProcessError):
-        # The generated files still provide a useful identity outside Git.
+        # Source content and generated files also identify archives without Git.
         pass
     return digest.hexdigest()
 

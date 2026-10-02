@@ -4013,7 +4013,90 @@
         "passed": 7,
         "failed": 0
       },
-      "firmware_sources_changed": false
+      "firmware_sources_changed": false,
+      "real_platformio_cli_checks": [
+        {
+          "case": "initial",
+          "expected": "BUILD",
+          "exit_code": 0,
+          "status": "passed",
+          "duration_seconds": 29.92,
+          "source_commit": "0795944a465c71caf01e91331fd1ef9209cd4264",
+          "command": [
+            "python3",
+            "tools/validate_unified_builds.py",
+            "--target",
+            "Heltec_t114_companion_radio_unified",
+            "--results",
+            "../review-evidence/resume-env/results.json",
+            "--logs-dir",
+            "../review-evidence/resume-env/build-logs",
+            "--resume"
+          ],
+          "log": ".pio/review-evidence/resume-env/initial.log",
+          "log_sha256": "b8697209fef35e5c8d17e28b39cad910f932b98b7f196bffdb1a6880de4e1c91",
+          "build_log_sha256": "c4763e1ccb5c29eb4f3bff3e315d642acad1f81e787469e28cd3b8a5ce6e2dec",
+          "fingerprint": "434b34cf32442d6a8044c10292cbac312279c358272e4bc2c2d2be58c64e89e0"
+        },
+        {
+          "case": "unchanged",
+          "expected": "SKIP",
+          "exit_code": 0,
+          "status": "passed",
+          "duration_seconds": 0.17,
+          "source_commit": "0795944a465c71caf01e91331fd1ef9209cd4264",
+          "command": [
+            "python3",
+            "tools/validate_unified_builds.py",
+            "--target",
+            "Heltec_t114_companion_radio_unified",
+            "--results",
+            "../review-evidence/resume-env/results.json",
+            "--logs-dir",
+            "../review-evidence/resume-env/build-logs",
+            "--resume"
+          ],
+          "log": ".pio/review-evidence/resume-env/unchanged.log",
+          "log_sha256": "c284e2da098985513ed33c95885606a68c1f1f583a93c12a67da7f3b9f40d578",
+          "build_log_sha256": "c4763e1ccb5c29eb4f3bff3e315d642acad1f81e787469e28cd3b8a5ce6e2dec",
+          "fingerprint": "434b34cf32442d6a8044c10292cbac312279c358272e4bc2c2d2be58c64e89e0"
+        },
+        {
+          "case": "changed",
+          "expected": "BUILD",
+          "exit_code": 0,
+          "status": "passed",
+          "duration_seconds": 35.15,
+          "source_commit": "0795944a465c71caf01e91331fd1ef9209cd4264",
+          "command": [
+            "python3",
+            "tools/validate_unified_builds.py",
+            "--target",
+            "Heltec_t114_companion_radio_unified",
+            "--results",
+            "../review-evidence/resume-env/results.json",
+            "--logs-dir",
+            "../review-evidence/resume-env/build-logs",
+            "--resume"
+          ],
+          "log": ".pio/review-evidence/resume-env/changed.log",
+          "log_sha256": "2c9d1d123f63a97006a6191b700c99008b039ca9482a323845020d97254ff99d",
+          "build_log_sha256": "d51c4d1ebd8e86afe3abf23b28a1bf8aa41bd77f8d558826ee713513215c9f35",
+          "fingerprint": "e288268478c72dbc9b21ee5b1ee575f2b91cb2e240317631a5d1fd28ae3e21ca"
+        }
+      ],
+      "ci_python_regressions": {
+        "source_commit": "0795944a",
+        "job_url": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038533330/job/110942617552",
+        "suite_counts": [
+          1,
+          6
+        ],
+        "passed": 7,
+        "failed": 0,
+        "log_sha256": "28734b2f6165156cbb4a569627daec059af7eec728ebf3ea85245e17ad5757ca"
+      },
+      "native_ci_run": "https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038533161"
     }
   }
 }

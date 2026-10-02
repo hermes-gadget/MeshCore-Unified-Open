@@ -1175,6 +1175,38 @@
         "========================= [SUCCESS] Took 63.68 seconds =========================",
         "RAK_WisMesh_Tag_companion_radio_unified  SUCCESS   00:01:03.680"
       ]
+    },
+    {
+      "target": "Xiao_nrf52_companion_radio_unified",
+      "batch": "Seeed nRF52",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "Xiao_nrf52_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 99.36,
+      "log": ".pio/review-evidence/round5/Xiao_nrf52_companion_radio_unified.log",
+      "source_commit": "fb2df662310f33097604053c1637d026d9b062fb",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "a89c8ac26bd1e8e19fea34deffa79d083bc59e733544ff2371d0990726eeda43",
+      "elf_sha256": "e6410fec413c7903f2d8caffb556c74a1a3291ae9e11745d22f48bac61b2d772",
+      "build_receipt": [
+        "Processing Xiao_nrf52_companion_radio_unified (board: seeed-xiao-afruitnrf52-nrf52840; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > Seeed Studio XIAO nRF52840",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 692KB Flash",
+        "Linking .pio/build/Xiao_nrf52_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.4% (used 147020 bytes from 235520 bytes)",
+        "Flash: [======    ]  58.0% (used 410920 bytes from 708608 bytes)",
+        "========================= [SUCCESS] Took 98.88 seconds =========================",
+        "Xiao_nrf52_companion_radio_unified  SUCCESS   00:01:38.881"
+      ]
     }
   ],
   "targets": [
@@ -3961,11 +3993,11 @@
       "log": ".pio/review-evidence/round2/resume-source-change.log",
       "log_sha256": "2c9d1d123f63a97006a6191b700c99008b039ca9482a323845020d97254ff99d"
     },
-    "additional_window_local_builds_completed": 6,
+    "additional_window_local_builds_completed": 7,
     "local_build_counts": {
-      "passed": 32,
+      "passed": 33,
       "upstream_failure": 4,
-      "unique_targets_attempted": 36
+      "unique_targets_attempted": 37
     }
   }
 }

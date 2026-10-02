@@ -1111,6 +1111,38 @@
         "========================= [SUCCESS] Took 81.40 seconds =========================",
         "LilyGo_T-Echo_companion_radio_unified  SUCCESS   00:01:21.395"
       ]
+    },
+    {
+      "target": "RAK_3401_companion_radio_unified",
+      "batch": "RAK nRF52",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_3401_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 78.26,
+      "log": ".pio/review-evidence/round4/RAK_3401_companion_radio_unified.log",
+      "source_commit": "8431a8551b07ba6904f606941ad213869ef27092",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "0f4c6ae8bb010484c7505abd88235af889b57916cd330713c47ead590b166fc0",
+      "elf_sha256": "d4f5699ce0e4d448f1d6df4a6307a609d723063184f562d7e3ff0b44350ec7d6",
+      "build_receipt": [
+        "Processing RAK_3401_companion_radio_unified (board: rak3401; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > WisCore RAK3401 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/RAK_3401_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.4% (used 146848 bytes from 235520 bytes)",
+        "Flash: [======    ]  60.9% (used 433904 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 77.56 seconds =========================",
+        "RAK_3401_companion_radio_unified  SUCCESS   00:01:17.557"
+      ]
     }
   ],
   "targets": [
@@ -3897,11 +3929,11 @@
       "log": ".pio/review-evidence/round2/resume-source-change.log",
       "log_sha256": "2c9d1d123f63a97006a6191b700c99008b039ca9482a323845020d97254ff99d"
     },
-    "additional_window_local_builds_completed": 4,
+    "additional_window_local_builds_completed": 5,
     "local_build_counts": {
-      "passed": 30,
+      "passed": 31,
       "upstream_failure": 4,
-      "unique_targets_attempted": 34
+      "unique_targets_attempted": 35
     }
   }
 }

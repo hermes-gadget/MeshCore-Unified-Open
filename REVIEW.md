@@ -241,3 +241,12 @@ It confirms reuse for unchanged flags, rebuilding for changed or removed flags,
 and reuse when an unrelated output variable changes. Override values enter
 only the fingerprint hash. The complete Python suite now passes **7/7**;
 firmware sources and generated build configuration remain unchanged.
+
+The actual PlatformIO CLI also passed this sequence on
+`Heltec_t114_companion_radio_unified`: initial build **29.92 s**, unchanged
+override skipped **0.17 s**, changed override rebuilt and linked **35.15 s**.
+Both real builds contain linker and success markers. All three commands,
+source revision, fingerprints and log hashes are preserved in the evidence JSON.
+[CI discovery](https://github.com/hermes-gadget/MeshCore-Unified-Open/actions/runs/37038533330/job/110942617552)
+on `0795944a` independently passes all seven Python regressions and the upstream
+transport contract; its native CI lane also passes.

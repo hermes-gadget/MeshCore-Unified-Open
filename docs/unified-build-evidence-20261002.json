@@ -651,6 +651,38 @@
       "compile_link_verified": true,
       "log_sha256": "1240526e2912d18b8c06222814265fc81282c7d1fcfd7faf8bd6f187be5aa70d",
       "elf_sha256": "382e01a61d4116d9bafb5ac2b9af750a6b3a2887fa3acb0fba2d4e07056ca1ed"
+    },
+    {
+      "target": "GAT562_Mesh_Tracker_Pro_companion_radio_unified",
+      "batch": "GAT nRF52",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "GAT562_Mesh_Tracker_Pro_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 105.18,
+      "log": ".pio/review-evidence/round3/GAT562_Mesh_Tracker_Pro_companion_radio_unified.log",
+      "source_commit": "d49e7a79dc27752158148a4384dc46cbd5222988",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "f96d925d116a396cc3a96b1955a0d04e3e4ea478e73f19275f42a8638a7074cf",
+      "elf_sha256": "c0e70f04ae6586222cc38032fd9ee9c47818bb58a08856bba56c6d6fff75e322",
+      "build_receipt": [
+        "Processing GAT562_Mesh_Tracker_Pro_companion_radio_unified (board: rak4631; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > WisCore RAK4631 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/GAT562_Mesh_Tracker_Pro_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.5% (used 147088 bytes from 235520 bytes)",
+        "Flash: [======    ]  60.9% (used 434256 bytes from 712704 bytes)",
+        "======================== [SUCCESS] Took 104.48 seconds ========================",
+        "GAT562_Mesh_Tracker_Pro_companion_radio_unified  SUCCESS   00:01:44.484"
+      ]
     }
   ],
   "targets": [
@@ -3436,6 +3468,12 @@
       "temporary_probe_removed": true,
       "log": ".pio/review-evidence/round2/resume-source-change.log",
       "log_sha256": "2c9d1d123f63a97006a6191b700c99008b039ca9482a323845020d97254ff99d"
+    },
+    "additional_window_local_builds_completed": 1,
+    "local_build_counts": {
+      "passed": 27,
+      "upstream_failure": 4,
+      "unique_targets_attempted": 31
     }
   }
 }

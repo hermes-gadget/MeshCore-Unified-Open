@@ -1143,6 +1143,38 @@
         "========================= [SUCCESS] Took 77.56 seconds =========================",
         "RAK_3401_companion_radio_unified  SUCCESS   00:01:17.557"
       ]
+    },
+    {
+      "target": "RAK_WisMesh_Tag_companion_radio_unified",
+      "batch": "RAK nRF52",
+      "command": [
+        "pio",
+        "run",
+        "-c",
+        ".pio/unified-platformio.ini",
+        "-e",
+        "RAK_WisMesh_Tag_companion_radio_unified",
+        "-j",
+        "4"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 64.35,
+      "log": ".pio/review-evidence/round4/RAK_WisMesh_Tag_companion_radio_unified.log",
+      "source_commit": "8431a8551b07ba6904f606941ad213869ef27092",
+      "upstream_commit": "d92964352441e53b93e8667b802e04f6e072b39e",
+      "compile_link_verified": true,
+      "log_sha256": "dfd634791d1da5ff278c03d38e4c54dc06f5dc8dc93989dde01321f48775e708",
+      "elf_sha256": "d2f2dce8fe687b520bb2a6023787e772c280c71caff55da561ccffe2aaae6f75",
+      "build_receipt": [
+        "Processing RAK_WisMesh_Tag_companion_radio_unified (board: rak4631; platform: nordicnrf52; framework: arduino)",
+        "PLATFORM: Nordic nRF52 (11.0.0) > WisCore RAK4631 Board",
+        "HARDWARE: NRF52840 64MHz, 230KB RAM, 696KB Flash",
+        "Linking .pio/build/RAK_WisMesh_Tag_companion_radio_unified/firmware.elf",
+        "RAM:   [======    ]  62.3% (used 146720 bytes from 235520 bytes)",
+        "Flash: [======    ]  58.1% (used 414268 bytes from 712704 bytes)",
+        "========================= [SUCCESS] Took 63.68 seconds =========================",
+        "RAK_WisMesh_Tag_companion_radio_unified  SUCCESS   00:01:03.680"
+      ]
     }
   ],
   "targets": [
@@ -3929,11 +3961,11 @@
       "log": ".pio/review-evidence/round2/resume-source-change.log",
       "log_sha256": "2c9d1d123f63a97006a6191b700c99008b039ca9482a323845020d97254ff99d"
     },
-    "additional_window_local_builds_completed": 5,
+    "additional_window_local_builds_completed": 6,
     "local_build_counts": {
-      "passed": 31,
+      "passed": 32,
       "upstream_failure": 4,
-      "unique_targets_attempted": 35
+      "unique_targets_attempted": 36
     }
   }
 }

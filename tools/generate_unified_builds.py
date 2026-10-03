@@ -224,6 +224,7 @@ def generate(project_dir: Path, output: Path) -> list[dict[str, object]]:
         append_unique(flags, "-D UNIFIED_TRANSPORT_USB=1")
         has_ble = "ble" in transports
         has_wifi = any("ESP32_PLATFORM" in flag for flag in flags)
+        has_ethernet = any("ETHERNET_ENABLED" in flag for flag in flags)
         architecture = (
             esp32_architecture(project_dir, options)
             if has_wifi
@@ -279,7 +280,8 @@ def generate(project_dir: Path, output: Path) -> list[dict[str, object]]:
                 "architecture": architecture,
                 "transports": [
                     name for name, enabled in
-                    (("usb", True), ("ble", has_ble), ("wifi", has_wifi)) if enabled
+                    (("usb", True), ("ble", has_ble), ("wifi", has_wifi),
+                     ("ethernet", has_ethernet)) if enabled
                 ],
             }
         )

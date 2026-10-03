@@ -36,6 +36,7 @@ class BuildGeneratorTest(unittest.TestCase):
                     ("build_flags", [
                         "-D ESP32_PLATFORM",
                         "-D OFFLINE_QUEUE_SIZE=128",
+                        "-D ETHERNET_ENABLED=1",
                     ]),
                     ("build_src_filter", ["+<../examples/companion_radio/*.cpp>"]),
                     ("platform", "platformio/espressif32"),
@@ -123,6 +124,7 @@ class BuildGeneratorTest(unittest.TestCase):
             self.assertEqual(by_target["Generic_ESPNOW_companion_radio_unified"]["architecture"], "esp32")
             self.assertEqual(by_target["Custom_Future_companion_radio_unified"]["architecture"], "esp32")
             self.assertEqual(by_target["RAK_4631_companion_radio_unified"]["transports"], ["usb", "ble"])
+            self.assertEqual(by_target["Custom_Future_companion_radio_unified"]["transports"], ["usb", "ble", "wifi", "ethernet"])
             self.assertIn("Heltec_E290_companion_radio_unified", by_target)
 
             text = output.read_text(encoding="utf-8")

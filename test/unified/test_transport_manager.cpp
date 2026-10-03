@@ -12,12 +12,14 @@ public:
     bool busy = false;
     uint8_t pending = 0;
     int writes = 0;
+    int loops = 0;
 
     void enable() override { enabled = true; }
     void disable() override { enabled = false; }
     bool isEnabled() const override { return enabled; }
     bool isConnected() const override { return connected; }
     bool isWriteBusy() const override { return busy; }
+    void loop() override { loops++; }
     size_t writeFrame(const uint8_t[], size_t len) override {
         if (!enabled || !connected) return 0;
         writes++;
@@ -51,7 +53,7 @@ int main() {
         assert(serial_manager.isConnected());
     }
 
-    FakeTransport usb, ble, wifi;
+    FakeTransport usb, ble, wifi, ethernet;
     UnifiedTransportManager manager;
     manager.addTransport(TRANSPORT_USB, &usb);
     manager.addTransport(TRANSPORT_BLE, &ble);
@@ -81,6 +83,21 @@ int main() {
     assert(manager.writeFrame(frame, sizeof(frame)) == sizeof(frame));
     assert(usb.writes == 1 && ble.writes == 2 && wifi.writes == 2);
 
+    // Exercise exactly the concrete upstream API used by all three UITasks.
+    MultiSerialInterface* ui_interfaces = &manager;
+    assert(ui_interfaces->isBluetoothEnabled());
+    ui_interfaces->disableBluetooth();
+    assert(!ui_interfaces->isBluetoothEnabled());
+    assert(usb.enabled && wifi.enabled);
+    ble.pending = 33;
+    ble.busy = true;
+    assert(!manager.isWriteBusy());
+    assert(manager.checkRecvFrame(received) == 0);
+    manager.loop();
+    assert(usb.loops == 1 && ble.loops == 0 && wifi.loops == 1);
+    ui_interfaces->enableBluetooth();
+    assert(manager.checkRecvFrame(received) == 1 && received[0] == 33);
+
     assert(manager.selectTransport(TRANSPORT_BLE));
     assert(!usb.enabled && ble.enabled && !wifi.enabled);
     assert(manager.getActiveTransport() == TRANSPORT_BLE);
@@ -88,9 +105,30 @@ int main() {
     assert(manager.writeFrame(frame, sizeof(frame)) == sizeof(frame));
     assert(ble.writes == 3 && usb.writes == 1 && wifi.writes == 2);
 
+    ui_interfaces->disableBluetooth();
+    assert(!manager.isEnabled());
+    assert(!manager.isConnected());
+    assert(!manager.isWriteBusy());
+    assert(manager.writeFrame(frame, sizeof(frame)) == 0);
+    assert(manager.checkRecvFrame(received) == 0);
+    ui_interfaces->enableBluetooth();
+    assert(manager.isConnected());
+    manager.loop();
+    assert(usb.loops == 1 && ble.loops == 1 && wifi.loops == 1);
+
     manager.disable();
     assert(!manager.isEnabled());
     manager.enable();
     assert(manager.isEnabled());
+
+    manager.addTransport(TRANSPORT_ETHERNET, &ethernet);
+    assert(manager.hasTransport(TRANSPORT_ETHERNET));
+    assert(manager.selectTransport(TRANSPORT_ALL));
+    manager.loop();
+    assert(ethernet.enabled && ethernet.loops == 1);
+    assert(manager.selectTransport(TRANSPORT_ETHERNET));
+    assert(!usb.enabled && !ble.enabled && !wifi.enabled && ethernet.enabled);
+    ethernet.pending = 44;
+    assert(manager.checkRecvFrame(received) == 1 && received[0] == 44);
     return 0;
 }

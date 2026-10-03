@@ -1,8 +1,10 @@
 import importlib.util
+import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -57,6 +59,117 @@ class MatrixValidatorTest(unittest.TestCase):
         ]
         selected = validator.select_targets(manifest, ["b", "a"])
         self.assertEqual([item["target"] for item in selected], ["b", "a"])
+
+    def test_baseline_uses_original_helper_and_restores_backport_on_error(self):
+        with tempfile.TemporaryDirectory() as tmp_name:
+            project = Path(tmp_name)
+            helper = project / "src/helpers/TxtDataHelpers.cpp"
+            helper.parent.mkdir(parents=True)
+            originals = project / ".pio/unified-upstream-originals"
+            originals.mkdir(parents=True)
+            helper.write_text("portable helper")
+            (originals / "TxtDataHelpers.cpp").write_text("upstream helper")
+            (originals / "TxtDataHelpers.cpp.patched").write_text("portable helper")
+
+            seen = []
+            def runner(*args):
+                seen.append(helper.read_text())
+                return 1
+
+            result = validator.validate_target(
+                project, {"target": "board_unified", "source_environment": "board_usb"},
+                project / "generated.ini", project / "logs", False, runner,
+            )
+            self.assertEqual(result["status"], validator.RESULT_UPSTREAM_FAILURE)
+            self.assertEqual(seen, ["portable helper", "upstream helper"])
+            self.assertEqual(helper.read_text(), "portable helper")
+
+            with self.assertRaises(RuntimeError):
+                with validator.upstream_baseline(project):
+                    self.assertEqual(helper.read_text(), "upstream helper")
+                    raise RuntimeError("build could not start")
+            self.assertEqual(helper.read_text(), "portable helper")
+
+            helper.write_text("newer upstream helper")
+            with validator.upstream_baseline(project):
+                self.assertEqual(helper.read_text(), "newer upstream helper")
+            self.assertEqual(helper.read_text(), "newer upstream helper")
+
+    def test_resume_fingerprint_tracks_staged_sources_without_git_changes(self):
+        for git_state in (b"", subprocess.CalledProcessError(128, ["git"])):
+            with self.subTest(git_available=isinstance(git_state, bytes)):
+                with tempfile.TemporaryDirectory() as tmp_name:
+                    project = Path(tmp_name)
+                    manifest, config = project / "targets.json", project / "generated.ini"
+                    manifest.write_text("[]")
+                    config.write_text("[env:board]")
+                    source = project / "src/main.cpp"
+                    source.parent.mkdir()
+                    source.write_text("int main() { return 0; }")
+                    git = (Mock(return_value=git_state) if isinstance(git_state, bytes)
+                           else Mock(side_effect=git_state))
+                    with patch.object(validator.subprocess, "check_output", git):
+                        before = validator.validation_fingerprint(project, manifest, config)
+                        source.write_text("int main() { compile_error }")
+                        self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
+                        source.write_text("int main() { return 0; }")
+                        self.assertEqual(before, validator.validation_fingerprint(project, manifest, config))
+                        header = project / "src/new.h"
+                        header.write_text("#define NEW_FEATURE 1")
+                        self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
+                        header.unlink()
+                        self.assertEqual(before, validator.validation_fingerprint(project, manifest, config))
+
+    def test_resume_fingerprint_ignores_outputs_but_tracks_baseline_snapshot(self):
+        with tempfile.TemporaryDirectory() as tmp_name:
+            project = Path(tmp_name)
+            manifest, config = project / "targets.json", project / "generated.ini"
+            manifest.write_text("[]")
+            config.write_text("[env:board]")
+            with patch.object(validator.subprocess, "check_output", return_value=b""):
+                before = validator.validation_fingerprint(project, manifest, config)
+                for name in (".pio/build/firmware.elf", "tools/__pycache__/validator.pyc",
+                             "src/.pio/cache"):
+                    artifact = project / name
+                    artifact.parent.mkdir(parents=True, exist_ok=True)
+                    artifact.write_text("build output")
+                self.assertEqual(before, validator.validation_fingerprint(project, manifest, config))
+                upstream_config = project / "platformio.ini"
+                upstream_config.write_text("[env:baseline]\n")
+                self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
+                upstream_config.unlink()
+                original = project / ".pio/unified-upstream-originals/TxtDataHelpers.cpp"
+                original.parent.mkdir(parents=True)
+                original.write_text("pristine baseline helper")
+                self.assertNotEqual(before, validator.validation_fingerprint(project, manifest, config))
+
+    def test_resume_rebuilds_when_platformio_build_overrides_change(self):
+        item = {"target": "board_unified", "source_environment": "board_usb"}
+        with tempfile.TemporaryDirectory() as tmp_name:
+            project = Path(tmp_name)
+            output = project / ".pio"
+            output.mkdir()
+            (output / "unified-targets.json").write_text(json.dumps([item]))
+            (output / "unified-platformio.ini").write_text("[env:board_unified]\n")
+            build = Mock(return_value={"target": item["target"], "status": validator.RESULT_PASS})
+            with patch.object(validator.Path, "cwd", return_value=project), \
+                 patch.object(validator.subprocess, "check_output", return_value=b""), \
+                 patch.object(validator, "validate_target", build), \
+                 patch("sys.argv", ["validate_unified_builds.py", "--resume"]), \
+                 patch("builtins.print"):
+                with patch.dict(validator.os.environ, {"PLATFORMIO_BUILD_FLAGS": "-D TEST_OPTION=1"}, clear=True):
+                    self.assertEqual(validator.main(), 0)
+                    self.assertEqual(validator.main(), 0)
+                    self.assertEqual(build.call_count, 1)
+                with patch.dict(validator.os.environ, {"PLATFORMIO_BUILD_FLAGS": "-D TEST_OPTION=2"}, clear=True):
+                    self.assertEqual(validator.main(), 0)
+                    self.assertEqual(build.call_count, 2)
+                    with patch.dict(validator.os.environ, {"GITHUB_OUTPUT": "unrelated-output"}):
+                        self.assertEqual(validator.main(), 0)
+                        self.assertEqual(build.call_count, 2)
+                with patch.dict(validator.os.environ, {}, clear=True):
+                    self.assertEqual(validator.main(), 0)
+                    self.assertEqual(build.call_count, 3)
 
 
 if __name__ == "__main__":

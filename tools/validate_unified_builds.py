@@ -16,6 +16,7 @@ import os
 import subprocess
 import sys
 import time
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Callable
 
@@ -78,13 +79,63 @@ def run_build(
 BuildRunner = Callable[[Path, str, Path, Path | None, bool], int]
 
 
+@contextmanager
+def upstream_baseline(project_dir: Path):
+    """Undo the helper backport only while compiling an untouched baseline."""
+    helper = project_dir / "src/helpers/TxtDataHelpers.cpp"
+    original = project_dir / ".pio/unified-upstream-originals/TxtDataHelpers.cpp"
+    patched = original.with_suffix(".cpp.patched")
+    if not (helper.is_file() and original.is_file() and patched.is_file()):
+        yield
+        return
+    current = helper.read_bytes()
+    # Do not restore an old checkout's snapshot over a subsequently edited
+    # helper or a newer upstream release that already fixed the conversion.
+    if current != patched.read_bytes():
+        yield
+        return
+    helper.write_bytes(original.read_bytes())
+    try:
+        yield
+    finally:
+        helper.write_bytes(current)
+
+
 def validation_fingerprint(
     project_dir: Path, manifest_path: Path, config: Path
 ) -> str:
     digest = hashlib.sha256()
+    # PlatformIO accepts build overrides through the environment. A resumed
+    # result must describe the same overrides; retain only their hash, since
+    # flags can contain private credentials.
+    build_environment = {
+        name: value for name, value in os.environ.items()
+        if name.startswith("PLATFORMIO_")
+    }
+    digest.update(b"platformio-environment\0")
+    digest.update(json.dumps(build_environment, sort_keys=True).encode())
     for path in (manifest_path, config):
         digest.update(str(path.relative_to(project_dir)).encode())
         digest.update(path.read_bytes())
+
+    # Release archives are often staged below an ignored .pio directory. Git
+    # may then describe the enclosing overlay checkout, not these build inputs.
+    # Hash the actual source tree as well, excluding compiler/cache output.
+    upstream_config = project_dir / "platformio.ini"
+    if upstream_config.is_file():
+        digest.update(b"platformio.ini\0" + upstream_config.read_bytes())
+    for name in ("src", "examples", "variants", "boards", "lib", "tools",
+                 ".pio/unified-upstream-originals"):
+        for directory, subdirs, filenames in os.walk(project_dir / name):
+            subdirs[:] = sorted(
+                d for d in subdirs if d not in {".git", ".pio", "__pycache__"}
+            )
+            for filename in sorted(filenames):
+                path = Path(directory) / filename
+                digest.update(str(path.relative_to(project_dir)).encode() + b"\0")
+                content = path.read_bytes()
+                digest.update(len(content).to_bytes(8, "big"))
+                digest.update(content)
 
     try:
         digest.update(
@@ -107,7 +158,7 @@ def validation_fingerprint(
                 digest.update(raw_name)
                 digest.update(path.read_bytes())
     except (OSError, subprocess.CalledProcessError):
-        # The generated files still provide a useful identity outside Git.
+        # Source content and generated files also identify archives without Git.
         pass
     return digest.hexdigest()
 
@@ -139,9 +190,10 @@ def validate_target(
     else:
         baseline_log = logs_dir / f"{target}.upstream.log"
         print(f"BASELINE {source}", flush=True)
-        baseline_status = runner(
-            project_dir, source, baseline_log, None, verbose
-        )
+        with upstream_baseline(project_dir):
+            baseline_status = runner(
+                project_dir, source, baseline_log, None, verbose
+            )
         result["baseline_exit_code"] = baseline_status
         result["baseline_log"] = str(baseline_log)
         result["status"] = (

@@ -27,10 +27,15 @@ on:
       - '.github/actions/setup-build-environment/**'
       - '.github/workflows/unified-*.yml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 env:
+  UPSTREAM_REPOSITORY: meshcore-dev/MeshCore
   PIP_BREAK_SYSTEM_PACKAGES: '1'
 
 jobs:
@@ -39,13 +44,31 @@ jobs:
     outputs:
       matrix: ${{ steps.targets.outputs.matrix }}
       count: ${{ steps.targets.outputs.count }}
+      upstream_ref: ${{ steps.version.outputs.upstream_ref }}
     steps:
       - uses: actions/checkout@v6
+      - id: version
+        name: Resolve upstream companion release
+        shell: bash
+        run: |
+          ref=$(git ls-remote --tags --refs \
+            "https://github.com/${UPSTREAM_REPOSITORY}.git" 'companion-v*' \
+            | awk -F/ '{print $3}' | sort -V | tail -n 1)
+          test -n "$ref"
+          echo "upstream_ref=$ref" >> "$GITHUB_OUTPUT"
+      - name: Check out upstream release
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.UPSTREAM_REPOSITORY }}
+          ref: ${{ steps.version.outputs.upstream_ref }}
+          path: upstream
+      - name: Overlay unified implementation
+        run: python3 tools/apply_unified_overlay.py upstream
       - uses: ./.github/actions/setup-build-environment
       - name: Test transport multiplexer
         run: |
           g++ -std=c++17 -Wall -Wextra -Werror \
-            -Itest/unified -Isrc -Iexamples/unified_radio \
+            -Itest/unified -Iupstream/src -Iexamples/unified_radio \
             test/unified/test_transport_manager.cpp \
             examples/unified_radio/UnifiedTransportManager.cpp \
             -o /tmp/test_transport_manager
@@ -54,6 +77,7 @@ jobs:
           python3 test/unified/test_matrix_validator.py
       - id: targets
         name: Generate cross-variant build matrix
+        working-directory: upstream
         shell: bash
         run: |
           python3 tools/generate_unified_builds.py
@@ -67,7 +91,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: unified-target-manifest
-          path: .pio/unified-targets.json
+          path: upstream/.pio/unified-targets.json
 
   full-build:
     needs: discover
@@ -80,10 +104,20 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v6
+      - name: Check out upstream release
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ env.UPSTREAM_REPOSITORY }}
+          ref: ${{ needs.discover.outputs.upstream_ref }}
+          path: upstream
+      - name: Overlay unified implementation
+        run: python3 tools/apply_unified_overlay.py upstream
       - uses: ./.github/actions/setup-build-environment
       - name: Generate build environments
+        working-directory: upstream
         run: python3 tools/generate_unified_builds.py
       - name: Build unified companion firmware
+        working-directory: upstream
         env:
           PLATFORMIO_BUILD_FLAGS: >-
             -DFIRMWARE_VERSION='"ci"'
